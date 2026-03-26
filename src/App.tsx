@@ -1,0 +1,177 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "@/components/ScrollToTop";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import Arquitectura from "./pages/Arquitectura";
+import Nosotros from "./pages/Nosotros";
+import Universidad from "./pages/Universidad";
+import Carreras from "./pages/Carreras";
+import CarrerasDistancia from "./pages/CarrerasDistancia";
+import Posgrado from "./pages/Posgrado";
+import ExtensionUniversitaria from "./pages/ExtensionUniversitaria";
+import Alumnos from "./pages/Alumnos";
+import Institutos from "./pages/Institutos";
+import InstitutoDiseno from "./pages/institutos/InstitutoDiseno";
+import InstitutoDeportes from "./pages/institutos/InstitutoDeportes";
+import InstitutoSociales from "./pages/institutos/InstitutoSociales";
+import InstitutoTecnologia from "./pages/institutos/InstitutoTecnologia";
+import InstitutoSalud from "./pages/institutos/InstitutoSalud";
+import InstitutoDistancia from "./pages/institutos/InstitutoDistancia";
+import InstitutoPreuniversitario from "./pages/InstitutoPreuniversitario";
+import Noticias from "./pages/Noticias";
+import PagosOnline from "./pages/PagosOnline";
+import ReservaSanPablo from "./pages/ReservaSanPablo";
+import DiaEstudiante from "./pages/DiaEstudiante";
+import TramitesVarios from "./pages/TramitesVarios";
+import PagoExitoso from "./pages/PagoExitoso";
+import PagoFallido from "./pages/PagoFallido";
+import PagoPendiente from "./pages/PagoPendiente";
+import SedesYDirecciones from "./pages/SedesYDirecciones";
+import Historia from "./pages/Historia";
+import Contacto from "./pages/Contacto";
+import PagoCurso from "./pages/PagoCurso";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ReservaNatural from "./pages/ReservaNatural";
+import Turnos from "./pages/Turnos";
+import ConsejoEyS from "./pages/ConsejoEyS";
+import CentrosInvestigacion from "./pages/CentrosInvestigacion";
+import BolsaTrabajo from "./pages/BolsaTrabajo";
+import CarreraDetail from "./pages/CarreraDetail";
+import BlogDetail from "./pages/BlogDetail";
+import PosgradoDetail from "./pages/PosgradoDetail";
+import CIBA from "./pages/CIBA";
+import CTD from "./pages/CTD";
+import CIAAP from "./pages/CIAAP";
+import Beneficios from "./pages/Beneficios";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+    <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+                <ScrollToTop />
+                <ScrollToTopButton />
+                <Routes>
+                    <Route path="/" element={<Index />} />
+
+                    {/* Universidad */}
+                    <Route path="/universidad" element={<Universidad />} />
+                    <Route path="/carreras" element={<Carreras />} />
+                    <Route
+                        path="/carreras-distancia"
+                        element={<CarrerasDistancia />}
+                    />
+                    <Route path="/posgrado" element={<Posgrado />} />
+                    <Route
+                        path="/posgrado/:slug"
+                        element={<PosgradoDetail />}
+                    />
+                    <Route
+                        path="/extension-universitaria"
+                        element={<ExtensionUniversitaria />}
+                    />
+                    <Route path="/alumnos" element={<Alumnos />} />
+                    <Route path="/turnos" element={<Turnos />} />
+                    <Route path="/beneficios" element={<Beneficios />} />
+
+                    {/* Institutos */}
+                    <Route path="/institutos" element={<Institutos />} />
+                    <Route
+                        path="/institutos/diseno-creatividad"
+                        element={<InstitutoDiseno />}
+                    />
+                    <Route
+                        path="/institutos/educacion-gestion-deportiva"
+                        element={<InstitutoDeportes />}
+                    />
+                    <Route
+                        path="/institutos/estudios-sociales-politica-cultura"
+                        element={<InstitutoSociales />}
+                    />
+                    <Route
+                        path="/institutos/desarrollo-innovacion-tecnologica"
+                        element={<InstitutoTecnologia />}
+                    />
+                    <Route
+                        path="/institutos/salud-calidad-vida"
+                        element={<InstitutoSalud />}
+                    />
+                    <Route
+                        path="/institutos/educacion-a-distancia-y-tecnologia-educativa"
+                        element={<InstitutoDistancia />}
+                    />
+
+                    {/* Instituto Preuniversitario */}
+                    <Route
+                        path="/instituto-preuniversitario"
+                        element={<InstitutoPreuniversitario />}
+                    />
+
+                    {/* Carreras específicas - Ruta dinámica */}
+                    <Route path="/carreras/:slug" element={<CarreraDetail />} />
+
+                    {/* Nosotros */}
+                    <Route path="/nosotros" element={<Nosotros />} />
+                    <Route path="/historia" element={<Historia />} />
+                    <Route
+                        path="/reserva-natural"
+                        element={<ReservaNatural />}
+                    />
+                    <Route path="/consejoeys" element={<ConsejoEyS />} />
+                    <Route
+                        path="/centrosinvestigacion"
+                        element={<CentrosInvestigacion />}
+                    />
+                    <Route path="/investigacion/ciba" element={<CIBA />} />
+                    <Route path="/investigacion/ctd" element={<CTD />} />
+                    <Route path="/investigacion/ciaap" element={<CIAAP />} />
+                    <Route path="/bolsatrabajo" element={<BolsaTrabajo />} />
+
+                    {/* Noticias */}
+                    <Route path="/noticias" element={<Noticias />} />
+                    <Route path="/noticias/:slug" element={<BlogDetail />} />
+
+                    {/* Pagos Online */}
+                    <Route path="/pagos-online" element={<PagosOnline />} />
+                    <Route path="/pagar-curso/:id" element={<PagoCurso />} />
+                    <Route
+                        path="/pagos/reserva-san-pablo"
+                        element={<ReservaSanPablo />}
+                    />
+                    <Route
+                        path="/pagos/dia-estudiante"
+                        element={<DiaEstudiante />}
+                    />
+                    <Route
+                        path="/pagos/tramites-varios"
+                        element={<TramitesVarios />}
+                    />
+                    <Route path="/success" element={<PagoExitoso />} />
+                    <Route path="/failure" element={<PagoFallido />} />
+                    <Route path="/pending" element={<PagoPendiente />} />
+
+                    {/* Información Institucional */}
+                    <Route
+                        path="/sedes-direcciones"
+                        element={<SedesYDirecciones />}
+                    />
+                    <Route path="/contacto" element={<Contacto />} />
+
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
+        </TooltipProvider>
+    </QueryClientProvider>
+);
+
+export default App;

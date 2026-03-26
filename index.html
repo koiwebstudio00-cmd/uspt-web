@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Universidad de San Pablo T - USPT | Educación de Calidad</title>
+        <meta
+            name="description"
+            content="Universidad de San Pablo T - Formamos profesionales íntegros con programas presenciales y a distancia. Carreras de grado, posgrados y cursos de extensión."
+        />
+        <meta name="author" content="Universidad de San Pablo T" />
+        <meta
+            name="keywords"
+            content="universidad, educación superior, carreras universitarias, grado, posgrado, educación a distancia, USPT"
+        />
+
+        <meta
+            property="og:title"
+            content="Universidad de San Pablo T - USPT | Educación de Calidad"
+        />
+        <meta
+            property="og:description"
+            content="Formamos profesionales íntegros con programas presenciales y a distancia. Tu futuro comienza aquí."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="logo-uspt.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@upst" />
+        <meta name="twitter:image" content="logo-uspt.png" />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+
+        <!-- USPT Chat Widget -->
+        <!-- <script>
+            (function () {
+                var s = document.createElement("script");
+                s.src =
+                    "https://uspt-uni-assist.lovable.app/embed/uspt-chat.js";
+                s.async = true;
+                s.onload = function () {
+                    const VIOLETA = "hsl(291, 100%, 23%)"; // institucional
+                    const LOGO_SRC = "/logo_uspt.svg"; // logo en /public
+
+                    window.USPTChat.init({
+                        position: "bottom-left",
+                        brandLabel: "USPT Chat",
+                        robotIcon: LOGO_SRC, // fix: antes estaba "/images/logo_uspt.svg"
+                        welcomeMessage:
+                            "¡Hola! Soy el asistente de la Universidad San Pablo. ¿En qué puedo ayudarte?",
+                        supabaseUrl: "https://syigmiirhzrrflicujwv.supabase.co",
+                        supabaseKey:
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5aWdtaWlyaHpycmZsaWN1and2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3ODAwNjAsImV4cCI6MjA3NTM1NjA2MH0.aDK0CAT5H2kYVcHxhg2wNz_svt951DIR-tDfKpb_p5g",
+                    });
+
+                    // Override robusto: detecta el launcher fijo en la esquina y aplica estilos
+                    const applyOverrides = () => {
+                        const candidates = Array.from(
+                            document.querySelectorAll("button, a, div")
+                        ).filter((el) => {
+                            const cs = getComputedStyle(el);
+                            if (cs.position !== "fixed") return false;
+                            const r = el.getBoundingClientRect();
+                            const nearBottom =
+                                window.innerHeight - r.bottom < 120;
+                            const nearRight = window.innerWidth - r.right < 120;
+                            const nearLeft = r.left < 120;
+                            const isCircle =
+                                Math.abs(el.offsetWidth - el.offsetHeight) <=
+                                    6 && el.offsetWidth <= 72;
+                            return (
+                                nearBottom &&
+                                (nearRight || nearLeft) &&
+                                isCircle
+                            );
+                        });
+
+                        const bubble = candidates[0];
+                        if (bubble) {
+                            bubble.style.backgroundColor = VIOLETA;
+                            bubble.style.borderColor = VIOLETA;
+                            bubble.style.color = "#ffffff";
+                            bubble.style.boxShadow =
+                                "0 4px 12px rgba(97, 0, 118, 0.35)";
+
+                            // Cambia el icono por el logo institucional
+                            const img = bubble.querySelector("img");
+                            if (img) img.src = LOGO_SRC;
+                        }
+                    };
+
+                    // Aplica de inmediato y re-aplica si el widget re-renderiza
+                    applyOverrides();
+                    new MutationObserver(applyOverrides).observe(
+                        document.body,
+                        { childList: true, subtree: true }
+                    );
+                };
+                document.head.appendChild(s);
+            })();
+        </script> -->
+    </body>
+</html>

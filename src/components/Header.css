@@ -1,0 +1,43 @@
+/* Header dropdown animations and styles */
+.dropdown-menu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 9999;
+}
+
+/* Ensure dropdown stays visible on hover */
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 9999;
+}
+
+/* Smooth chevron rotation */
+.chevron-icon {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-item:hover .chevron-icon {
+    transform: rotate(180deg);
+}
+
+/* Mobile menu improvements */
+.mobile-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.mobile-submenu.expanded {
+    max-height: 500px;
+}

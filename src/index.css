@@ -1,0 +1,443 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+
+        /* USPT Brand Colors */
+        --primary: 291 100% 23%;
+        /* #610076 */
+        --primary-foreground: 0 0% 100%;
+        /* White text */
+
+        --color-honey-flower-50: 291 100% 97%;
+        --color-honey-flower-600: 291 100% 20%;
+        --color-honey-flower-700: 291 100% 18%;
+
+        --secondary: 0 0% 100%;
+        /* White background for secondary buttons */
+        --secondary-foreground: 291 100% 23%;
+        /* Primary color text */
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --muted2: 220 13% 91%;
+        /* For bento borders */
+
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 220 13% 91%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 291 100% 23%;
+
+        --radius: 0.5rem;
+
+        --sidebar-background: 0 0% 98%;
+
+        --sidebar-foreground: 240 5.3% 26.1%;
+
+        --sidebar-primary: 240 5.9% 10%;
+
+        --sidebar-primary-foreground: 0 0% 98%;
+
+        --sidebar-accent: 240 4.8% 95.9%;
+
+        --sidebar-accent-foreground: 240 5.9% 10%;
+
+        --sidebar-border: 220 13% 91%;
+
+        --sidebar-ring: 217.2 91.2% 59.8%;
+
+        --gradient-hero-start: 270 50% 15%;
+        --gradient-hero-end: 290 60% 12%;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer components {
+
+    /* University Button Styles */
+    .btn-university-primary {
+        @apply bg-primary text-primary-foreground px-6 py-3 font-medium transition-colors duration-200 hover:bg-[hsl(var(--color-honey-flower-700))];
+    }
+
+    .btn-university-secondary {
+        @apply bg-secondary border-2 border-primary text-secondary-foreground px-6 py-3 font-medium transition-colors duration-200 hover:bg-[hsl(var(--color-honey-flower-50))];
+    }
+
+    .btn-university-tertiary {
+        @apply text-primary font-medium transition-all duration-200 hover:text-[hsl(var(--color-honey-flower-600))] hover:underline;
+    }
+
+    /* Custom animations - Initial hidden state */
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.animate-fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-on-scroll.animate-fade-in-up {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-on-scroll.animate-fade-in-down {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-on-scroll.animate-fade-in-left {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .animate-on-scroll.animate-fade-in-right {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .animate-on-scroll.animate-slide-in-left {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .animate-on-scroll.animate-slide-in-right {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .animate-on-scroll.animate-scale-in {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .animate-on-scroll.animate-slide-in-down {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-on-scroll.animate-fade-in-scale {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Initial states for different animation types */
+    .animate-on-scroll.animate-fade-in-left {
+        transform: translateX(-30px);
+    }
+
+    .animate-on-scroll.animate-fade-in-right {
+        transform: translateX(30px);
+    }
+
+    .animate-on-scroll.animate-slide-in-left {
+        transform: translateX(-50px);
+    }
+
+    .animate-on-scroll.animate-slide-in-right {
+        transform: translateX(50px);
+    }
+
+    .animate-on-scroll.animate-scale-in {
+        transform: scale(0.8);
+    }
+
+    .animate-on-scroll.animate-slide-in-down {
+        transform: translateY(-30px);
+    }
+
+    .animate-on-scroll.animate-fade-in-scale {
+        transform: scale(0.9);
+    }
+
+    /* Animations triggered only when intersecting */
+    .animate-on-scroll.animate-fade-in.intersecting {
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-fade-in-up.intersecting {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-fade-in-down.intersecting {
+        animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-fade-in-left.intersecting {
+        animation: fadeInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-fade-in-right.intersecting {
+        animation: fadeInRight 0.8s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-slide-in-left.intersecting {
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-slide-in-right.intersecting {
+        animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-scale-in.intersecting {
+        animation: scaleIn 0.6s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-slide-in-down.intersecting {
+        animation: slideInDown 0.6s ease-out forwards;
+    }
+
+    .animate-on-scroll.animate-fade-in-scale.intersecting {
+        animation: fadeInScale 0.7s ease-out forwards;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.intro {
+    background-image: url("/uspt-campus.webp");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: relative;
+
+    /*   mask-image: url("/logo_uspt.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 50px;
+ */
+    /*   animation: lock-reveal 3s forwards ease-in-out; */
+}
+
+.intro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/logo_uspt.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    pointer-events: none;
+    z-index: 10;
+    animation: logo-fade 3s forwards ease-in-out;
+}
+
+@keyframes lock-reveal {
+    0% {
+        mask-size: 50px;
+    }
+
+    100% {
+        mask-size: 1000vh;
+    }
+}
+
+@keyframes logo-fade {
+    0% {
+        opacity: 1;
+        background-size: 50px;
+    }
+
+    /* 50% {
+    opacity: 1;
+    background-size: 500vh;
+  } */
+
+    100% {
+        opacity: 0;
+        background-size: 1000vh;
+    }
+}
+
+@layer utilities {
+    .gradient-hero {
+        background: linear-gradient(135deg,
+                hsl(var(--gradient-hero-start)) 0%,
+                hsl(var(--gradient-hero-end)) 100%);
+    }
+    .inner-shadow-white {
+  box-shadow: 
+    inset 0 40px 40px -60px rgba(255, 255, 255, 0.6),
+    inset 0 -40px 40px -20px rgba(255, 255, 255, 0.6);
+}
+.smooth-fade {
+  position: relative;
+}
+
+.smooth-fade::before,
+.smooth-fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.smooth-fade::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+.smooth-fade::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+
+
+}
+

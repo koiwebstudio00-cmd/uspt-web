@@ -1,0 +1,746 @@
+{
+    "institutes": [
+        {
+            "name": "Instituto de Diseño, Estrategia & Creatividad",
+            "careers": [
+                {
+                    "name": "Arquitectura",
+                    "level": "Grado",
+                    "duration_years": 5,
+                    "hours_total": 4550,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Formación integral para diseñar, materializar y gestionar obras con enfoque técnico, cultural y ambiental, en ámbitos públicos y privados.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISEÑO.docx"
+                },
+                {
+                    "name": "Licenciatura en Diseño Textil",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 2835,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Diseñar y dirigir proyectos de moda/textil, analizar mercados, identificar materiales y generar tendencias para industria y comercio.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISEÑO.docx"
+                },
+                {
+                    "name": "Licenciatura en Diseño Industrial",
+                    "level": "Grado",
+                    "duration_years": 5,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": "Técnico en Diseño Industrial",
+                    "thesis_or_final_project": "Proyecto final obligatorio en Diseño Industrial V (>=6). Para título intermedio: ciclo básico + asignaturas y prácticas especificadas.",
+                    "profile_summary": "Diseño y producción seriada de objetos; dominio de herramientas digitales, procesos y gestión técnica; comunicación visual del producto.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "Requisitos internos detallan pasantía, laboratorio y defensa para el título intermedio.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISEÑO.docx"
+                }
+            ]
+        },
+        {
+            "name": "Instituto de Educación y Gestión Deportiva",
+            "careers": [
+                {
+                    "name": "Guía de Montaña",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Guiado de trekking y montaña con gestión de seguridad, diseño de travesías y promoción turística bajo criterios de sustentabilidad.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Rayos X de tórax (y sugerida columna lumbar)",
+                        "Ergometría",
+                        "Ecocardiograma",
+                        "ECG 12 derivaciones (informado y firmado)",
+                        "Análisis: Hemograma, Glucemia, Uremia, VDRL, HAI Chagas, Grupo y Factor RH, Orina completo",
+                        "Examen clínico (incluye fauces y agudeza visual)",
+                        "Examen psicológico",
+                        "Examen fonoaudiológico"
+                    ],
+                    "notes": "Estudios médicos con informes firmados por profesionales con matrícula.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DEPORTES.docx"
+                },
+                {
+                    "name": "Licenciatura en Alto Rendimiento Deportivo",
+                    "level": "Ciclo de Complementación",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Diseñar, dirigir y evaluar planes, programas y políticas de alto rendimiento; asesoría, investigación y formación en el área.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Título de Profesor de Educación Física (o similar de ≥4 años) legalizado o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "Destinada a profesores de Educación Física o formaciones equivalentes con validez nacional.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DEPORTES.docx"
+                }
+            ]
+        },
+        {
+            "name": "Instituto de Estudios Sociales, Política y Cultura",
+            "careers": [
+                {
+                    "name": "Abogacía",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Sólida formación jurídica para ejercicio profesional, gestión pública, docencia, investigación y liderazgo político-social.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "Primer año común; desde segundo año elección de orientaciones con posibilidad de cambio cumpliendo requisitos.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Procuración",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 2610,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Representación judicial bajo supervisión de abogado; desempeño en litigio, solución de conflictos y administración de justicia.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Contador Público",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Sistemas de información contable, auditoría, sindicatura, asesoría impositiva y financiera en organizaciones públicas y privadas.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Licenciatura en Ciencia Política",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 2880,
+                    "modality": "A distancia (institutos: Sociales y Educación a Distancia)",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": "Trabajo Final (Tesis)",
+                    "profile_summary": "Diseño de políticas públicas; roles en RRHH, relaciones institucionales y planeamiento; consultoría, investigación y medios.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Licenciatura en Comercio Exterior",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 3255,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Negocios internacionales en sectores públicos y privados; análisis de mercados, contratos, logística y riesgos; políticas de inserción global.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Licenciatura en Finanzas",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": 690,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Asesor/consultor en ámbitos público/privado con base ética, económica y financiera; negociación, idiomas, tecnología e interdisciplinariedad.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "La carga horaria indicada en el documento es 690 horas reloj.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Tecnicatura Universitaria en Protocolo, Ceremonial y Organización de Eventos",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": 2,
+                    "hours_total": 1648,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Diseño y coordinación de actos y eventos; normativa protocolar; relaciones públicas; gestión comunicacional en ámbitos oficiales y privados.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Licenciatura en Relaciones Internacionales",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "A distancia (según documento de Distancia)",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Toma de decisiones en política exterior, integración, cooperación, negociación y derecho internacional; docencia e investigación.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Profesorado de Inglés",
+                    "level": "Grado / Profesorado",
+                    "duration_years": 4,
+                    "hours_total": 3000,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Planificación y conducción de la enseñanza del inglés en niveles y modalidades; uso crítico de recursos tecnológicos; investigación y asesoría.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                },
+                {
+                    "name": "Tecnicatura Universitaria en Corretaje Inmobiliario",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Operaciones de corretaje (compra/venta/locación), tasaciones, administración de propiedades y consorcios, gestiones ante organismos.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO SOCIALES.docx"
+                }
+            ]
+        },
+        {
+            "name": "Instituto de Desarrollo e Innovación Tecnológica para la Competitividad Territorial",
+            "careers": [
+                {
+                    "name": "Licenciatura en Ciencia y Tecnología de los Alimentos",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 2760,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": "Práctica Profesional y Proyecto Final obligatorios",
+                    "profile_summary": "Diseño y ejecución de procesos con valor agregado para productos vegetales y animales; investigación y asesoría con estándares de exportación.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INST. COMPETITIVIDAD.docx"
+                },
+                {
+                    "name": "Licenciatura en Gestión de Empresas Agroindustriales",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": 2790,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Administración agraria, comercialización y calidad; investigación y consultoría para competitividad en la agroindustria.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INST. COMPETITIVIDAD.docx"
+                },
+                {
+                    "name": "Tecnicatura en Bromatología",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": 1840,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Control de calidad de alimentos, aplicación de normas, participación en protocolos y equipos básicos de investigación.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INST. COMPETITIVIDAD.docx"
+                },
+                {
+                    "name": "Tecnicatura en Guardaparque",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Conservación y protección de recursos naturales; vigilancia, control, mantenimiento e investigación en áreas protegidas.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INST. COMPETITIVIDAD.docx"
+                },
+                {
+                    "name": "Tecnicatura en Paisajismo",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": 3,
+                    "hours_total": 1710,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": "Trabajo Final",
+                    "profile_summary": "Diseño y ejecución de espacios verdes con enfoque sustentable, biodiversidad y mejora de calidad de vida en ámbitos públicos y privados.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "Perteneciente al Instituto de Diseño, Estrategia & Creatividad.",
+                    "source": "INFORMACIÓN CARRERAS INST. COMPETITIVIDAD.docx"
+                }
+            ]
+        },
+        {
+            "name": "Instituto de Salud y Calidad de Vida",
+            "careers": [
+                {
+                    "name": "Medicina",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Formación científica, técnica y humanística para prevención, diagnóstico, tratamiento y rehabilitación, con enfoque ético en diversos contextos.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión",
+                        "Aprobar examen eliminatorio"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DE SALUD.docx"
+                },
+                {
+                    "name": "Licenciatura en Kinesiología",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Promoción, prevención y rehabilitación con kinesioterapia y fisioterapia; gestión, auditoría, investigación y roles de coordinación.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión",
+                        "Aprobar examen eliminatorio"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DE SALUD.docx"
+                },
+                {
+                    "name": "Licenciatura en Fonoaudiología",
+                    "level": "Grado",
+                    "duration_years": null,
+                    "hours_total": 4020,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Evaluación e intervención fonoaudiológica en múltiples contextos; programas asistenciales, investigación y gestión de servicios.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "Examen de aptitud fonoaudiológica (auditivo, voz, habla)",
+                        "2 fotos carnet"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DE SALUD.docx"
+                },
+                {
+                    "name": "Tecnicatura en Emergencias Médicas",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "Presencial",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Atención prehospitalaria, soporte vital, traslado y protocolos bajo estándares de seguridad; apoyo y contención ética a pacientes y entorno.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DE SALUD.docx"
+                }
+            ]
+        },
+        {
+            "name": "Instituto de Educación a Distancia y Tecnología Educativa",
+            "careers": [
+                {
+                    "name": "Licenciatura en Gestión de Entidades Culturales",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": null,
+                    "modality": "A distancia",
+                    "intermediate_title": "Técnico en Gestión Cultural",
+                    "thesis_or_final_project": "Proyecto Final de Tecnicatura (si se opta por el título intermedio)",
+                    "profile_summary": "Gestión de organismos culturales públicos/privados; diseño de políticas, administración, patrimonio y desarrollo cultural local y global.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Tecnicatura en Seguridad Ciudadana",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Soporte técnico en seguridad pública y privada; planificación auxiliar, prevención del delito e inteligencia criminal.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Licenciatura en Seguridad Ciudadana",
+                    "level": "Ciclo de Complementación",
+                    "duration_years": 2,
+                    "hours_total": 1770,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": "Tesis",
+                    "profile_summary": "Formación especializada en seguridad en democracia, con enfoque humanista y comprensión de contextos internacionales y locales.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Título terciario/pregrado habilitante (≥2.5 años y ≥1400 hs) con similitud de perfil, legalizado o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Tecnicatura en Seguridad Penitenciaria",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": 2,
+                    "hours_total": 1532,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Gestión y apoyo en instituciones penitenciarias; reinserción social; prevención del delito; equipos interdisciplinarios.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Licenciatura en Seguridad Penitenciaria",
+                    "level": "Ciclo de Complementación",
+                    "duration_years": 2,
+                    "hours_total": 1770,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Planificación, ejecución y supervisión de políticas de seguridad penitenciaria con foco en resocialización; apoyo técnico e investigación.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Título de Tecnicatura en Seguridad Penitenciaria legalizado o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Licenciatura en Ciencias de Datos",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 3624,
+                    "modality": "A distancia",
+                    "intermediate_title": "Técnico Universitario en Ciencia de Datos",
+                    "thesis_or_final_project": "Proyecto Final (para título intermedio)",
+                    "profile_summary": "Tratamiento de grandes volúmenes de datos; dirección de áreas de datos e inteligencia de negocios; I+D de nuevas tecnologías.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Licenciatura en Energías Renovables",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 2600,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Gestión ambiental, formulación de proyectos, investigación y evaluación en generación y aprovechamiento de energías renovables.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Tecnicatura en Administración en Salud",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": null,
+                    "hours_total": 1648,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Gestión administrativa en instituciones de salud: documentación, facturación, convenios, turnos e historias clínicas.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Tecnicatura en Administración en Farmacia",
+                    "level": "Pregrado / Tecnicatura",
+                    "duration_years": 3,
+                    "hours_total": 1560,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Administración integral de farmacia; auditorías de obras sociales; herramientas tecnológicas; inglés técnico y marco legal.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Licenciatura en Gestión Deportiva",
+                    "level": "Grado",
+                    "duration_years": 4,
+                    "hours_total": 2608,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": "Trabajo de Investigación",
+                    "profile_summary": "Conducción de organizaciones deportivas; planificación de eventos y políticas; asesoría normativa; estudios e investigación del sector.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Profesorado / Licenciatura en Educación Inicial",
+                    "level": "Ciclo de Complementación",
+                    "duration_years": 2,
+                    "hours_total": 1300,
+                    "modality": "A distancia",
+                    "intermediate_title": "Profesorado / Licenciatura (según plan)",
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Diseño y evaluación de prácticas innovadoras en Nivel Inicial; docencia superior; proyectos interdisciplinarios con compromiso social.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título habilitante legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "Incluye Profesorado Universitario y Licenciatura como trayectos complementarios.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Profesorado / Licenciatura en Educación Primaria",
+                    "level": "Ciclo de Complementación",
+                    "duration_years": null,
+                    "hours_total": null,
+                    "modality": "A distancia",
+                    "intermediate_title": "Profesorado / Licenciatura (según plan)",
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Prácticas y evaluación en Educación Primaria; docencia superior; investigación y proyectos con enfoque de justicia curricular.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título habilitante legalizada o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": null,
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                },
+                {
+                    "name": "Profesorado Universitario en Educación Musical / Licenciatura en Música",
+                    "level": "Ciclo de Complementación (Profesorado) / Grado (Licenciatura)",
+                    "duration_years": 2,
+                    "hours_total": 1500,
+                    "modality": "A distancia",
+                    "intermediate_title": null,
+                    "thesis_or_final_project": null,
+                    "profile_summary": "Enseñanza musical, dirección de coros/orquestas educativas, gestión cultural, articulación técnica y pedagógica en todos los niveles.",
+                    "admission_requirements": [
+                        "Fotocopia de DNI",
+                        "Fotocopia de título habilitante legalizado o constancia en trámite",
+                        "Certificado de buena salud",
+                        "2 fotos carnet",
+                        "Completar ficha con acuerdo de admisión"
+                    ],
+                    "notes": "Texto del documento repite descripción; consolidado aquí.",
+                    "source": "INFORMACIÓN CARRERAS INSTITUTO DISTANCIA.docx"
+                }
+            ]
+        }
+    ]
+}
