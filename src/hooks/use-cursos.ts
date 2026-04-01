@@ -21,15 +21,15 @@ interface UseCursosResult {
 }
 
 /**
- * Custom hook para obtener cursos de extensión universitaria desde Supabase
- * Filtra cursos cuya categoría comienza con "Curso"
+ * Custom hook para obtener cursos desde Supabase según la categoría
  *
+ * @param category Nombre de la categoría a buscar (por defecto "Cursos | Extensión")
  * @returns Objeto con cursos, loading, error y count
  *
  * @example
- * const { cursos, loading, error, count } = useCursos();
+ * const { cursos, loading, error, count } = useCursos("Cursos | Posgrado");
  */
-export function useCursos(): UseCursosResult {
+export function useCursos(category: string = "Cursos | Extensión"): UseCursosResult {
     const [cursos, setCursos] = useState<CourseWithCategory[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -57,7 +57,7 @@ export function useCursos(): UseCursosResult {
                     `,
                         { count: "exact" },
                     )
-                    .ilike("courseCategories.name", "Curso%")
+                    .ilike("courseCategories.name", `${category}%`)
                     .order("last_sync_at", { ascending: false });
 
                 const {
@@ -95,7 +95,7 @@ export function useCursos(): UseCursosResult {
         return () => {
             isMounted = false;
         };
-    }, []);
+    }, [category]);
 
     return { cursos, loading, error, count };
 }

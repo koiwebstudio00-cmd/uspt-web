@@ -23,7 +23,7 @@ import {
 import { useDebounce } from "@/hooks/use-debounce";
 import { Link } from "react-router-dom";
 
-type ResultType = "carrera" | "curso" | "blog" | "posgrado" | "servicio";
+type ResultType = "carrera" | "curso" | "blog" | "posgrado" | "servicio" | "instituto";
 
 interface SearchResult {
     id: string | number;
@@ -123,6 +123,8 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                 return "Posgrado";
             case "servicio":
                 return "Servicio";
+            case "instituto":
+                return "Instituto";
         }
     };
 
@@ -158,7 +160,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                     </div>
                 </DialogHeader>
 
-                <div className="px-4 py-2 border-b flex flex-wrap gap-2 items-center">
+                {/* <div className="px-4 py-2 border-b flex flex-wrap gap-2 items-center">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mr-2">
                         FILTRAR POR:
                     </span>
@@ -182,7 +184,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                             </Badge>
                         ),
                     )}
-                </div>
+                </div> */}
 
                 <ScrollArea className="h-[450px]">
                     <div className="p-4 gap-3 flex flex-col">
@@ -255,31 +257,6 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                                     servicios de nuestra universidad en un solo
                                     lugar.
                                 </p>
-                                <div className="mt-8 flex flex-wrap justify-center gap-2">
-                                    <Badge
-                                        variant="secondary"
-                                        className="bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-pointer"
-                                        onClick={() => setQuery("Abogacía")}
-                                    >
-                                        Abogacía
-                                    </Badge>
-                                    <Badge
-                                        variant="secondary"
-                                        className="bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-pointer"
-                                        onClick={() => setQuery("Diseño")}
-                                    >
-                                        Diseño
-                                    </Badge>
-                                    <Badge
-                                        variant="secondary"
-                                        className="bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-pointer"
-                                        onClick={() =>
-                                            setQuery("Inscripciones")
-                                        }
-                                    >
-                                        Inscripciones
-                                    </Badge>
-                                </div>
                             </div>
                         )}
                     </div>

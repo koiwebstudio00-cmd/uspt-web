@@ -90,12 +90,6 @@ const InstitutoPreuniversitario = () => {
                 "Aprendizajes activos y colaborativos con situaciones problemáticas desafiantes",
         },
         {
-            icon: Users,
-            title: "Comunidad de Aprendizaje",
-            description:
-                "Colaboración entre estudiantes, docentes y familias con sentido de pertenencia",
-        },
-        {
             icon: Star,
             title: "Formación Docente Permanente",
             description:
@@ -145,43 +139,30 @@ const InstitutoPreuniversitario = () => {
 
                                 {/* Cards de Misión y Objetivos a la derecha */}
                                 <div className="space-y-6">
+
                                     <div className="bg-primary/10 p-8 border-l-4 border-primary">
                                         <div className="flex items-center gap-3 mb-4">
-                                            <Award className="w-6 h-6 text-primary flex-shrink-0" />
-                                            <h2 className="text-2xl font-bold font-heading text-foreground">
-                                                Nuestra Misión
-                                            </h2>
-                                        </div>
-                                        <p className="text-muted-foreground leading-relaxed font-body">
-                                            Creamos un clima de convivencia que
-                                            garantiza la libertad, el respeto y
-                                            la dignidad, preservando a sus
-                                            integrantes de cualquier trato
-                                            discriminatorio. Destacamos la
-                                            autodisciplina, jornada extendida de
-                                            8 horas, enseñanza intensiva de
-                                            idiomas y participación en talleres
-                                            creativos.
-                                        </p>
-                                    </div>
-
-                                    <div className="bg-primary p-8 text-white border-l-4 border-primary-foreground">
-                                        <div className="flex items-center gap-3 mb-4">
-                                            <GraduationCap className="w-6 h-6 text-white flex-shrink-0" />
-                                            <h2 className="text-2xl font-bold font-heading">
+                                            <GraduationCap className="w-6 h-6 text-primary flex-shrink-0" />
+                                            <h2 className="text-2xl font-bold font-heading text-primary">
                                                 Presentación Institucional
                                             </h2>
                                         </div>
+                                        <p className="text-primary/90 leading-relaxed font-body">
+                                            Formamos estudiantes críticos, reflexivos y autónomos, preparados para los desafíos del mundo actual y la vida universitaria. <br />
+A través de propuestas innovadoras, aprendizaje por proyectos y trabajo colaborativo, promovemos una educación que trasciende lo académico y potencia el desarrollo integral de cada alumno.
+                                        </p>
+                                    </div>
+                                    
+                                    <div className="bg-primary p-8 text-white border-l-4 border-primary-foreground">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <Award className="w-6 h-6 text-white flex-shrink-0" />
+                                            <h2 className="text-2xl font-bold font-heading">
+                                                Nuestra Misión y Visión
+                                            </h2>
+                                        </div>
                                         <p className="text-white/90 leading-relaxed font-body">
-                                            Fundado en 2020 por la Universidad
-                                            San Pablo T, somos la primera
-                                            escuela privada de gestión
-                                            preuniversitaria en Tucumán. Nuestro
-                                            enfoque se basa en el aprendizaje
-                                            activo y colaborativo por proyectos,
-                                            compartiendo la tarea educativa con
-                                            las familias para consolidar el
-                                            camino a la vida universitaria.
+                                            Nuestra misión es brindar una educación de calidad que forme personas libres, comprometidas y capaces de pensar, crear y transformar su realidad. <br /> 
+                                            Ser una institución educativa innovadora y de referencia, que acompañe a los estudiantes en su crecimiento académico y humano, proyectándolos con solidez hacia el futuro.
                                         </p>
                                     </div>
                                 </div>
@@ -190,30 +171,7 @@ const InstitutoPreuniversitario = () => {
                     </div>
                 </section>
 
-                {/* Autoridad */}
-                <section className="py-16 bg-white">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-7xl mx-auto">
-                            <div className="grid md:grid-cols-2 gap-8 items-center">
-                                <div className="space-y-6">
-                                    <h2 className="text-3xl font-bold font-heading text-primary">
-                                        Autoridad
-                                    </h2>
-                                    <p className="text-muted-foreground leading-relaxed font-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </p>
-                                </div>
-                                <div className="relative h-[400px] overflow-hidden rounded-lg shadow-lg">
-                                    <img
-                                        src="/images/autoridad-ipre.png"
-                                        alt="Autoridad IPRE"
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                
 
                 {/* Estructura Académica */}
                 <section id="orientaciones" className="py-20 bg-primary/10">
@@ -427,7 +385,7 @@ const InstitutoPreuniversitario = () => {
                         <div
                             ref={valoresRef.elementRef}
                             className={cn(
-                                "grid md:grid-cols-2  gap-6 animate-on-scroll",
+                                "grid md:grid-cols-2 lg:grid-cols-3  gap-6 animate-on-scroll",
                                 valoresRef.isIntersecting
                                     ? "animate-fade-in-up"
                                     : "",
@@ -456,6 +414,43 @@ const InstitutoPreuniversitario = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* Autoridad Institucional */}
+                <section className="py-20 bg-white">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-semibold font-heading text-foreground mb-4">
+                                Autoridad Institucional
+                            </h2>
+                        </div>
+                        <div className="max-w-md mx-auto">
+                            <Card className="border-muted2 hover:shadow-xl transition-shadow group">
+                                <div className="relative aspect-square overflow-hidden bg-muted">
+                                    <img
+                                        src="/images/autoridad-ipre.png"
+                                        alt="Prof. Norma Beatriz Reynoso"
+                                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                </div>
+                                <CardHeader>
+                                    {/* <CardTitle className="text-xl font-heading">
+                                        Prof. Norma Beatriz Reynoso
+                                    </CardTitle> */}
+                                    {/* <p className="text-sm text-primary font-semibold">
+                                        Directora Institucional
+                                    </p> */}
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        Lidera el Instituto Preuniversitario San Pablo T con un profundo compromiso por la innovación educativa y la formación integral de los estudiantes.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
+                
 
                 {/* Vida Estudiantil */}
                 <section className="py-20 bg-muted/30">

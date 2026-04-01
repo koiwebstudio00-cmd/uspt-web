@@ -23,7 +23,7 @@ const InstitutosList = () => {
                 "Tecnicatura en Paisajismo",
             ],
             ctaText: "Explorar Instituto",
-            link: "/institutos/diseno-creatividad",
+            link: "/institutos/diseno-estrategia-creatividad",
         },
         {
             title: "Instituto de Educación y Gestión Deportiva",
@@ -37,7 +37,7 @@ const InstitutosList = () => {
                 "Licenciatura en Gestión Deportiva",
             ],
             ctaText: "Explorar Instituto",
-            link: "/institutos/educacion-gestion-deportiva",
+            link: "/institutos/educacion-y-gestion-deportiva",
         },
         {
             title: "Instituto de Estudios Sociales, Política y Cultura",
@@ -52,7 +52,7 @@ const InstitutosList = () => {
                 "Licenciatura en Comercio Exterior",
             ],
             ctaText: "Explorar Instituto",
-            link: "/institutos/estudios-sociales-politica-cultura",
+            link: "/institutos/estudios-sociales-politica-y-cultura",
         },
         {
             title: "Instituto de Desarrollo e Innovación Tecnológica",
@@ -66,7 +66,7 @@ const InstitutosList = () => {
                 "Tecnicatura en Guardaparque",
             ],
             ctaText: "Explorar Instituto",
-            link: "/institutos/desarrollo-innovacion-tecnologica",
+            link: "/institutos/desarrollo-e-innovacion-tecnologica-para-la-competitividad-territorial",
         },
         {
             title: "Instituto de Educación a Distancia y Tecnología Educativa",
@@ -80,7 +80,7 @@ const InstitutosList = () => {
                 "Tecnicatura en Seguridad Ciudadana",
             ],
             ctaText: "Explorar Instituto",
-            link: "/institutos/educacion-distancia-tecnologia-educativa",
+            link: "/institutos/educacion-a-distancia-y-tecnologia-educativa",
         },
         {
             title: "Instituto de Salud y Calidad de Vida",
@@ -95,7 +95,7 @@ const InstitutosList = () => {
                 "Tecnicatura en Emergencias Médicas",
             ],
             ctaText: "Explorar Instituto",
-            link: "/institutos/salud-calidad-vida",
+            link: "/institutos/salud-y-calidad-de-vida",
         },
     ];
 

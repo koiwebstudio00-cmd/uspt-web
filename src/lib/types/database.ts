@@ -31,6 +31,7 @@ export interface Carrera {
     created_at: string;
     slug: string;
     duration: number;
+    clasificacion: string | null;
 }
 
 export interface Instituto {
@@ -79,6 +80,9 @@ export interface Course {
     price?: number | null;
     last_sync_at?: string | null;
     created_at: string;
+    featured_img?: string | null;
+    tags?: string[] | null;
+    modalidad?: string | null;
 }
 
 /**

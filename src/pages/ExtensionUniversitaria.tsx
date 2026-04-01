@@ -21,6 +21,9 @@ import {
     ChevronLeft,
     ChevronRight,
     CreditCard,
+    User,
+    Building,
+    Calendar,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar1 } from "@/components/Navbar";
@@ -36,6 +39,7 @@ import {
 } from "@/components/ui/dialog";
 import { useState, useEffect, useRef } from "react";
 import WhatsApp from "@/components/icons/Wp";
+import { Badge } from "@/components/ui/badge";
 
 const COURSES_PER_PAGE = 9;
 
@@ -104,8 +108,94 @@ const ExtensionUniversitaria = () => {
         },
     ];
 
-    const whatsappLink =
-        "https://api.whatsapp.com/send?phone=+5493816266870&text=Hola,%20me%20gustaria%20inscribirme%20en%20la%20USP-T%20";
+    const proyectos = [
+        {
+            titulo: "“Hablemos de nuestros derechos”",
+            descripcion: "Ciclo de capacitación sobre derecho del consumidor junto a Asociación de Consumidores del NOA.",
+            docentes: "Muler Germán; Goldman María Verónica; Casa Gonzalo; Salvi Nicolás",
+            instituto: "IESPYC",
+            anio: "2025"
+        },
+        {
+            titulo: "“Fortalecimiento institucional de la Fundación Los Ángeles de Marcos Eliseo”",
+            descripcion: "El presente plan de acción se enmarca en una tarea de extensión universitaria en colaboración con organismos gubernamentales provinciales, con el objetivo de fortalecer la operatividad, sostenibilidad y visibilidad institucional de la Fundación Los Ángeles de Marcos Eliseo.",
+            docentes: "Arce Karina; Luna Lucas Ernesto",
+            instituto: "Extensión Universitaria",
+            anio: "2025"
+        },
+        {
+            titulo: "“Clínica de Ejercicio Profesional Arquitectónico”",
+            descripcion: "Clínicas ambulatorias de ejercicio profesional de arquitectura, promoviendo el contacto directo entre estudiantes avanzados y la sociedad a través de instancias de evaluación crítica y asesoramiento sobre problemáticas de hábitat y construcción.",
+            docentes: "Arq. Rodolfo Luciano Jaime Castillo; Arq. Miguel Ángel Cabral",
+            instituto: "IDEC",
+            anio: ""
+        },
+        {
+            titulo: "“La Antártida Argentina: un sitio para desarrollar hipótesis de terraformación”",
+            descripcion: "Selección y exposición de cuatro proyectos teóricos desarrollados durante el ciclo lectivo 2024 con estudiantes de cuarto año. Incluye charla y exposición de referentes del Instituto Antártico Argentino con quienes se realizó dicho trabajo.",
+            docentes: "Arq. Rodolfo Luciano Jaime Castillo; Arq. Miguel Ángel Cabral",
+            instituto: "IDEC",
+            anio: "2025"
+        },
+        {
+            titulo: "“Ceremonial en minutos”",
+            descripcion: "Micro videos informativos sobre normas de comportamiento en ámbitos laborales, sociales y diplomáticos, considerando el respeto por las diversas culturas y sus valores, con el objetivo de dar a conocer las competencias desarrolladas en la Licenciatura y Tecnicatura en Ceremonial y Protocolo.",
+            docentes: "Falú Liliana; Luque Silvia",
+            instituto: "IESPYC",
+            anio: "2025"
+        },
+        {
+            titulo: "“Apoyo y seguimiento a agricultores familiares de Tucumán para el desarrollo y fomento del cultivo y productos de yacón”",
+            descripcion: "El objetivo general de este proyecto es el apoyo y seguimiento a agricultores familiares, mediante la incorporación de plantines de yacón y capacitaciones desarrolladas en el marco de actas acuerdo interinstitucional.",
+            docentes: "Colombo Marcela; Ríos Daniel",
+            instituto: "IDITEC",
+            anio: "2025"
+        }
+    ];
+
+    // Función para renderizar los tags de un curso
+    const renderTags = (tags: string[] | string | null | undefined) => {
+        let processedTags: string[] = [];
+        if (!tags) return null;
+
+        if (Array.isArray(tags)) {
+            processedTags = tags.map((t: unknown) => {
+                if (typeof t === "object" && t !== null) {
+                    const obj = t as { name?: string; fullname?: string };
+                    return obj.name || obj.fullname || JSON.stringify(t);
+                }
+                return String(t);
+            });
+        } else if (typeof tags === "string") {
+            try {
+                if (tags.startsWith("[") && tags.endsWith("]")) {
+                    processedTags = JSON.parse(tags);
+                } else if (tags.startsWith("{") && tags.endsWith("}")) {
+                    processedTags = tags
+                        .slice(1, -1)
+                        .split(",")
+                        .map((t) => t.trim().replace(/^"(.*)"$/, "$1"));
+                } else if (tags.includes(",")) {
+                    processedTags = tags.split(",").map((t) => t.trim());
+                } else {
+                    processedTags = [tags.trim()];
+                }
+            } catch (e) {
+                processedTags = [tags];
+            }
+        }
+
+        if (processedTags.length === 0) return null;
+
+        return processedTags.map((tag, idx) => (
+            <Badge
+                key={idx}
+                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20 cursor-default"
+            >
+                {tag}
+            </Badge>
+        ));
+    };
 
     return (
         <div className="min-h-screen bg-background">
@@ -264,6 +354,21 @@ const ExtensionUniversitaria = () => {
                                             key={curso.id}
                                             className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
                                         >
+                                            <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                                                {curso.featured_img ? (
+                                                    <img
+                                                        src={curso.featured_img}
+                                                        alt={curso.fullname || curso.displayName || ""}
+                                                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        src="/images/extension.webp"
+                                                        alt={curso.fullname || curso.displayName || ""}
+                                                        className="h-full w-full object-cover object-bottom transition-transform duration-500 hover:scale-105"
+                                                    />
+                                                )}
+                                            </div>
                                             <CardHeader className="flex-1">
                                                 <div className="space-y-3">
                                                     <CardTitle className="text-lg font-heading text-primary leading-tight">
@@ -271,7 +376,7 @@ const ExtensionUniversitaria = () => {
                                                             curso.displayName ||
                                                             "Curso sin nombre"}
                                                     </CardTitle>
-                                                    <div className="flex items-center gap-2">
+                                                    <div className="flex flex-wrap items-center gap-2">
                                                         <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                                                             {
                                                                 curso
@@ -279,6 +384,12 @@ const ExtensionUniversitaria = () => {
                                                                     .name
                                                             }
                                                         </span>
+                                                        {renderTags(curso.tags)}
+                                                        {curso.modalidad && (
+                                                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                                                {curso.modalidad}
+                                                            </span>
+                                                        )}
                                                     </div>
                                                     {curso.price !== null &&
                                                         curso.price !==
@@ -407,59 +518,6 @@ const ExtensionUniversitaria = () => {
                     </div>
                 </section>
 
-                {/* Autoridades */}
-                <section className="py-20 bg-muted/30">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl   mb-4">
-                                Autoridades
-                            </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
-                                Equipo directivo del Área de Extensión
-                                Universitaria
-                            </p>
-                        </div>
-
-                        <div className="max-w-2xl mx-auto">
-                            <Card className="border-muted2">
-                                <CardHeader className="text-center">
-                                    <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4">
-                                        <Users className="w-10 h-10" />
-                                    </div>
-                                    <CardTitle className="text-2xl font-heading text-primary">
-                                        Dr. Juan Grande
-                                    </CardTitle>
-                                    <p className="text-muted-foreground font-body">
-                                        Director de Extensión y Cultura
-                                    </p>
-                                </CardHeader>
-                                <CardContent className="text-center">
-                                    <div className="space-y-3 mb-6">
-                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                                            <Mail className="w-4 h-4 text-primary" />
-                                            <span>jgrande@uspt.edu.ar</span>
-                                        </div>
-                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                                            <Mail className="w-4 h-4 text-primary" />
-                                            <span>extension@uspt.edu.ar</span>
-                                        </div>
-                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                                            <Phone className="w-4 h-4 text-primary" />
-                                            <span>54-381-4530630 Int. 243</span>
-                                        </div>
-                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                                            <Clock className="w-4 h-4 text-primary" />
-                                            <span>
-                                                Lunes a Viernes: 9:00 - 17:00hs
-                                            </span>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-                </section>
-
                 {/* Información Adicional */}
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
@@ -550,6 +608,113 @@ const ExtensionUniversitaria = () => {
                     </div>
                 </section>
 
+                {/* Autoridades */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl   mb-4">
+                                Autoridades
+                            </h2>
+                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                                Equipo directivo del Área de Extensión
+                                Universitaria
+                            </p>
+                        </div>
+
+                        <div className="max-w-2xl mx-auto">
+                            <Card className="border-muted2">
+                                <CardHeader className="text-center">
+                                    <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4">
+                                        <Users className="w-10 h-10" />
+                                    </div>
+                                    <CardTitle className="text-2xl font-heading text-primary">
+                                        Dr. Juan Grande
+                                    </CardTitle>
+                                    <p className="text-muted-foreground font-body">
+                                        Director de Extensión y Cultura
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="text-center">
+                                    <div className="space-y-3 mb-6">
+                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                                            <Mail className="w-4 h-4 text-primary" />
+                                            <span>jgrande@uspt.edu.ar</span>
+                                        </div>
+                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                                            <Mail className="w-4 h-4 text-primary" />
+                                            <span>extension@uspt.edu.ar</span>
+                                        </div>
+                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                                            <Phone className="w-4 h-4 text-primary" />
+                                            <span>54-381-4530630 Int. 243</span>
+                                        </div>
+                                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                                            <Clock className="w-4 h-4 text-primary" />
+                                            <span>
+                                                Lunes a Viernes: 9:00 - 17:00hs
+                                            </span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-16 bg-white">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl md:text-4xl mb-12 text-center">
+                            Proyectos de Extensión
+                        </h2>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {proyectos.map((proyecto, index) => (
+                                <Card key={index} className="border-muted2 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                                    <CardHeader className="bg-muted/30 pb-4">
+                                        <CardTitle className="text-xl font-heading font-semibold text-primary">
+                                            {proyecto.titulo}
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="p-8 flex-1 flex flex-col">
+                                        <div className="flex-1">
+                                            <p className="text-muted-foreground leading-relaxed font-body mb-8">
+                                                {proyecto.descripcion}
+                                            </p>
+                                        </div>
+                                        
+                                        <div className="space-y-3 pt-6 border-t border-muted">
+                                            <div className="flex items-start gap-3">
+                                                <User className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                                                <p className="text-sm">
+                                                    <span className="font-semibold">Docentes:</span>{" "}
+                                                    <span className="text-muted-foreground">{proyecto.docentes}</span>
+                                                </p>
+                                            </div>
+                                            
+                                            <div className="flex items-center gap-3">
+                                                <Building className="w-5 h-5 text-primary shrink-0" />
+                                                <p className="text-sm">
+                                                    <span className="font-semibold">Instituto:</span>{" "}
+                                                    <span className="text-muted-foreground">{proyecto.instituto}</span>
+                                                </p>
+                                            </div>
+
+                                            {proyecto.anio && (
+                                                <div className="flex items-center gap-3">
+                                                    <Calendar className="w-5 h-5 text-primary shrink-0" />
+                                                    <p className="text-sm">
+                                                        <span className="font-semibold">Año:</span>{" "}
+                                                        <span className="text-muted-foreground">{proyecto.anio}</span>
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
                 {/* CTA Section */}
                 <CtaPage
                     title="Construyamos soluciones juntos"
@@ -571,14 +736,31 @@ const ExtensionUniversitaria = () => {
                                 selectedCurso?.displayName ||
                                 "Información del Curso"}
                         </DialogTitle>
-                        <div className="flex items-center gap-2 mt-2">
+                        <div className="flex flex-wrap items-center gap-2 mt-2">
                             <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                                 {selectedCurso?.courseCategories?.name}
                             </span>
+                            {renderTags(selectedCurso?.tags)}
+                            {selectedCurso?.modalidad && (
+                                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                    {selectedCurso.modalidad}
+                                </span>
+                            )}
                         </div>
                     </DialogHeader>
 
                     <div className="space-y-6 py-4">
+                        {/* Imagen en el modal */}
+                        {selectedCurso?.featured_img && (
+                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                <img
+                                    src={selectedCurso.featured_img}
+                                    alt={selectedCurso.fullname || selectedCurso.displayName || ""}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                        )}
+
                         {/* Descripción/Resumen */}
                         <div className="space-y-2">
                             <h4 className="font-semibold text-foreground flex items-center gap-2">
@@ -622,7 +804,7 @@ const ExtensionUniversitaria = () => {
                                             className="w-full flex items-center justify-center gap-2"
                                         >
                                             <CreditCard className="w-4 h-4" />
-                                            Pagar desde la web
+                                            Inscribirme
                                         </UniversityButton>
                                     </Link>
                                 )}
@@ -637,7 +819,7 @@ const ExtensionUniversitaria = () => {
                                     className="w-full flex items-center justify-center gap-2 bg-white border border-green-600 hover:bg-green-600 hover:text-white text-green-600"
                                 >
                                     <WhatsApp className="w-4 h-4" />
-                                    Pagar por WhatsApp
+                                    Inscribirme por WhatsApp
                                 </UniversityButton>
                             </a>
                         </div>

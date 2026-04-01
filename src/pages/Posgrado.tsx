@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { UniversityButton } from "@/components/ui/university-button";
@@ -10,6 +10,10 @@ import {
     BookOpen,
     Clock,
     Loader2,
+    AlertCircle,
+    ChevronLeft,
+    ChevronRight,
+    CreditCard,
 } from "lucide-react";
 import { Navbar1 } from "@/components/Navbar";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
@@ -18,10 +22,112 @@ import InfoAdd from "@/components/InfoAdd";
 import { usePosgrados } from "@/hooks/use-posgrados";
 import { TipoPosgrado } from "@/lib/types/database";
 import { Link } from "react-router-dom";
+import { useCursos, type CourseWithCategory } from "@/hooks/use-cursos";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogFooter,
+} from "@/components/ui/dialog";
+import WhatsApp from "@/components/icons/Wp";
+import { Badge } from "@/components/ui/badge";
+
+const COURSES_PER_PAGE = 9;
 
 const Posgrado = () => {
     // Fetch all posgrados from Supabase
     const { posgrados, loading, error } = usePosgrados();
+
+    // Obtener cursos desde la base de datos
+    const { cursos, loading: loadingCursos, error: errorCursos, count } = useCursos("Cursos | Posgrado");
+
+    // Estado para el modal de información de curso
+    const [selectedCurso, setSelectedCurso] =
+        useState<CourseWithCategory | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // Estado de paginación
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isChangingPage, setIsChangingPage] = useState(false);
+    const coursesRef = useRef<HTMLDivElement>(null);
+
+    // Calcular paginación
+    const totalPages = Math.ceil(cursos.length / COURSES_PER_PAGE);
+    const startIndex = (currentPage - 1) * COURSES_PER_PAGE;
+    const endIndex = startIndex + COURSES_PER_PAGE;
+    const currentCursos = cursos.slice(startIndex, endIndex);
+
+    // Resetear a página 1 cuando cambien los cursos
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [cursos.length]);
+
+    // Manejar cambio de página con loader
+    const handlePageChange = (newPage: number) => {
+        if (newPage < 1 || newPage > totalPages || newPage === currentPage)
+            return;
+
+        setIsChangingPage(true);
+
+        // Simular un pequeño delay para mostrar el loader
+        setTimeout(() => {
+            setCurrentPage(newPage);
+            setIsChangingPage(false);
+
+            // Scroll suave al inicio de la sección de cursos
+            if (coursesRef.current) {
+                coursesRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }, 300);
+    };
+
+    // Función para renderizar los tags de un curso
+    const renderTags = (tags: string[] | string | null | undefined) => {
+        let processedTags: string[] = [];
+        if (!tags) return null;
+
+        if (Array.isArray(tags)) {
+            processedTags = tags.map((t: unknown) => {
+                if (typeof t === "object" && t !== null) {
+                    const obj = t as { name?: string; fullname?: string };
+                    return obj.name || obj.fullname || JSON.stringify(t);
+                }
+                return String(t);
+            });
+        } else if (typeof tags === "string") {
+            try {
+                if (tags.startsWith("[") && tags.endsWith("]")) {
+                    processedTags = JSON.parse(tags);
+                } else if (tags.startsWith("{") && tags.endsWith("}")) {
+                    processedTags = tags
+                        .slice(1, -1)
+                        .split(",")
+                        .map((t) => t.trim().replace(/^"(.*)"$/, "$1"));
+                } else if (tags.includes(",")) {
+                    processedTags = tags.split(",").map((t) => t.trim());
+                } else {
+                    processedTags = [tags.trim()];
+                }
+            } catch (e) {
+                processedTags = [tags];
+            }
+        }
+
+        if (processedTags.length === 0) return null;
+
+        return processedTags.map((tag, idx) => (
+            <Badge
+                key={idx}
+                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20 cursor-default"
+            >
+                {tag}
+            </Badge>
+        ));
+    };
 
     // Filter posgrados by tipo
     const maestrias = posgrados.filter((p) => p.tipo === TipoPosgrado.MAESTRIA);
@@ -244,6 +350,253 @@ const Posgrado = () => {
                     </div>
                 </section>
 
+                {/* Cursos Disponibles */}
+                <section ref={coursesRef} className="py-20 bg-primary/5">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl mb-4">
+                                Cursos y Talleres Disponibles
+                            </h2>
+                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                                Explora nuestra oferta actual de cursos de
+                                posgrado
+                            </p>
+                            {count !== null && count > 0 && (
+                                <p className="text-sm text-muted-foreground mt-2">
+                                    {count}{" "}
+                                    {count === 1
+                                        ? "curso disponible"
+                                        : "cursos disponibles"}
+                                </p>
+                            )}
+                        </div>
+
+                        {/* Loading State */}
+                        {loadingCursos && (
+                            <div className="flex justify-center items-center py-12">
+                                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                                <span className="ml-3 text-muted-foreground">
+                                    Cargando cursos...
+                                </span>
+                            </div>
+                        )}
+
+                        {/* Error State */}
+                        {errorCursos && (
+                            <div className="flex flex-col items-center justify-center py-12">
+                                <AlertCircle className="w-12 h-12 text-destructive mb-4" />
+                                <p className="text-destructive font-semibold mb-2">
+                                    Error al cargar los cursos
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                    {errorCursos}
+                                </p>
+                            </div>
+                        )}
+
+                        {/* Empty State */}
+                        {!loadingCursos && !errorCursos && cursos.length === 0 && (
+                            <div className="flex flex-col items-center justify-center py-12">
+                                <BookOpen className="w-12 h-12 text-muted-foreground mb-4" />
+                                <p className="text-muted-foreground font-semibold mb-2">
+                                    No hay cursos disponibles
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                    Vuelve pronto para ver nuevas ofertas
+                                </p>
+                            </div>
+                        )}
+
+                        {/* Courses Grid */}
+                        {!loadingCursos && !errorCursos && cursos.length > 0 && (
+                            <>
+                                {/* Page Change Loader Overlay */}
+                                {isChangingPage && (
+                                    <div className="relative">
+                                        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg min-h-[400px]">
+                                            <div className="flex flex-col items-center">
+                                                <Loader2 className="w-10 h-10 animate-spin text-primary mb-3" />
+                                                <span className="text-muted-foreground font-medium">
+                                                    Cargando página{" "}
+                                                    {currentPage}...
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div
+                                    className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 ${isChangingPage ? "opacity-50" : ""}`}
+                                >
+                                    {currentCursos.map((curso) => (
+                                        <Card
+                                            key={curso.id}
+                                            className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                                        >
+                                            <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                                                {curso.featured_img ? (
+                                                    <img
+                                                        src={curso.featured_img}
+                                                        alt={curso.fullname || curso.displayName || ""}
+                                                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        src="/images/extension.webp"
+                                                        alt={curso.fullname || curso.displayName || ""}
+                                                        className="h-full w-full object-cover object-bottom transition-transform duration-500 hover:scale-105"
+                                                    />
+                                                )}
+                                            </div>
+                                            <CardHeader className="flex-1">
+                                                <div className="space-y-3">
+                                                    <CardTitle className="text-lg font-heading text-primary leading-tight">
+                                                        {curso.fullname ||
+                                                            curso.displayName ||
+                                                            "Curso sin nombre"}
+                                                    </CardTitle>
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                                            {
+                                                                curso
+                                                                    .courseCategories
+                                                                    .name
+                                                            }
+                                                        </span>
+                                                        {renderTags(curso.tags)}
+                                                        {curso.modalidad && (
+                                                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                                                {curso.modalidad}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    {curso.price !== null &&
+                                                        curso.price !==
+                                                            undefined && (
+                                                            <div className="text-lg font-bold text-primary">
+                                                                $ {curso.price}
+                                                            </div>
+                                                        )}
+                                                </div>
+                                            </CardHeader>
+                                            <CardContent className="pt-0">
+                                                <UniversityButton
+                                                    variant="primary"
+                                                    size="sm"
+                                                    className="w-full flex items-center justify-center gap-2"
+                                                    onClick={() => {
+                                                        setSelectedCurso(curso);
+                                                        setIsModalOpen(true);
+                                                    }}
+                                                >
+                                                    Más información
+                                                </UniversityButton>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+
+                                {/* Pagination Controls */}
+                                {totalPages > 1 && (
+                                    <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                onClick={() =>
+                                                    handlePageChange(
+                                                        currentPage - 1,
+                                                    )
+                                                }
+                                                disabled={
+                                                    currentPage === 1 ||
+                                                    isChangingPage
+                                                }
+                                                className="p-2 border border-muted2 hover:bg-primary/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                                aria-label="Página anterior"
+                                            >
+                                                <ChevronLeft className="w-5 h-5" />
+                                            </button>
+
+                                            <div className="flex items-center gap-1">
+                                                {Array.from(
+                                                    { length: totalPages },
+                                                    (_, i) => i + 1,
+                                                ).map((page) => {
+                                                    // Mostrar solo algunas páginas alrededor de la actual
+                                                    if (
+                                                        page === 1 ||
+                                                        page === totalPages ||
+                                                        (page >=
+                                                            currentPage - 1 &&
+                                                            page <=
+                                                                currentPage + 1)
+                                                    ) {
+                                                        return (
+                                                            <button
+                                                                key={page}
+                                                                onClick={() =>
+                                                                    handlePageChange(
+                                                                        page,
+                                                                    )
+                                                                }
+                                                                disabled={
+                                                                    isChangingPage
+                                                                }
+                                                                className={`min-w-[40px] h-10 px-3 font-medium transition-colors ${
+                                                                    page ===
+                                                                    currentPage
+                                                                        ? "bg-primary text-white"
+                                                                        : "border border-muted2 hover:bg-primary/5"
+                                                                } disabled:cursor-not-allowed`}
+                                                            >
+                                                                {page}
+                                                            </button>
+                                                        );
+                                                    } else if (
+                                                        page ===
+                                                            currentPage - 2 ||
+                                                        page === currentPage + 2
+                                                    ) {
+                                                        return (
+                                                            <span
+                                                                key={page}
+                                                                className="px-2"
+                                                            >
+                                                                ...
+                                                            </span>
+                                                        );
+                                                    }
+                                                    return null;
+                                                })}
+                                            </div>
+
+                                            <button
+                                                onClick={() =>
+                                                    handlePageChange(
+                                                        currentPage + 1,
+                                                    )
+                                                }
+                                                disabled={
+                                                    currentPage ===
+                                                        totalPages ||
+                                                    isChangingPage
+                                                }
+                                                className="p-2 border border-muted2 hover:bg-primary/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                                aria-label="Página siguiente"
+                                            >
+                                                <ChevronRight className="w-5 h-5" />
+                                            </button>
+                                        </div>
+
+                                        <p className="text-sm text-muted-foreground">
+                                            Página {currentPage} de {totalPages}
+                                        </p>
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </div>
+                </section>
+
                 {/* CTA Section */}
 
                 <CtaPage
@@ -255,6 +608,106 @@ const Posgrado = () => {
             </main>
 
             <Footer />
+
+            {/* Modal de Información del Curso */}
+            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                <DialogContent className="sm:max-w-[600px] border-muted2 max-h-[90vh] overflow-y-auto">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl font-heading text-primary leading-tight">
+                            {selectedCurso?.fullname ||
+                                selectedCurso?.displayName ||
+                                "Información del Curso"}
+                        </DialogTitle>
+                        <div className="flex flex-wrap items-center gap-2 mt-2">
+                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                {selectedCurso?.courseCategories?.name}
+                            </span>
+                            {renderTags(selectedCurso?.tags)}
+                            {selectedCurso?.modalidad && (
+                                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                    {selectedCurso.modalidad}
+                                </span>
+                            )}
+                        </div>
+                    </DialogHeader>
+
+                    <div className="space-y-6 py-4">
+                        {/* Imagen en el modal */}
+                        {selectedCurso?.featured_img && (
+                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                <img
+                                    src={selectedCurso.featured_img}
+                                    alt={selectedCurso.fullname || selectedCurso.displayName || ""}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                        )}
+
+                        {/* Descripción/Resumen */}
+                        <div className="space-y-2">
+                            <h4 className="font-semibold text-foreground flex items-center gap-2">
+                                <BookOpen className="w-4 h-4 text-primary" />
+                                Descripción del curso
+                            </h4>
+                            <div
+                                className="text-muted-foreground text-sm leading-relaxed font-body prose prose-sm max-w-none"
+                                dangerouslySetInnerHTML={{
+                                    __html:
+                                        selectedCurso?.summary ||
+                                        "No hay una descripción detallada disponible para este curso en este momento.",
+                                }}
+                            />
+                        </div>
+
+                        {/* Precio */}
+                        {selectedCurso?.price !== null &&
+                            selectedCurso?.price !== undefined && (
+                                <div className="p-4 bg-primary/5 border border-primary/20 flex items-center justify-between">
+                                    <span className="font-medium text-foreground">
+                                        Costo del curso:
+                                    </span>
+                                    <span className="text-2xl font-bold text-primary">
+                                        $ {selectedCurso.price}
+                                    </span>
+                                </div>
+                            )}
+                    </div>
+
+                    <DialogFooter className="flex flex-col sm:flex-row gap-3 sm:gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto order-1 sm:order-2">
+                            {selectedCurso?.price &&
+                                selectedCurso?.price > 0 && (
+                                    <Link
+                                        to={`/pagar-curso/${selectedCurso.id}`}
+                                        className="w-full sm:w-auto"
+                                    >
+                                        <UniversityButton
+                                            variant="primary"
+                                            className="w-full flex items-center justify-center gap-2"
+                                        >
+                                            <CreditCard className="w-4 h-4" />
+                                            Pagar desde la web
+                                        </UniversityButton>
+                                    </Link>
+                                )}
+                            <a
+                                href={`https://api.whatsapp.com/send?phone=+5493816266870&text=Hola,%20me%20gustaria%20inscribirme%20en%20el%20curso:%20${encodeURIComponent(selectedCurso?.fullname || selectedCurso?.displayName || "")}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full sm:w-auto"
+                            >
+                                <UniversityButton
+                                    variant="primary"
+                                    className="w-full flex items-center justify-center gap-2 bg-white border border-green-600 hover:bg-green-600 hover:text-white text-green-600"
+                                >
+                                    <WhatsApp className="w-4 h-4" />
+                                    Pagar por WhatsApp
+                                </UniversityButton>
+                            </a>
+                        </div>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };

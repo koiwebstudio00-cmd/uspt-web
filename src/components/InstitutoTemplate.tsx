@@ -37,6 +37,7 @@ interface Career {
     plan_estudio_url: string;
     horarios_cursado: string;
     fecha_examenes: string;
+    clasificacion: string;
 }
 
 interface Institute {
@@ -101,26 +102,7 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
         )}, con una visión integral que combina excelencia académica, práctica profesional y compromiso social.`;
     };
 
-    // Función para obtener imagen del instituto
-    const getInstituteImage = () => {
-        if (slug.includes("diseno")) return "/images/instituo-diseno.png";
-        return "/placeholder.svg"; // Imagen por defecto
-    };
-
-    // Función para obtener color del instituto
-    const getInstituteColor = () => {
-        if (slug.includes("diseno"))
-            return "from-purple-500/70 via-purple-400/40";
-        if (slug.includes("salud")) return "from-green-500/70 via-green-400/40";
-        if (slug.includes("deporte")) return "from-blue-500/70 via-blue-400/40";
-        if (slug.includes("social"))
-            return "from-orange-500/70 via-orange-400/40";
-        if (slug.includes("tecnologia"))
-            return "from-cyan-500/70 via-cyan-400/40";
-        if (slug.includes("distancia"))
-            return "from-indigo-500/70 via-indigo-400/40";
-        return "from-primary/70 via-primary/40";
-    };
+    
 
     return (
         <div className="min-h-screen bg-background">
@@ -268,6 +250,10 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
                                                             {
                                                                 icon: MapPin,
                                                                 label: seccion?.sede,
+                                                            },
+                                                            {
+                                                                icon: GraduationCap,
+                                                                label: seccion?.clasificacion,
                                                             },
                                                         ].map(
                                                             (item, idx) =>

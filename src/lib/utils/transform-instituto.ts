@@ -59,6 +59,7 @@ export function transformInstitutoData(
             plan_estudio_url: carrera.plan_estudio_url,
             horarios_cursado: carrera.horarios_cursado,
             fecha_examenes: carrera.fecha_examenes,
+            clasificacion: carrera.clasificacion,
         })),
     };
 }

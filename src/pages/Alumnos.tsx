@@ -105,9 +105,9 @@ const Alumnos = () => {
         },
         {
             icon: BookOpen,
-            title: "Biblioteca Digital",
-            description: "Consultá libros, revistas y bases de datos online",
-            link: "#",
+            title: "Consulta de Expedientes",
+            description: "Consultá tus expedientes de forma rápida y segura",
+            link: "http://131.221.64.30/consultas/",
             color: "bg-green-500",
         },
         {
@@ -133,9 +133,9 @@ const Alumnos = () => {
         },
         {
             icon: Users,
-            title: "Mesa de Ayuda",
-            description: "Soporte técnico y consultas administrativas",
-            link: "#",
+            title: "Turnos",
+            description: "Solicitá turnos para atención presencial",
+            link: "http://131.221.64.30/turnero/",
             color: "bg-indigo-500",
         },
     ];
@@ -275,7 +275,7 @@ const Alumnos = () => {
                             </h2>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {servicios.map((servicio, index) => (
                                 <Card
                                     key={index}
@@ -365,22 +365,11 @@ const Alumnos = () => {
                                                 Email
                                             </p>
                                             <p className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                                                alumnos@uspt.edu.ar
+                                                informes@uspt.edu.ar
                                             </p>
                                         </div>
                                     </a>
 
-                                    <div className="flex items-center gap-3">
-                                        <Calendar className="w-5 h-5 text-primary" />
-                                        <div>
-                                            <p className="font-semibold">
-                                                Horarios de Atención
-                                            </p>
-                                            <p className="text-muted-foreground text-sm">
-                                                Lunes a Viernes: 8:00 - 18:00
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 

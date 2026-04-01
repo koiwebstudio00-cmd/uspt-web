@@ -40,6 +40,8 @@ import ReservaNatural from "./pages/ReservaNatural";
 import Turnos from "./pages/Turnos";
 import ConsejoEyS from "./pages/ConsejoEyS";
 import CentrosInvestigacion from "./pages/CentrosInvestigacion";
+import SECIDYC from "./pages/SECIDYC";
+import ProyectosInvestigacion from "./pages/MesaCienciaTec";
 import BolsaTrabajo from "./pages/BolsaTrabajo";
 import CarreraDetail from "./pages/CarreraDetail";
 import BlogDetail from "./pages/BlogDetail";
@@ -48,6 +50,7 @@ import CIBA from "./pages/CIBA";
 import CTD from "./pages/CTD";
 import CIAAP from "./pages/CIAAP";
 import Beneficios from "./pages/Beneficios";
+import MesaCienciaTecnologia from "./pages/MesaCienciaTec";
 
 const queryClient = new QueryClient();
 
@@ -79,29 +82,29 @@ const App = () => (
                         element={<ExtensionUniversitaria />}
                     />
                     <Route path="/alumnos" element={<Alumnos />} />
-                    <Route path="/turnos" element={<Turnos />} />
+                    {/* <Route path="/turnos" element={<Turnos />} /> */}
                     <Route path="/beneficios" element={<Beneficios />} />
 
                     {/* Institutos */}
                     <Route path="/institutos" element={<Institutos />} />
                     <Route
-                        path="/institutos/diseno-creatividad"
+                        path="/institutos/diseno-estrategia-creatividad"
                         element={<InstitutoDiseno />}
                     />
                     <Route
-                        path="/institutos/educacion-gestion-deportiva"
+                        path="/institutos/educacion-y-gestion-deportiva"
                         element={<InstitutoDeportes />}
                     />
                     <Route
-                        path="/institutos/estudios-sociales-politica-cultura"
+                        path="/institutos/estudios-sociales-politica-y-cultura"
                         element={<InstitutoSociales />}
                     />
                     <Route
-                        path="/institutos/desarrollo-innovacion-tecnologica"
+                        path="/institutos/desarrollo-e-innovacion-tecnologica-para-la-competitividad-territorial"
                         element={<InstitutoTecnologia />}
                     />
                     <Route
-                        path="/institutos/salud-calidad-vida"
+                        path="/institutos/salud-y-calidad-de-vida"
                         element={<InstitutoSalud />}
                     />
                     <Route
@@ -129,6 +132,11 @@ const App = () => (
                     <Route
                         path="/centrosinvestigacion"
                         element={<CentrosInvestigacion />}
+                    />
+                    <Route path="/secidyc" element={<SECIDYC />} />
+                    <Route
+                        path="/mesa-ciencia-tecnologia"
+                        element={<MesaCienciaTecnologia />}
                     />
                     <Route path="/investigacion/ciba" element={<CIBA />} />
                     <Route path="/investigacion/ctd" element={<CTD />} />

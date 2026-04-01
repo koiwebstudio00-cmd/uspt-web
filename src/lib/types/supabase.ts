@@ -100,6 +100,7 @@ export type Database = {
                     resolution_url: string | null;
                     sede: string | null;
                     slug: string;
+                    clasificacion: string | null;
                 };
                 Insert: {
                     created_at?: string;
@@ -116,6 +117,7 @@ export type Database = {
                     resolution_url?: string | null;
                     sede?: string | null;
                     slug: string;
+                    clasificacion?: string | null;
                 };
                 Update: {
                     created_at?: string;
@@ -132,6 +134,7 @@ export type Database = {
                     resolution_url?: string | null;
                     sede?: string | null;
                     slug?: string;
+                    clasificacion?: string | null;
                 };
                 Relationships: [
                     {
@@ -224,6 +227,8 @@ export type Database = {
                     price: number | null;
                     shortname: string | null;
                     summary: string | null;
+                    featured_img: string | null;
+                    tags: string[] | null;
                 };
                 Insert: {
                     category_id?: number | null;

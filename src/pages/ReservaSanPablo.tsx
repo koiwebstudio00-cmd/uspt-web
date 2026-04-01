@@ -379,10 +379,11 @@ const ReservaSanPablo = () => {
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
                                     <p>
-                                        [Texto a proveer: Aquí irá la historia de la Reserva San Pablo, su fundación, importancia ecológica y conexión con la Universidad San Pablo T.]
-                                    </p>
-                                    <p>
-                                        [Puede incluir detalles sobre la flora, fauna, y los proyectos de conservación que se llevan a cabo en este espacio único.]
+                                        En el 2016, la Universidad de San Pablo T, con motivo de la celebración del Bicentenario de la declaración de la Independencia, inaugura la primera reserva a cargo de una universidad privada.
+                                        <br /><br />
+                                        La reserva ocupa un territorio de más de 3000 hectáreas, emplazado desde zonas de la ruta provincial 338 hacia Villa Nougués, Tucumán.
+                                        <br /><br />
+                                        Se busca resguardar, para las actuales y futuras generaciones, el patrimonio biológico, paisajístico, cultural y arquitectónico de los faldeos de la Sierra de San Javier que se yerguen frente a la Universidad de San Pablo T.
                                     </p>
                                 </div>
                             </div>

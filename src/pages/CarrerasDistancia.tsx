@@ -33,7 +33,7 @@ const CarrerasDistancia = () => {
         loading,
         error,
     } = useCarreras({
-        modalidad: "a distancia",
+        modalidad: "A distancia",
         orderBy: "name",
         ascending: true,
     });
@@ -76,31 +76,11 @@ const CarrerasDistancia = () => {
         },
     ];
 
-    // Función para determinar el nivel de la carrera basado en el nombre
-    // TODO: Agregar campo "nivel" a la tabla carreras en el futuro
-    const getNivel = (titulo: string) => {
-        if (titulo.startsWith("Tecnicatura")) {
-            return "Tecnicatura";
-        } else if (titulo.startsWith("Profesorado")) {
-            return "Profesorado";
-        } else if (
-            titulo === "Medicina" ||
-            titulo === "Abogacía" ||
-            titulo === "Procuración" ||
-            titulo === "Arquitectura" ||
-            titulo === "Contador Público"
-        ) {
-            return "Grado";
-        } else if (titulo.startsWith("Licenciatura")) {
-            return "Licenciatura";
-        }
-        return "Grado";
-    };
 
     // Transformar los datos de Supabase para mantener compatibilidad con el componente
     const carreras = carrerasFromDB.map((carrera) => ({
         name: carrera.name,
-        nivel: getNivel(carrera.name),
+        nivel: carrera.clasificacion || "Grado",
         description: carrera.description,
         link: `/carreras/${carrera.slug}`,
         modality: carrera.modalidad,

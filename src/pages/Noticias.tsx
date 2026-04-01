@@ -7,14 +7,13 @@ import { UniversityButton } from "@/components/ui/university-button";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
 import CtaPage from "@/components/CtaPage";
 import { useBlogs } from "@/hooks/use-blogs";
-import { Calendar, User, Tag, Search, Filter, ArrowRight } from "lucide-react";
+import { Calendar, User, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 
 const Noticias = () => {
     const [filtroCategoria, setFiltroCategoria] = useState("todas");
-    const [busqueda, setBusqueda] = useState("");
 
     // Obtener todas las noticias publicadas
     const {
@@ -63,34 +62,19 @@ const Noticias = () => {
         return Array.from(categoriasSet).sort();
     }, [todasLasNoticias]);
 
-    // Filtrar noticias según búsqueda y categoría
+    // Filtrar noticias según categoría
     const noticiasFiltradas = useMemo(() => {
         return todasLasNoticias.filter((blog) => {
-            const matchCategoria =
+            return (
                 filtroCategoria === "todas" ||
                 (blog.category &&
                     Array.isArray(blog.category) &&
-                    blog.category.includes(filtroCategoria));
-
-            const matchBusqueda =
-                blog.title.toLowerCase().includes(busqueda.toLowerCase()) ||
-                extractTextFromHTML(blog.content)
-                    .toLowerCase()
-                    .includes(busqueda.toLowerCase());
-
-            return matchCategoria && matchBusqueda;
+                    blog.category.includes(filtroCategoria))
+            );
         });
-    }, [todasLasNoticias, filtroCategoria, busqueda]);
+    }, [todasLasNoticias, filtroCategoria]);
 
-    // Últimas 3 noticias
-    const ultimasNoticias = useMemo(() => {
-        return noticiasFiltradas.slice(0, 3);
-    }, [noticiasFiltradas]);
 
-    // Todas las demás noticias (excluyendo las 3 primeras)
-    const restoNoticias = useMemo(() => {
-        return noticiasFiltradas.slice(3);
-    }, [noticiasFiltradas]);
 
     const breadcrumbItems = [{ label: "Noticias" }];
 
@@ -115,23 +99,9 @@ const Noticias = () => {
                 {/* Filtros y Búsqueda */}
                 <section className="py-8 bg-white border-b border-muted2">
                     <div className="container mx-auto px-4">
-                        <div className="flex flex-col lg:flex-row gap-4 items-center">
-                            {/* Búsqueda */}
-                            <div className="relative flex-1 max-w-md w-full">
-                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                                <input
-                                    type="text"
-                                    placeholder="Buscar noticias..."
-                                    value={busqueda}
-                                    onChange={(e) =>
-                                        setBusqueda(e.target.value)
-                                    }
-                                    className="w-full pl-10 pr-4 py-2 border border-muted2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20"
-                                />
-                            </div>
-
+                        <div className="flex flex-col lg:flex-row gap-4">
                             {/* Filtros */}
-                            <div className="flex gap-4 items-center">
+                            <div className="flex gap-4 items-center w-full">
                                 <div className="flex items-center gap-2">
                                     <Filter className="w-4 h-4 text-muted-foreground" />
                                     <span className="text-sm text-muted-foreground">
@@ -203,101 +173,10 @@ const Noticias = () => {
                     </section>
                 )}
 
-                {/* Últimas Noticias */}
-                {!loading && !error && ultimasNoticias.length > 0 && (
-                    <section className="py-16 bg-muted/30">
-                        <div className="container mx-auto px-4">
-                            <h2 className="text-2xl md:text-3xl font-bold font-heading text-primary mb-8 text-center">
-                                Últimas Noticias
-                            </h2>
 
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {ultimasNoticias.map((noticia) => (
-                                    <Card
-                                        key={noticia.id}
-                                        className="border-muted2 hover:shadow-lg transition-all duration-300 overflow-hidden"
-                                    >
-                                        <div className="aspect-video relative overflow-hidden">
-                                            <img
-                                                src={
-                                                    noticia.featured_image ||
-                                                    "/images/institucional.jpg"
-                                                }
-                                                alt={noticia.title}
-                                                className="absolute inset-0 w-full h-full object-cover"
-                                            />
-                                            <div className="absolute top-4 left-4">
-                                                <span className="px-3 py-1 bg-primary text-white rounded-full text-xs font-medium">
-                                                    Reciente
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <CardHeader>
-                                            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-                                                <div className="flex items-center gap-1">
-                                                    <Calendar className="w-4 h-4" />
-                                                    <span>
-                                                        {formatDate(
-                                                            noticia.publish_date,
-                                                        )}
-                                                    </span>
-                                                </div>
-                                                {noticia.category &&
-                                                    noticia.category.length >
-                                                        0 && (
-                                                        <div className="flex items-center gap-1">
-                                                            <Tag className="w-4 h-4" />
-                                                            <span>
-                                                                {
-                                                                    noticia
-                                                                        .category[0]
-                                                                }
-                                                            </span>
-                                                        </div>
-                                                    )}
-                                            </div>
-                                            <CardTitle className="text-xl font-heading text-primary hover:text-primary/80 transition-colors">
-                                                <Link
-                                                    to={`/noticias/${noticia.slug}`}
-                                                >
-                                                    {noticia.title}
-                                                </Link>
-                                            </CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <p className="text-muted-foreground font-body mb-4 line-clamp-3">
-                                                {extractTextFromHTML(
-                                                    noticia.content,
-                                                    150,
-                                                )}
-                                            </p>
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                    <User className="w-4 h-4" />
-                                                    <span>USPT</span>
-                                                </div>
-                                                <Link
-                                                    to={`/noticias/${noticia.slug}`}
-                                                >
-                                                    <UniversityButton
-                                                        variant="secondary"
-                                                        size="sm"
-                                                    >
-                                                        Leer más
-                                                        <ArrowRight className="w-4 h-4 ml-1" />
-                                                    </UniversityButton>
-                                                </Link>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-                )}
 
                 {/* Todas las Noticias */}
-                {!loading && !error && restoNoticias.length > 0 && (
+                {!loading && !error && noticiasFiltradas.length > 0 && (
                     <section className="py-20 bg-white">
                         <div className="container mx-auto px-4">
                             <div className="flex items-center justify-between mb-8">
@@ -315,7 +194,7 @@ const Noticias = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {restoNoticias.map((noticia) => (
+                                {noticiasFiltradas.map((noticia) => (
                                     <Card
                                         key={noticia.id}
                                         className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
@@ -406,7 +285,6 @@ const Noticias = () => {
                                         variant="secondary"
                                         onClick={() => {
                                             setFiltroCategoria("todas");
-                                            setBusqueda("");
                                         }}
                                     >
                                         Limpiar Filtros

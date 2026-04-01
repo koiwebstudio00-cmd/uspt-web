@@ -40,14 +40,6 @@ const CarreraTemplate = ({
         { label: carrera.name },
     ];
 
-    // Determinar el nivel de la carrera
-    const getNivel = () => {
-        const nombre = carrera.name.toLowerCase();
-        if (nombre.startsWith("tecnicatura")) return "Tecnicatura";
-        if (nombre.startsWith("profesorado")) return "Profesorado";
-        if (nombre.startsWith("licenciatura")) return "Licenciatura";
-        return "Grado";
-    };
 
     return (
         <div className="min-h-screen bg-background">
@@ -83,7 +75,7 @@ const CarreraTemplate = ({
                                 </CardHeader>
                                 <CardContent className="pb-6 pt-3">
                                     <p className="text-base font-medium font-body">
-                                        {getNivel()}
+                                        {carrera.clasificacion || "Grado"}
                                     </p>
                                 </CardContent>
                             </Card>

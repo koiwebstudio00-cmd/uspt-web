@@ -93,42 +93,46 @@ const Navbar1 = ({
                 },
             ],
         },
-        {
+        /* {
             title: "Institutos",
             url: "/institutos",
             items: [
                 {
                     title: "Instituto de Diseño, Estrategia & Creatividad",
-                    url: "/institutos/diseno-creatividad",
+                    url: "/institutos/diseno-estrategia-creatividad",
                 },
                 {
                     title: "Instituto de Educación y Gestión Deportiva",
-                    url: "/institutos/educacion-gestion-deportiva",
+                    url: "/institutos/educacion-y-gestion-deportiva",
                 },
                 {
                     title: "Instituto de Estudios Sociales, Política y Cultura",
-                    url: "/institutos/estudios-sociales-politica-cultura",
+                    url: "/institutos/estudios-sociales-politica-y-cultura",
                 },
                 {
                     title: "Instituto de Salud y Calidad de Vida",
-                    url: "/institutos/salud-calidad-vida",
+                    url: "/institutos/salud-y-calidad-de-vida",
                 },
                 {
                     title: "Instituto de Desarrollo e Innovación Tecnológica",
-                    url: "/institutos/desarrollo-innovacion-tecnologica",
+                    url: "/institutos/desarrollo-e-innovacion-tecnologica-para-la-competitividad-territorial",
                 },
                 {
                     title: "Instituto de Educación a Distancia y Tecnología Educativa",
-                    url: "/institutos/educacion-distancia-tecnologia-educativa",
+                    url: "/institutos/educacion-a-distancia-y-tecnologia-educativa",
                 },
             ],
-        },
+        }, */
         {
             title: "IPRE",
             url: "/instituto-preuniversitario",
         },
         {
-            title: "Nosotros",
+            title: "Portal de alumnos",
+            url: "/alumnos",
+        },
+        {
+            title: "Informacion Institucional",
             url: "/nosotros",
             items: [
                 {
@@ -156,18 +160,18 @@ const Navbar1 = ({
                     url: "/consejoeys",
                 },
                 {
-                    title: "Centros de Investigación",
-                    url: "/centrosinvestigacion",
+                    title: "Secretaría de Investigación (SECIDYC)",
+                    url: "/secidyc",
+                },
+                {
+                    title: "Mesa de Ciencia y Tecnología",
+                    url: "/mesa-ciencia-tecnologia",
                 },
             ],
         },
         {
             title: "Pagos Online",
             url: "/pagos-online",
-        },
-        {
-            title: "Portal de alumnos",
-            url: "/alumnos",
         },
     ],
     auth = {
@@ -312,7 +316,7 @@ const renderMenuItem = (item: MenuItem) => {
     if (item.items) {
         return (
             <NavigationMenuItem key={item.title} className="relative">
-                <NavigationMenuTrigger className="font-heading ">
+                <NavigationMenuTrigger className="font-heading text-[13px]">
                     {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-80 z-50 ">
@@ -330,7 +334,7 @@ const renderMenuItem = (item: MenuItem) => {
         <NavigationMenuItem key={item.title}>
             <NavigationMenuLink
                 href={item.url}
-                className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center px-4 py-2 text-sm font-medium font-heading transition-colors"
+                className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center px-4 py-2 text-[13px] font-medium font-heading transition-colors"
             >
                 {item.title}
             </NavigationMenuLink>
@@ -346,7 +350,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
                 value={item.title}
                 className="border-b-0"
             >
-                <AccordionTrigger className="text-sm py-0  ">
+                <AccordionTrigger className="text-[13px] py-0  ">
                     {item.title}
                 </AccordionTrigger>
                 <AccordionContent className="mt-2">
@@ -359,7 +363,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
     }
 
     return (
-        <a key={item.title} href={item.url} className="text-sm  font-heading">
+        <a key={item.title} href={item.url} className="text-[13px]  font-heading">
             {item.title}
         </a>
     );
@@ -372,7 +376,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
             href={item.url}
         >
             <div>
-                <div className="text-sm">{item.title}</div>
+                <div className="text-[13px]">{item.title}</div>
             </div>
         </a>
     );
