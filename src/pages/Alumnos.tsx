@@ -23,6 +23,15 @@ import {
 import { Navbar1 } from "@/components/Navbar";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
 import CtaPage from "@/components/CtaPage";
+import { useCalendario } from "@/hooks/use-calendario";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
 
 const Alumnos = () => {
     const [formData, setFormData] = useState({
@@ -35,6 +44,9 @@ const Alumnos = () => {
         type: "success" | "error";
         message: string;
     } | null>(null);
+
+    const { calendario, loading: loadingCalendario } = useCalendario();
+    const [isCalendarModalOpen, setIsCalendarModalOpen] = useState(false);
 
     const breadcrumbItems = [
         { label: "Universidad", href: "/universidad" },
@@ -83,7 +95,8 @@ const Alumnos = () => {
         {
             icon: CheckCircle,
             title: "Acompañamiento Integral",
-            description: "El CIAA brinda acompañamiento en las siguientes áreas:",
+            description:
+                "El CIAA brinda acompañamiento en las siguientes áreas:",
             items: [
                 "Inscripciones",
                 "Registración y documentación",
@@ -226,20 +239,27 @@ const Alumnos = () => {
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {accesosRapidos.map((acceso, index) => (
-                                <a
+                                <div
                                     key={index}
-                                    href={acceso.link}
-                                    target={
-                                        acceso.link.startsWith("http")
-                                            ? "_blank"
-                                            : undefined
-                                    }
-                                    rel={
-                                        acceso.link.startsWith("http")
-                                            ? "noopener noreferrer"
-                                            : undefined
-                                    }
-                                    className="block"
+                                    onClick={() => {
+                                        if (
+                                            acceso.title ===
+                                            "Calendario Académico"
+                                        ) {
+                                            setIsCalendarModalOpen(true);
+                                        } else if (acceso.link !== "#") {
+                                            window.open(
+                                                acceso.link,
+                                                acceso.link.startsWith("http")
+                                                    ? "_blank"
+                                                    : "_self",
+                                                acceso.link.startsWith("http")
+                                                    ? "noopener noreferrer"
+                                                    : undefined,
+                                            );
+                                        }
+                                    }}
+                                    className="block h-full"
                                 >
                                     <Card className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full">
                                         <CardHeader className="pb-4">
@@ -261,7 +281,7 @@ const Alumnos = () => {
                                             </p>
                                         </CardContent>
                                     </Card>
-                                </a>
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -369,7 +389,6 @@ const Alumnos = () => {
                                             </p>
                                         </div>
                                     </a>
-
                                 </div>
                             </div>
 
@@ -479,6 +498,92 @@ const Alumnos = () => {
                     url="/contacto"
                 />
             </main>
+
+            {/* Modal de Calendario Académico */}
+            <Dialog
+                open={isCalendarModalOpen}
+                onOpenChange={setIsCalendarModalOpen}
+            >
+                <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl font-heading text-primary">
+                            {calendario?.titulo || "Calendario Académico"}
+                        </DialogTitle>
+                        <DialogDescription>
+                            Consultá el cronograma de actividades académicas
+                        </DialogDescription>
+                    </DialogHeader>
+
+                    <div className="space-y-6 py-4">
+                        {/* Pills/Badges */}
+                        <div className="flex flex-wrap gap-2">
+                            {calendario?.notas?.periodo && (
+                                <Badge
+                                    variant="outline"
+                                    className="px-3 py-1 border-primary/20 text-primary bg-primary/5"
+                                >
+                                    Período: {calendario.notas.periodo}
+                                </Badge>
+                            )}
+                            {calendario?.notas?.anio_lectivo && (
+                                <Badge
+                                    variant="outline"
+                                    className="px-3 py-1 border-primary/20 text-primary bg-primary/5"
+                                >
+                                    Año Lectivo: {calendario.notas.anio_lectivo}
+                                </Badge>
+                            )}
+                            {calendario?.notas?.descripcion && (
+                                <Badge
+                                    variant="secondary"
+                                    className="px-3 py-1 bg-stone-100 text-stone-600"
+                                >
+                                    {calendario.notas.descripcion}
+                                </Badge>
+                            )}
+                        </div>
+
+                        {/* Calendar Image */}
+                        <div className="relative rounded-xl border border-muted2 overflow-hidden bg-stone-50 min-h-[300px] flex items-center justify-center">
+                            {calendario?.archivo_url ? (
+                                <img
+                                    src={calendario.archivo_url}
+                                    alt="Calendario Académico"
+                                    className="w-full h-auto object-contain"
+                                    loading="lazy"
+                                />
+                            ) : (
+                                <div className="text-muted-foreground flex flex-col items-center gap-2 p-12 text-center">
+                                    <Calendar className="w-12 h-12 opacity-20" />
+                                    <p>
+                                        No se encontró la imagen del calendario
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Action Button */}
+                        {/* {calendario?.archivo_url && (
+                            <div className="flex justify-end">
+                                <UniversityButton
+                                    variant="secondary"
+                                    size="sm"
+                                    onClick={() =>
+                                        window.open(
+                                            calendario.archivo_url,
+                                            "_blank",
+                                        )
+                                    }
+                                    className="flex items-center gap-2"
+                                >
+                                    <ExternalLink className="w-4 h-4" />
+                                    Ver imagen original
+                                </UniversityButton>
+                            </div>
+                        )} */}
+                    </div>
+                </DialogContent>
+            </Dialog>
 
             <Footer />
         </div>

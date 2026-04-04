@@ -244,7 +244,7 @@ const CarreraTemplate = ({
                 )}
 
                 {/* ── Requisitos + Contacto ── */}
-                <section className="py-20 bg-white">
+                <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="grid lg:grid-cols-2 gap-14 items-start">
                             {/* Requisitos */}
@@ -337,13 +337,6 @@ const CarreraTemplate = ({
                         </div>
                     </div>
                 </section>
-
-                {/* ── CTA ── */}
-                <CtaPage
-                    title="¿Listo para comenzar tu carrera?"
-                    description="Inscribite ahora o solicitá más información sobre esta carrera"
-                    url="/contacto"
-                />
             </main>
 
             <Footer />

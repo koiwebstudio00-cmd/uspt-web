@@ -162,7 +162,7 @@ const Services = () => {
                     <div
                         ref={featuresRef.elementRef}
                         className={cn(
-                            "grid grid-cols-2 md:grid-cols-4 border border-muted2 animate-on-scroll",
+                            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-muted2 animate-on-scroll",
                             featuresRef.isIntersecting
                                 ? "animate-fade-in-up"
                                 : "",
@@ -197,7 +197,7 @@ const Services = () => {
                     {/* Encabezado */}
                     <div className="flex flex-col md:flex-row md:items-end md:justify-center gap-4 mb-12">
                         <div>
-                            <h2 className="text-4xl md:text-5xl font-heading font-medium">
+                            <h2 className="text-center text-4xl md:text-5xl font-heading font-medium">
                                 Accesos rápidos
                             </h2>
                         </div>
@@ -207,7 +207,7 @@ const Services = () => {
                     <div
                         ref={alumnosRef.elementRef}
                         className={cn(
-                            "grid grid-cols-2 md:grid-cols-3 animate-on-scroll bg-muted/30",
+                            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 animate-on-scroll bg-muted/30",
                             alumnosRef.isIntersecting
                                 ? "animate-fade-in-up"
                                 : "",

@@ -493,7 +493,7 @@ const SECIDYC = () => {
                                 {revistas.map((revista, idx) => (
                                     <div
                                         key={revista.id}
-                                        className="border-b border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors duration-200 flex flex-row"
+                                        className="border-b border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors duration-200 flex flex-col md:flex-row"
                                         style={{
                                             borderRight:
                                                 idx % 2 === 0
@@ -507,7 +507,7 @@ const SECIDYC = () => {
                                     >
                                         {/* Imagen vertical (portrait) */}
                                         {revista.image && (
-                                            <div className="w-36 flex-shrink-0 overflow-hidden border-r border-gray-200">
+                                            <div className="w-full md:w-36 flex-shrink-0 overflow-hidden border-r border-gray-200">
                                                 <img
                                                     src={revista.image}
                                                     alt={revista.title}
