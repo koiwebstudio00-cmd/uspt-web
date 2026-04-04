@@ -34,7 +34,7 @@ const ScrollToTopButton: React.FC = () => {
     return (
         <button
             onClick={scrollToTop}
-            className="fixed bottom-4 right-4 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 bg-[#4A0075] hover:to-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 active:scale-95"
+            className="fixed bottom-4 right-4 z-50 size-10 sm:size-12 md:size-14 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 bg-[#4A0075] hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 active:scale-95"
             aria-label="Volver arriba"
         >
             <ChevronUp

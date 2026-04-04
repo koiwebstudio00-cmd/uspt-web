@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { UniversityButton } from "@/components/ui/university-button";
@@ -18,7 +19,7 @@ import {
 import { Navbar1 } from "@/components/Navbar";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
 import CtaPage from "@/components/CtaPage";
-import InfoAdd from "@/components/InfoAdd";
+
 import { usePosgrados } from "@/hooks/use-posgrados";
 import { TipoPosgrado } from "@/lib/types/database";
 import { Link } from "react-router-dom";
@@ -40,7 +41,12 @@ const Posgrado = () => {
     const { posgrados, loading, error } = usePosgrados();
 
     // Obtener cursos desde la base de datos
-    const { cursos, loading: loadingCursos, error: errorCursos, count } = useCursos("Cursos | Posgrado");
+    const {
+        cursos,
+        loading: loadingCursos,
+        error: errorCursos,
+        count,
+    } = useCursos("Cursos | Posgrado");
 
     // Estado para el modal de información de curso
     const [selectedCurso, setSelectedCurso] =
@@ -142,27 +148,28 @@ const Posgrado = () => {
 
     const ventajas = [
         {
-            icon: <GraduationCap className="" />,
-            title: "Excelencia Académica",
-            description:
-                "Programas diseñados con estándares internacionales de calidad",
+            icon: GraduationCap,
+            label: "Excelencia Académica",
+            value: "Estándares internacionales",
+            description: "Programas diseñados con estándares internacionales de calidad",
         },
         {
-            icon: <Users className="" />,
-            title: "Claustro de Elite",
-            description:
-                "Profesores con amplia experiencia académica y profesional",
+            icon: Users,
+            label: "Claustro de Elite",
+            value: "Docentes especializados",
+            description: "Profesores con amplia experiencia académica y profesional",
         },
         {
-            icon: <Award className="" />,
-            title: "Reconocimiento Oficial",
+            icon: Award,
+            label: "Reconocimiento Oficial",
+            value: "Validez nacional e internacional",
             description: "Títulos con validez nacional e internacional",
         },
         {
-            icon: <BookOpen className="" />,
-            title: "Investigación Aplicada",
-            description:
-                "Proyectos de investigación vinculados con la realidad profesional",
+            icon: BookOpen,
+            label: "Investigación Aplicada",
+            value: "Vinculación profesional",
+            description: "Proyectos de investigación vinculados con la realidad profesional",
         },
     ];
 
@@ -186,8 +193,39 @@ const Posgrado = () => {
                 </div>
 
                 {/* Ventajas Section */}
-
-                <InfoAdd items={ventajas} columnas={4} />
+                <section className="py-8 md:py-16 bg-white">
+                    <div className="container mx-auto px-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 border border-muted2">
+                            {ventajas.map((v, i) => (
+                                <div
+                                    key={v.label}
+                                    className={cn(
+                                        "p-6 flex flex-col gap-2 hover:bg-primary/5 transition-colors",
+                                        i < ventajas.length - 1
+                                            ? "border-b lg:border-b-0 lg:border-r border-muted2"
+                                            : "",
+                                        i % 2 !== 0
+                                            ? "border-l lg:border-l-0 border-muted2"
+                                            : "",
+                                    )}
+                                >
+                                    <div className="w-9 h-9 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0">
+                                        <v.icon className="w-4 h-4" />
+                                    </div>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-1">
+                                        {v.label}
+                                    </p>
+                                    <p className="font-heading font-bold text-foreground text-base leading-tight">
+                                        {v.value}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground font-body leading-snug">
+                                        {v.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
                 {/* Maestrías Section */}
                 <section className="bg-primary/10 py-16">
@@ -220,7 +258,7 @@ const Posgrado = () => {
                                 </p>
                             </div>
                         ) : (
-                            <div className="grid md:grid-cols-2 gap-6">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {maestrias.map((maestria) => (
                                     <Card
                                         key={maestria.id}
@@ -304,7 +342,7 @@ const Posgrado = () => {
                                 </p>
                             </div>
                         ) : (
-                            <div className="grid md:grid-cols-2 gap-6">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {especializaciones.map((esp) => (
                                     <Card
                                         key={esp.id}
@@ -395,205 +433,236 @@ const Posgrado = () => {
                         )}
 
                         {/* Empty State */}
-                        {!loadingCursos && !errorCursos && cursos.length === 0 && (
-                            <div className="flex flex-col items-center justify-center py-12">
-                                <BookOpen className="w-12 h-12 text-muted-foreground mb-4" />
-                                <p className="text-muted-foreground font-semibold mb-2">
-                                    No hay cursos disponibles
-                                </p>
-                                <p className="text-sm text-muted-foreground">
-                                    Vuelve pronto para ver nuevas ofertas
-                                </p>
-                            </div>
-                        )}
+                        {!loadingCursos &&
+                            !errorCursos &&
+                            cursos.length === 0 && (
+                                <div className="flex flex-col items-center justify-center py-12">
+                                    <BookOpen className="w-12 h-12 text-muted-foreground mb-4" />
+                                    <p className="text-muted-foreground font-semibold mb-2">
+                                        No hay cursos disponibles
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        Vuelve pronto para ver nuevas ofertas
+                                    </p>
+                                </div>
+                            )}
 
                         {/* Courses Grid */}
-                        {!loadingCursos && !errorCursos && cursos.length > 0 && (
-                            <>
-                                {/* Page Change Loader Overlay */}
-                                {isChangingPage && (
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg min-h-[400px]">
-                                            <div className="flex flex-col items-center">
-                                                <Loader2 className="w-10 h-10 animate-spin text-primary mb-3" />
-                                                <span className="text-muted-foreground font-medium">
-                                                    Cargando página{" "}
-                                                    {currentPage}...
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div
-                                    className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 ${isChangingPage ? "opacity-50" : ""}`}
-                                >
-                                    {currentCursos.map((curso) => (
-                                        <Card
-                                            key={curso.id}
-                                            className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
-                                        >
-                                            <div className="relative aspect-video overflow-hidden rounded-t-lg">
-                                                {curso.featured_img ? (
-                                                    <img
-                                                        src={curso.featured_img}
-                                                        alt={curso.fullname || curso.displayName || ""}
-                                                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                                                    />
-                                                ) : (
-                                                    <img
-                                                        src="/images/extension.webp"
-                                                        alt={curso.fullname || curso.displayName || ""}
-                                                        className="h-full w-full object-cover object-bottom transition-transform duration-500 hover:scale-105"
-                                                    />
-                                                )}
-                                            </div>
-                                            <CardHeader className="flex-1">
-                                                <div className="space-y-3">
-                                                    <CardTitle className="text-lg font-heading text-primary leading-tight">
-                                                        {curso.fullname ||
-                                                            curso.displayName ||
-                                                            "Curso sin nombre"}
-                                                    </CardTitle>
-                                                    <div className="flex flex-wrap items-center gap-2">
-                                                        <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                                                            {
-                                                                curso
-                                                                    .courseCategories
-                                                                    .name
-                                                            }
-                                                        </span>
-                                                        {renderTags(curso.tags)}
-                                                        {curso.modalidad && (
-                                                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                                                                {curso.modalidad}
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                    {curso.price !== null &&
-                                                        curso.price !==
-                                                            undefined && (
-                                                            <div className="text-lg font-bold text-primary">
-                                                                $ {curso.price}
-                                                            </div>
-                                                        )}
+                        {!loadingCursos &&
+                            !errorCursos &&
+                            cursos.length > 0 && (
+                                <>
+                                    {/* Page Change Loader Overlay */}
+                                    {isChangingPage && (
+                                        <div className="relative">
+                                            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg min-h-[400px]">
+                                                <div className="flex flex-col items-center">
+                                                    <Loader2 className="w-10 h-10 animate-spin text-primary mb-3" />
+                                                    <span className="text-muted-foreground font-medium">
+                                                        Cargando página{" "}
+                                                        {currentPage}...
+                                                    </span>
                                                 </div>
-                                            </CardHeader>
-                                            <CardContent className="pt-0">
-                                                <UniversityButton
-                                                    variant="primary"
-                                                    size="sm"
-                                                    className="w-full flex items-center justify-center gap-2"
-                                                    onClick={() => {
-                                                        setSelectedCurso(curso);
-                                                        setIsModalOpen(true);
-                                                    }}
-                                                >
-                                                    Más información
-                                                </UniversityButton>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
+                                            </div>
+                                        </div>
+                                    )}
 
-                                {/* Pagination Controls */}
-                                {totalPages > 1 && (
-                                    <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-                                        <div className="flex items-center gap-2">
-                                            <button
-                                                onClick={() =>
-                                                    handlePageChange(
-                                                        currentPage - 1,
-                                                    )
-                                                }
-                                                disabled={
-                                                    currentPage === 1 ||
-                                                    isChangingPage
-                                                }
-                                                className="p-2 border border-muted2 hover:bg-primary/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                                                aria-label="Página anterior"
+                                    <div
+                                        className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 ${isChangingPage ? "opacity-50" : ""}`}
+                                    >
+                                        {currentCursos.map((curso) => (
+                                            <Card
+                                                key={curso.id}
+                                                className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
                                             >
-                                                <ChevronLeft className="w-5 h-5" />
-                                            </button>
-
-                                            <div className="flex items-center gap-1">
-                                                {Array.from(
-                                                    { length: totalPages },
-                                                    (_, i) => i + 1,
-                                                ).map((page) => {
-                                                    // Mostrar solo algunas páginas alrededor de la actual
-                                                    if (
-                                                        page === 1 ||
-                                                        page === totalPages ||
-                                                        (page >=
-                                                            currentPage - 1 &&
-                                                            page <=
-                                                                currentPage + 1)
-                                                    ) {
-                                                        return (
-                                                            <button
-                                                                key={page}
-                                                                onClick={() =>
-                                                                    handlePageChange(
-                                                                        page,
-                                                                    )
+                                                <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                                                    {curso.featured_img ? (
+                                                        <img
+                                                            src={
+                                                                curso.featured_img
+                                                            }
+                                                            alt={
+                                                                curso.fullname ||
+                                                                curso.displayName ||
+                                                                ""
+                                                            }
+                                                            className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                                        />
+                                                    ) : (
+                                                        <img
+                                                            src="/images/extension.webp"
+                                                            alt={
+                                                                curso.fullname ||
+                                                                curso.displayName ||
+                                                                ""
+                                                            }
+                                                            className="h-full w-full object-cover object-bottom transition-transform duration-500 hover:scale-105"
+                                                        />
+                                                    )}
+                                                </div>
+                                                <CardHeader className="flex-1">
+                                                    <div className="space-y-3">
+                                                        <CardTitle className="text-lg font-heading text-primary leading-tight">
+                                                            {curso.fullname ||
+                                                                curso.displayName ||
+                                                                "Curso sin nombre"}
+                                                        </CardTitle>
+                                                        <div className="flex flex-wrap items-center gap-2">
+                                                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                                                {
+                                                                    curso
+                                                                        .courseCategories
+                                                                        .name
                                                                 }
-                                                                disabled={
-                                                                    isChangingPage
-                                                                }
-                                                                className={`min-w-[40px] h-10 px-3 font-medium transition-colors ${
-                                                                    page ===
-                                                                    currentPage
-                                                                        ? "bg-primary text-white"
-                                                                        : "border border-muted2 hover:bg-primary/5"
-                                                                } disabled:cursor-not-allowed`}
-                                                            >
-                                                                {page}
-                                                            </button>
-                                                        );
-                                                    } else if (
-                                                        page ===
-                                                            currentPage - 2 ||
-                                                        page === currentPage + 2
-                                                    ) {
-                                                        return (
-                                                            <span
-                                                                key={page}
-                                                                className="px-2"
-                                                            >
-                                                                ...
                                                             </span>
-                                                        );
+                                                            {renderTags(
+                                                                curso.tags,
+                                                            )}
+                                                            {curso.modalidad && (
+                                                                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                                                                    {
+                                                                        curso.modalidad
+                                                                    }
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        {curso.price !== null &&
+                                                            curso.price !==
+                                                                undefined && (
+                                                                <div className="text-lg font-bold text-primary">
+                                                                    ${" "}
+                                                                    {
+                                                                        curso.price
+                                                                    }
+                                                                </div>
+                                                            )}
+                                                    </div>
+                                                </CardHeader>
+                                                <CardContent className="pt-0">
+                                                    <UniversityButton
+                                                        variant="primary"
+                                                        size="sm"
+                                                        className="w-full flex items-center justify-center gap-2"
+                                                        onClick={() => {
+                                                            setSelectedCurso(
+                                                                curso,
+                                                            );
+                                                            setIsModalOpen(
+                                                                true,
+                                                            );
+                                                        }}
+                                                    >
+                                                        Más información
+                                                    </UniversityButton>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </div>
+
+                                    {/* Pagination Controls */}
+                                    {totalPages > 1 && (
+                                        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                                            <div className="flex items-center gap-2">
+                                                <button
+                                                    onClick={() =>
+                                                        handlePageChange(
+                                                            currentPage - 1,
+                                                        )
                                                     }
-                                                    return null;
-                                                })}
+                                                    disabled={
+                                                        currentPage === 1 ||
+                                                        isChangingPage
+                                                    }
+                                                    className="p-2 border border-muted2 hover:bg-primary/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                                    aria-label="Página anterior"
+                                                >
+                                                    <ChevronLeft className="w-5 h-5" />
+                                                </button>
+
+                                                <div className="flex items-center gap-1">
+                                                    {Array.from(
+                                                        { length: totalPages },
+                                                        (_, i) => i + 1,
+                                                    ).map((page) => {
+                                                        // Mostrar solo algunas páginas alrededor de la actual
+                                                        if (
+                                                            page === 1 ||
+                                                            page ===
+                                                                totalPages ||
+                                                            (page >=
+                                                                currentPage -
+                                                                    1 &&
+                                                                page <=
+                                                                    currentPage +
+                                                                        1)
+                                                        ) {
+                                                            return (
+                                                                <button
+                                                                    key={page}
+                                                                    onClick={() =>
+                                                                        handlePageChange(
+                                                                            page,
+                                                                        )
+                                                                    }
+                                                                    disabled={
+                                                                        isChangingPage
+                                                                    }
+                                                                    className={`min-w-[40px] h-10 px-3 font-medium transition-colors ${
+                                                                        page ===
+                                                                        currentPage
+                                                                            ? "bg-primary text-white"
+                                                                            : "border border-muted2 hover:bg-primary/5"
+                                                                    } disabled:cursor-not-allowed`}
+                                                                >
+                                                                    {page}
+                                                                </button>
+                                                            );
+                                                        } else if (
+                                                            page ===
+                                                                currentPage -
+                                                                    2 ||
+                                                            page ===
+                                                                currentPage + 2
+                                                        ) {
+                                                            return (
+                                                                <span
+                                                                    key={page}
+                                                                    className="px-2"
+                                                                >
+                                                                    ...
+                                                                </span>
+                                                            );
+                                                        }
+                                                        return null;
+                                                    })}
+                                                </div>
+
+                                                <button
+                                                    onClick={() =>
+                                                        handlePageChange(
+                                                            currentPage + 1,
+                                                        )
+                                                    }
+                                                    disabled={
+                                                        currentPage ===
+                                                            totalPages ||
+                                                        isChangingPage
+                                                    }
+                                                    className="p-2 border border-muted2 hover:bg-primary/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                                    aria-label="Página siguiente"
+                                                >
+                                                    <ChevronRight className="w-5 h-5" />
+                                                </button>
                                             </div>
 
-                                            <button
-                                                onClick={() =>
-                                                    handlePageChange(
-                                                        currentPage + 1,
-                                                    )
-                                                }
-                                                disabled={
-                                                    currentPage ===
-                                                        totalPages ||
-                                                    isChangingPage
-                                                }
-                                                className="p-2 border border-muted2 hover:bg-primary/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                                                aria-label="Página siguiente"
-                                            >
-                                                <ChevronRight className="w-5 h-5" />
-                                            </button>
+                                            <p className="text-sm text-muted-foreground">
+                                                Página {currentPage} de{" "}
+                                                {totalPages}
+                                            </p>
                                         </div>
-
-                                        <p className="text-sm text-muted-foreground">
-                                            Página {currentPage} de {totalPages}
-                                        </p>
-                                    </div>
-                                )}
-                            </>
-                        )}
+                                    )}
+                                </>
+                            )}
                     </div>
                 </section>
 
@@ -637,7 +706,11 @@ const Posgrado = () => {
                             <div className="relative aspect-video overflow-hidden rounded-lg">
                                 <img
                                     src={selectedCurso.featured_img}
-                                    alt={selectedCurso.fullname || selectedCurso.displayName || ""}
+                                    alt={
+                                        selectedCurso.fullname ||
+                                        selectedCurso.displayName ||
+                                        ""
+                                    }
                                     className="h-full w-full object-cover"
                                 />
                             </div>

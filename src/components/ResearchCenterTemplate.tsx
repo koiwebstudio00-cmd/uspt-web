@@ -22,7 +22,7 @@ const ResearchCenterTemplate = ({
     heroImage,
     images,
     breadcrumbItems = [
-        { label: "Inicio", href: "/" },
+        { label: "SECIDYC", href: "/secidyc" },
         { label: "Investigación", href: "/centrosinvestigacion" },
         { label: title },
     ],

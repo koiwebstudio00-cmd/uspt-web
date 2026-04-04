@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { UniversityButton } from "@/components/ui/university-button";
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 
 const CentrosInvestigacion = () => {
     // Datos de las investigaciones
@@ -31,6 +32,10 @@ const CentrosInvestigacion = () => {
             link: "/investigacion/ciaap",
         },
     ];
+    const breadcrumbItems = [
+        { label: "SECIDYC", href: "/secidyc" },
+        { label: "Centros de Investigación" },
+    ];
 
     return (
         <div className="min-h-screen bg-background">
@@ -43,6 +48,9 @@ const CentrosInvestigacion = () => {
                     minHeight="500"
                     imageUrl="/images/centroinv.jpg"
                 />
+                <div className="container mx-auto px-4 py-6">
+                    <Breadcrumbs items={breadcrumbItems} />
+                </div>
 
                 {/* Investigaciones Section */}
                 <section className="py-16 bg-white">

@@ -668,6 +668,45 @@ export type Database = {
                 };
                 Relationships: [];
             };
+            revistas_cientificas: {
+                Row: {
+                    id: string;
+                    title: string;
+                    area: string | null;
+                    description: string | null;
+                    link: string | null;
+                    image: string | null;
+                    is_active: boolean;
+                    sort_order: number;
+                    created_at: string;
+                    updated_at: string;
+                };
+                Insert: {
+                    id?: string;
+                    title: string;
+                    area?: string | null;
+                    description?: string | null;
+                    link?: string | null;
+                    image?: string | null;
+                    is_active?: boolean;
+                    sort_order?: number;
+                    created_at?: string;
+                    updated_at?: string;
+                };
+                Update: {
+                    id?: string;
+                    title?: string;
+                    area?: string | null;
+                    description?: string | null;
+                    link?: string | null;
+                    image?: string | null;
+                    is_active?: boolean;
+                    sort_order?: number;
+                    created_at?: string;
+                    updated_at?: string;
+                };
+                Relationships: [];
+            };
         };
         Views: {
             [_ in never]: never;

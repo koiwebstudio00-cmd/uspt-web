@@ -264,7 +264,8 @@ const Contacto = () => {
                                                             {item.label}
                                                         </span>
                                                     </div>
-                                                    {canal.titulo === "Emails" ? (
+                                                    {canal.titulo ===
+                                                    "Emails" ? (
                                                         <a
                                                             href={`mailto:${item.valor}`}
                                                             className="text-primary font-medium mb-1 hover:text-primary/80 transition-colors block"
@@ -479,7 +480,7 @@ const Contacto = () => {
                 </section>
 
                 {/* Mapa */}
-                <section className="py-16 bg-white">
+                {/* <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-8">
                             <h3 className="text-2xl font-bold font-heading text-primary mb-4">
@@ -491,7 +492,7 @@ const Contacto = () => {
                             </p>
                         </div>
 
-                        <div className="aspect-video bg-muted/30 rounded-xl border border-muted2 flex items-center justify-center">
+                        <div className="aspect-video max-h-[500px] flex items-center justify-center mx-auto">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.0886244846993!2d-65.32085712076517!3d-26.86892523120775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c1062e4b6b5%3A0x80c4c55f91f1ff82!2sSan%20Pablo-T!5e0!3m2!1ses!2sar!4v1759235318265!5m2!1ses!2sar"
                                 loading="lazy"
@@ -499,7 +500,7 @@ const Contacto = () => {
                             ></iframe>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* CTA Section - WhatsApp Contacts */}
                 <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden">

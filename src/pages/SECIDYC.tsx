@@ -4,7 +4,16 @@ import Footer from "@/components/Footer";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { useBlogs } from "@/hooks/use-blogs";
-import { Mail, Phone, MapPin, ArrowRight, Calendar } from "lucide-react";
+import { useRevistas } from "@/hooks/use-revistas";
+import {
+    Mail,
+    Phone,
+    MapPin,
+    ArrowRight,
+    Calendar,
+    Loader2,
+    BookMarked,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
@@ -40,6 +49,8 @@ const SECIDYC = () => {
         ascending: false,
     });
 
+    const { revistas, loading: loadingRevistas } = useRevistas();
+
     const noticiasInvestigacion = useMemo(() => {
         return noticias
             .filter(
@@ -47,8 +58,8 @@ const SECIDYC = () => {
                     blog.category &&
                     Array.isArray(blog.category) &&
                     blog.category.some((cat) =>
-                        cat.toLowerCase().includes("investigacion")
-                    )
+                        cat.toLowerCase().includes("investigacion"),
+                    ),
             )
             .slice(0, 3);
     }, [noticias]);
@@ -83,37 +94,6 @@ const SECIDYC = () => {
         { inst: "IEDTE", name: "Lic. Wladimir Wolters Albarracin" },
     ];
 
-    const revistas = [
-        {
-            title: "REVISTA CIENTÍFICA IDITEC",
-            area: "Tecnología de los Alimentos · Agricultura y Gestión · Ciencias Biológicas",
-            desc: "Revista del Instituto de Innovación Tecnológica para la Competitividad Territorial. Recoge investigaciones científicas y artículos de revisión orientados tanto a la teoría como a la práctica, buscando profundizar en el conocimiento científico aplicado al desarrollo tecnológico y la competitividad territorial.",
-            link: "",
-            image: ""
-        },
-        {
-            title: "REVISTA CIENTÍFICA IESPYC",
-            area: "Derecho · Ciencia Política · Relaciones Internacionales",
-            desc: "Aborda temas multidisciplinarios con interés regional, nacional e internacional, sirviendo a la comunidad científica y académica. Su misión es generar un espacio de diálogo entre la producción académica local y los debates globales.",
-            link: "",
-            image: ""
-        },
-        {
-            title: "REVISTA DE ANÁLISIS CONTEMPORÁNEO — EISÉGESIS",
-            area: "Análisis Crítico e Interpretación",
-            desc: "Eiségesis reivindica la voz de quien interpreta. Frente a la exégesis que busca descifrar lo ya dicho, esta publicación asume que el conocimiento no es un archivo cerrado, sino un diálogo vivo. Invita al lector a participar activamente en la construcción del sentido.",
-            link: "",
-            image: ""
-        },
-        {
-            title: "REVISTA DE ARTE — CADÁVER EXQUISITO",
-            area: "Arte y Creación",
-            desc: "Nace como un acto de resistencia frente a lo efímero. Igual que en el juego surrealista, las voces se cruzan y en esa combinación inesperada surge un sentido nuevo. Cada obra es fragmento y totalidad. Una plataforma donde la creación colectiva genera un lenguaje propio.",
-            link: "",
-            image: ""
-        },
-    ];
-
     return (
         <div className="min-h-screen bg-white">
             <Navbar1 />
@@ -143,10 +123,12 @@ const SECIDYC = () => {
                                         Desarrollo y Cultura
                                     </h2>
                                     <p className="text-base text-gray-600 leading-relaxed font-body">
-                                        La SECIDYC tiene como misión asistir y asesorar en la
-                                        planificación, programación, coordinación, gestión y
-                                        evaluación de las actividades vinculadas a investigación y
-                                        desarrollo de la Universidad San Pablo Tucumán.
+                                        La SECIDYC tiene como misión asistir y
+                                        asesorar en la planificación,
+                                        programación, coordinación, gestión y
+                                        evaluación de las actividades vinculadas
+                                        a investigación y desarrollo de la
+                                        Universidad San Pablo Tucumán.
                                     </p>
                                 </div>
 
@@ -161,7 +143,10 @@ const SECIDYC = () => {
                                                 className="flex gap-5 items-start py-4 border-b border-gray-100 last:border-b-0"
                                             >
                                                 <span className="text-xs font-bold text-primary mt-0.5 w-5 flex-shrink-0 tabular-nums">
-                                                    {String(i + 1).padStart(2, "0")}
+                                                    {String(i + 1).padStart(
+                                                        2,
+                                                        "0",
+                                                    )}
                                                 </span>
                                                 <span className="text-sm text-gray-600 font-body leading-relaxed">
                                                     {func}
@@ -218,11 +203,13 @@ const SECIDYC = () => {
                                     Consejo de Investigación
                                 </h2>
                                 <p className="text-sm text-gray-600 font-body leading-relaxed max-w-2xl">
-                                    Creado para fortalecer y optimizar las tareas de la SECIDYC,
-                                    constituyéndose como el nexo principal entre ésta y los
-                                    institutos, canalizando propuestas, actividades, necesidades
-                                    y demandas relacionadas con la investigación. Su renovación
-                                    es anual.
+                                    Creado para fortalecer y optimizar las
+                                    tareas de la SECIDYC, constituyéndose como
+                                    el nexo principal entre ésta y los
+                                    institutos, canalizando propuestas,
+                                    actividades, necesidades y demandas
+                                    relacionadas con la investigación. Su
+                                    renovación es anual.
                                 </p>
                             </div>
 
@@ -323,7 +310,11 @@ const SECIDYC = () => {
                                         <div className="p-6 flex flex-col flex-grow border-t border-gray-200">
                                             <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
                                                 <Calendar className="w-3 h-3" />
-                                                <span>{formatDate(noticia.publish_date)}</span>
+                                                <span>
+                                                    {formatDate(
+                                                        noticia.publish_date,
+                                                    )}
+                                                </span>
                                             </div>
                                             <h3 className="text-sm font-bold font-heading text-gray-900 mb-4 leading-snug flex-grow line-clamp-3">
                                                 <Link
@@ -362,14 +353,17 @@ const SECIDYC = () => {
                                     Tecnológica (UVT)
                                 </h2>
                                 <p className="text-sm text-gray-600 font-body leading-relaxed mb-8">
-                                    La Unidad de Vinculación Tecnológica de la Universidad San
-                                    Pablo Tucumán fue creada en el marco de la Ley 23.877 de
-                                    Promoción y Fomento de la Innovación Tecnológica. Su función
-                                    principal es facilitar la vinculación entre el sistema
-                                    científico y el sector productivo, actuando como nexo entre
-                                    los equipos científicos y las demandas de la sociedad con el
-                                    objetivo de mejorar la calidad de vida y fomentar el
-                                    desarrollo regional.
+                                    La Unidad de Vinculación Tecnológica de la
+                                    Universidad San Pablo Tucumán fue creada en
+                                    el marco de la Ley 23.877 de Promoción y
+                                    Fomento de la Innovación Tecnológica. Su
+                                    función principal es facilitar la
+                                    vinculación entre el sistema científico y el
+                                    sector productivo, actuando como nexo entre
+                                    los equipos científicos y las demandas de la
+                                    sociedad con el objetivo de mejorar la
+                                    calidad de vida y fomentar el desarrollo
+                                    regional.
                                 </p>
 
                                 <div className="mb-8">
@@ -387,7 +381,10 @@ const SECIDYC = () => {
                                                 className="flex gap-5 items-start px-5 py-4 border-b border-gray-100 last:border-b-0 bg-white"
                                             >
                                                 <span className="text-xs font-bold text-primary mt-0.5 flex-shrink-0">
-                                                    {String(i + 1).padStart(2, "0")}
+                                                    {String(i + 1).padStart(
+                                                        2,
+                                                        "0",
+                                                    )}
                                                 </span>
                                                 <span className="text-xs text-gray-600 font-body leading-relaxed">
                                                     {point}
@@ -404,15 +401,17 @@ const SECIDYC = () => {
                                         </p>
                                         <ul className="space-y-2 text-xs text-gray-600 font-body">
                                             <li className="pb-2 border-b border-gray-100">
-                                                Gestión de transferencia tecnológica y protección
-                                                del conocimiento.
+                                                Gestión de transferencia
+                                                tecnológica y protección del
+                                                conocimiento.
                                             </li>
                                             <li className="pb-2 border-b border-gray-100">
-                                                Gestión de proyectos para empresas, ONGs e
-                                                instituciones.
+                                                Gestión de proyectos para
+                                                empresas, ONGs e instituciones.
                                             </li>
                                             <li>
-                                                Asesoría y apoyo técnico a empresas e instituciones.
+                                                Asesoría y apoyo técnico a
+                                                empresas e instituciones.
                                             </li>
                                         </ul>
                                     </div>
@@ -431,7 +430,10 @@ const SECIDYC = () => {
                                             </div>
                                             <div className="flex items-start gap-2">
                                                 <MapPin className="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0" />
-                                                <span>24 de Septiembre 476, San Miguel de Tucumán</span>
+                                                <span>
+                                                    24 de Septiembre 476, San
+                                                    Miguel de Tucumán
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -450,7 +452,8 @@ const SECIDYC = () => {
                                         USPT — Tucumán
                                     </p>
                                     <p className="text-white font-bold font-heading text-lg leading-snug">
-                                        Conectamos la academia con las demandas reales de la industria
+                                        Conectamos la academia con las demandas
+                                        reales de la industria
                                     </p>
                                 </div>
                             </div>
@@ -463,44 +466,96 @@ const SECIDYC = () => {
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
                             <h2 className="text-3xl font-bold font-heading text-gray-900 mb-4">
-                                Revistas de Investigación y Divulgación Científica
+                                Revistas de Investigación y Divulgación
+                                Científica
                             </h2>
                             <p className="text-sm text-gray-600 font-body max-w-2xl">
-                                Publicaciones periódicas que recogen investigaciones originales y
-                                promueven el diálogo intelectual en diversas disciplinas del conocimiento.
+                                Publicaciones periódicas que recogen
+                                investigaciones originales y promueven el
+                                diálogo intelectual en diversas disciplinas del
+                                conocimiento.
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-0 border border-gray-200">
-                            {revistas.map((revista, idx) => (
-                                <div
-                                    key={idx}
-                                    className="p-8 border-b border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors duration-200 flex flex-col"
-                                    style={{
-                                        borderRight: idx % 2 === 0 ? undefined : "none",
-                                        borderBottom:
-                                            idx >= revistas.length - 2 ? "none" : undefined,
-                                    }}
-                                >
-                                    <div className="mb-5">
-                                        <h3 className="text-base font-bold font-heading text-gray-900 mt-2 leading-snug">
-                                            {revista.title}
-                                        </h3>
-                                        <p className="text-xs text-gray-400 mt-1 font-body">
-                                            {revista.area}
-                                        </p>
+                        {loadingRevistas ? (
+                            <div className="flex justify-center items-center py-12">
+                                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                            </div>
+                        ) : revistas.length === 0 ? (
+                            <div className="flex flex-col items-center justify-center py-16 border border-gray-200 bg-white">
+                                <BookMarked className="w-10 h-10 text-gray-300 mb-4" />
+                                <p className="text-sm text-gray-400 font-body">
+                                    No hay revistas disponibles en este momento
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="grid md:grid-cols-2 gap-0 border border-gray-200">
+                                {revistas.map((revista, idx) => (
+                                    <div
+                                        key={revista.id}
+                                        className="border-b border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors duration-200 flex flex-row"
+                                        style={{
+                                            borderRight:
+                                                idx % 2 === 0
+                                                    ? undefined
+                                                    : "none",
+                                            borderBottom:
+                                                idx >= revistas.length - 2
+                                                    ? "none"
+                                                    : undefined,
+                                        }}
+                                    >
+                                        {/* Imagen vertical (portrait) */}
+                                        {revista.image && (
+                                            <div className="w-36 flex-shrink-0 overflow-hidden border-r border-gray-200">
+                                                <img
+                                                    src={revista.image}
+                                                    alt={revista.title}
+                                                    className="w-full h-full object-cover object-center"
+                                                    style={{
+                                                        aspectRatio: "2/3",
+                                                    }}
+                                                />
+                                            </div>
+                                        )}
+
+                                        {/* Contenido */}
+                                        <div className="flex flex-col flex-1 p-6">
+                                            <div className="mb-4">
+                                                <h3 className="text-base font-bold font-heading text-gray-900 leading-snug">
+                                                    {revista.title}
+                                                </h3>
+                                                {revista.area && (
+                                                    <p className="text-xs text-gray-400 mt-1 font-body">
+                                                        {revista.area}
+                                                    </p>
+                                                )}
+                                            </div>
+                                            <p className="text-xs text-gray-600 leading-relaxed font-body flex-grow">
+                                                {revista.description}
+                                            </p>
+                                            <div className="mt-5 pt-4 border-t border-gray-100">
+                                                {revista.link ? (
+                                                    <a
+                                                        href={revista.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline uppercase tracking-wider"
+                                                    >
+                                                        Ver Revista
+                                                        <ArrowRight className="w-3 h-3" />
+                                                    </a>
+                                                ) : (
+                                                    <span className="text-xs font-bold tracking-wider uppercase text-gray-300">
+                                                        Próximamente disponible
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p className="text-xs text-gray-600 leading-relaxed font-body flex-grow">
-                                        {revista.desc}
-                                    </p>
-                                    <div className="mt-6 pt-4 border-t border-gray-100">
-                                        <span className="text-xs font-bold tracking-wider uppercase text-gray-300">
-                                            Próximamente disponible
-                                        </span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </section>
             </main>

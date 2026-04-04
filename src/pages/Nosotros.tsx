@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import heroImage from "@/assets/hero-university.jpg";
 // Se elimina Header para evitar import no usado
 // import Header from "@/components/Header";
@@ -80,6 +80,37 @@ const HeroInstitucional: React.FC = () => {
     );
 };
 
+const sliderImages = [
+    { src: "/images/nosotros-2.webp", alt: "Archivo histórico USPT" },
+    { src: "/images/nosotros-1.webp", alt: "Campus actual USPT" },
+    { src: "/images/IMG_4687.webp", alt: "Estudiantes USPT" },
+];
+
+const PhotoSlider: React.FC = () => {
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % sliderImages.length);
+        }, 3500);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <div className="aspect-square overflow-hidden border border-muted2 relative">
+            {sliderImages.map((img, index) => (
+                <img
+                    key={img.src}
+                    src={img.src}
+                    alt={img.alt}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000"
+                    style={{ opacity: index === current ? 1 : 0 }}
+                />
+            ))}
+        </div>
+    );
+};
+
 const HistoriaFundacion: React.FC = () => {
     const ref = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2 });
     return (
@@ -138,30 +169,8 @@ const HistoriaFundacion: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Collage de fotos */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="aspect-[4/3] overflow-hidden border border-muted2">
-                            <img
-                                src="/images/nosotros-2.webp"
-                                alt="Archivo histórico USPT"
-                                className="w-full h-full object-cover grayscale"
-                            />
-                        </div>
-                        <div className="aspect-[4/3] overflow-hidden border border-muted2">
-                            <img
-                                src="/images/nosotros-1.webp"
-                                alt="Campus actual USPT"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        <div className="col-span-2 aspect-[5/2] overflow-hidden border border-muted2">
-                            <img
-                                src="/images/IMG_4687.webp"
-                                alt="Estudiantes USPT"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
+                    {/* Slider de fotos */}
+                    <PhotoSlider />
                 </div>
             </div>
         </section>

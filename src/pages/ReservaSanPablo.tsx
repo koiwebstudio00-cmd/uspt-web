@@ -324,11 +324,18 @@ const ReservaSanPablo = () => {
                                                 <p className="text-sm text-muted-foreground mb-2">
                                                     Importe a pagar
                                                 </p>
-                                                {tipoReserva === "grupal" && reservaGrupal && parseInt(cantidad) > 0 && (
-                                                    <p className="text-sm text-muted-foreground mb-1">
-                                                        ${reservaGrupal.precio.toLocaleString("es-AR")} × {cantidad} personas
-                                                    </p>
-                                                )}
+                                                {tipoReserva === "grupal" &&
+                                                    reservaGrupal &&
+                                                    parseInt(cantidad) > 0 && (
+                                                        <p className="text-sm text-muted-foreground mb-1">
+                                                            $
+                                                            {reservaGrupal.precio.toLocaleString(
+                                                                "es-AR",
+                                                            )}{" "}
+                                                            × {cantidad}{" "}
+                                                            personas
+                                                        </p>
+                                                    )}
                                                 <p className="text-4xl font-bold text-primary">
                                                     $
                                                     {importe.toLocaleString(
@@ -379,23 +386,34 @@ const ReservaSanPablo = () => {
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
                                     <p>
-                                        En el 2016, la Universidad de San Pablo T, con motivo de la celebración del Bicentenario de la declaración de la Independencia, inaugura la primera reserva a cargo de una universidad privada.
-                                        <br /><br />
-                                        La reserva ocupa un territorio de más de 3000 hectáreas, emplazado desde zonas de la ruta provincial 338 hacia Villa Nougués, Tucumán.
-                                        <br /><br />
-                                        Se busca resguardar, para las actuales y futuras generaciones, el patrimonio biológico, paisajístico, cultural y arquitectónico de los faldeos de la Sierra de San Javier que se yerguen frente a la Universidad de San Pablo T.
+                                        En el 2016, la Universidad de San Pablo
+                                        T, con motivo de la celebración del
+                                        Bicentenario de la declaración de la
+                                        Independencia, inaugura la primera
+                                        reserva a cargo de una universidad
+                                        privada.
+                                        <br />
+                                        <br />
+                                        La reserva ocupa un territorio de más de
+                                        3000 hectáreas, emplazado desde zonas de
+                                        la ruta provincial 338 hacia Villa
+                                        Nougués, Tucumán.
+                                        <br />
+                                        <br />
+                                        Se busca resguardar, para las actuales y
+                                        futuras generaciones, el patrimonio
+                                        biológico, paisajístico, cultural y
+                                        arquitectónico de los faldeos de la
+                                        Sierra de San Javier que se yerguen
+                                        frente a la Universidad de San Pablo T.
                                     </p>
                                 </div>
                             </div>
-                            <div className="h-[400px] rounded-xl overflow-hidden shadow-lg border border-muted2">
+                            <div className="h-[400px] overflow-hidden shadow-lg border border-muted2">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.0886244846993!2d-65.32085712076517!3d-26.86892523120775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c1062e4b6b5%3A0x80c4c55f91f1ff82!2sSan%20Pablo-T!5e0!3m2!1ses!2sar!4v1759235318265!5m2!1ses!2sar"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10616.961583937617!2d-65.34572847776148!3d-26.866596992606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94224387d0bb638b%3A0xa2079d5a64992c9a!2sReserva%20San%20Pablo!5e0!3m2!1ses-419!2sar!4v1775257954121!5m2!1ses-419!2sar"
                                     loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
+                                    className="w-full h-full"
                                 ></iframe>
                             </div>
                         </div>

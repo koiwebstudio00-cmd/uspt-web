@@ -55,8 +55,6 @@ const ReservaNatural = () => {
                     <Breadcrumbs items={breadcrumbItems} className="my-8" />
                 </div>
 
-
-
                 {/* Historia y Fundación */}
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
@@ -164,11 +162,10 @@ const ReservaNatural = () => {
                             <div className="relative">
                                 <div className="bg-white border border-muted2 overflow-hidden h-[360px] flex items-center justify-center">
                                     <iframe
-                                        title="Mapa de la Sierra de San Javier"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.0886244846993!2d-65.32085712076517!3d-26.86892523120775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c1062e4b6b5%3A0x80c4c55f91f1ff82!2sSan%20Pablo-T!5e0!3m2!1ses!2sar!4v1759235318265!5m2!1ses!2sar"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10616.961583937617!2d-65.34572847776148!3d-26.866596992606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94224387d0bb638b%3A0xa2079d5a64992c9a!2sReserva%20San%20Pablo!5e0!3m2!1ses-419!2sar!4v1775257954121!5m2!1ses-419!2sar"
                                         loading="lazy"
                                         className="w-full h-full"
-                                    />
+                                    ></iframe>
                                 </div>
                                 <div className="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
                                     <MapPin className="w-4 h-4 text-foreground" />
@@ -325,7 +322,6 @@ const ReservaNatural = () => {
                     buttonText="Participá de una visita"
                     backgroundImage="/reserva/reserva.jpg"
                 />
-
             </main>
 
             <Footer />

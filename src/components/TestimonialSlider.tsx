@@ -60,7 +60,7 @@ export default function TestimonialSlider({ items }: { items: Testimonial[] }) {
                     <CarouselContent>
                         {items.map((testimonial, idx) => (
                             <CarouselItem key={idx}>
-                                <div className="text-center px-8">
+                                <div className="text-center px-8 cursor-default">
                                     <div className="max-w-3xl mx-auto">
                                         {/* Icono de comillas */}
                                         <div className="mb-8">
@@ -74,7 +74,7 @@ export default function TestimonialSlider({ items }: { items: Testimonial[] }) {
                                         </div>
 
                                         {/* Testimonio */}
-                                        <blockquote className="text-sm sm:text-xl md:text-2xl leading-relaxed text-foreground/90 mb-8 font-body italic">
+                                        <blockquote className="text-sm sm:text-xl leading-relaxed text-foreground/90 mb-8 font-body italic">
                                             {testimonial.quote}
                                         </blockquote>
 

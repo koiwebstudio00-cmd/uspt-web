@@ -115,3 +115,20 @@ export interface Posgrado {
     slug: string;
     duration: number;
 }
+
+/**
+ * Tabla: revistas_cientificas
+ * Publicaciones científicas de la USPT gestionadas desde el CMS
+ */
+export interface RevistaCientifica {
+    id: string;
+    title: string;
+    area: string | null;
+    description: string | null;
+    link: string | null;
+    image: string | null;
+    is_active: boolean;
+    sort_order: number;
+    created_at: string;
+    updated_at: string;
+}

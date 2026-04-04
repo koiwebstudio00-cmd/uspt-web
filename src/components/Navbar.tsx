@@ -67,10 +67,10 @@ const Navbar1 = ({
             title: "Universidad",
             url: "/universidad",
             items: [
-                {
+                /* {
                     title: "Nuestra Oferta",
                     url: "/universidad",
-                },
+                }, */
                 {
                     title: "Nuestros Institutos",
                     url: "/institutos",
@@ -162,6 +162,10 @@ const Navbar1 = ({
                 {
                     title: "Secretaría de Investigación (SECIDYC)",
                     url: "/secidyc",
+                },
+                {
+                    title: "Centros de Investigación",
+                    url: "/centrosinvestigacion",
                 },
                 {
                     title: "Mesa de Ciencia y Tecnología",
@@ -363,7 +367,11 @@ const renderMobileMenuItem = (item: MenuItem) => {
     }
 
     return (
-        <a key={item.title} href={item.url} className="text-[13px]  font-heading">
+        <a
+            key={item.title}
+            href={item.url}
+            className="text-[13px]  font-heading"
+        >
             {item.title}
         </a>
     );
