@@ -381,7 +381,7 @@ const ReservaSanPablo = () => {
                     <div className="container mx-auto px-4">
                         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h2 className="text-3xl font-bold font-heading text-primary mb-6">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Historia de Reserva San Pablo
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground font-body leading-relaxed">

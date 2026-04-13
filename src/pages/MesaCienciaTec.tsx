@@ -68,7 +68,7 @@ const MesaCienciaTecnologia = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid lg:grid-cols-3 gap-16 items-start">
                             <div className="lg:col-span-2">
-                                <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6 leading-tight">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 leading-tight">
                                     Mesa de Ciencia y Tecnología
                                     <br />
                                     de la Provincia de Tucumán
@@ -110,7 +110,7 @@ const MesaCienciaTecnologia = () => {
                                 <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">
                                     Misión
                                 </p>
-                                <h2 className="text-2xl font-bold font-heading text-gray-900 mb-6">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Por qué existimos
                                 </h2>
                                 <div className="space-y-4">
@@ -134,7 +134,7 @@ const MesaCienciaTecnologia = () => {
                                 <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">
                                     Visión
                                 </p>
-                                <h2 className="text-2xl font-bold font-heading text-gray-900 mb-6">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Hacia dónde vamos
                                 </h2>
                                 <div className="space-y-4">
@@ -159,7 +159,7 @@ const MesaCienciaTecnologia = () => {
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
-                            <h2 className="text-3xl font-bold font-heading text-gray-900">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
                                 Valores
                             </h2>
                         </div>

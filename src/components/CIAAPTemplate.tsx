@@ -115,15 +115,10 @@ const CIAAPTemplate = ({
             <section className="py-16 bg-muted/30">
                 <div className="container mx-auto px-4">
                     <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-12">
-                            <div className="flex items-center justify-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                    <Award className="w-6 h-6 text-primary" />
-                                </div>
-                                <h2 className="text-3xl font-heading font-bold text-primary">
-                                    Valores Organizacionales
-                                </h2>
-                            </div>
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
+                                Valores Organizacionales
+                            </h2>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {values.map((value, index) => (
@@ -154,15 +149,10 @@ const CIAAPTemplate = ({
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-12">
-                            <div className="flex items-center justify-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                    <Network className="w-6 h-6 text-primary" />
-                                </div>
-                                <h2 className="text-3xl font-heading font-bold text-primary">
-                                    Estructura Organizacional
-                                </h2>
-                            </div>
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
+                                Estructura Organizacional
+                            </h2>
                         </div>
                         <Card className="border-muted2 shadow-lg">
                             <CardContent className="p-8">
@@ -293,16 +283,11 @@ const CIAAPTemplate = ({
             <section className="py-16 bg-muted/30">
                 <div className="container mx-auto px-4">
                     <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-12">
-                            <div className="flex items-center justify-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                    <Users className="w-6 h-6 text-primary" />
-                                </div>
-                                <h2 className="text-3xl font-heading font-bold text-primary">
-                                    Quiénes Somos
-                                </h2>
-                            </div>
-                            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
+                                Quiénes Somos
+                            </h2>
+                            <p className="text-xl text-muted-foreground font-body max-w-3xl mx-auto">
                                 Conocé al equipo de profesionales que conforman
                                 el {title}
                             </p>

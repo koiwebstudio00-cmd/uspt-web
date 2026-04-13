@@ -117,7 +117,7 @@ const SECIDYC = () => {
                             {/* Misión + Funciones */}
                             <div className="lg:col-span-2 space-y-10">
                                 <div>
-                                    <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6 leading-tight">
+                                    <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 leading-tight">
                                         Secretaría de Investigación,
                                         <br />
                                         Desarrollo y Cultura
@@ -133,7 +133,7 @@ const SECIDYC = () => {
                                 </div>
 
                                 <div>
-                                    <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-6 pb-3 border-b border-gray-200">
+                                    <h3 className="text-sm font-heading font-bold tracking-widest uppercase text-primary mb-6 pb-3 border-b border-gray-200">
                                         Funciones Principales
                                     </h3>
                                     <ol className="space-y-0">
@@ -199,7 +199,7 @@ const SECIDYC = () => {
                                 <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">
                                     Resolución 260/2015
                                 </p>
-                                <h2 className="text-3xl font-bold font-heading text-gray-900 mb-4">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Consejo de Investigación
                                 </h2>
                                 <p className="text-sm text-gray-600 font-body leading-relaxed max-w-2xl">
@@ -243,7 +243,7 @@ const SECIDYC = () => {
                 <section className="py-20 bg-white border-b border-gray-200">
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
-                            <h2 className="text-3xl font-bold font-heading text-gray-900">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
                                 Centros de Investigación
                             </h2>
                         </div>
@@ -287,7 +287,7 @@ const SECIDYC = () => {
                     <section className="py-20 bg-gray-50 border-b border-gray-200">
                         <div className="container mx-auto px-4">
                             <div className="mb-12">
-                                <h2 className="text-3xl font-bold font-heading text-gray-900">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
                                     Noticias de Investigación
                                 </h2>
                             </div>
@@ -347,7 +347,7 @@ const SECIDYC = () => {
                                 <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">
                                     Ley 23.877 — Innovación Tecnológica
                                 </p>
-                                <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6 leading-tight">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 leading-tight">
                                     Unidad de Vinculación
                                     <br />
                                     Tecnológica (UVT)
@@ -465,7 +465,7 @@ const SECIDYC = () => {
                 <section className="py-20 bg-gray-50">
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
-                            <h2 className="text-3xl font-bold font-heading text-gray-900 mb-4">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Revistas de Investigación y Divulgación
                                 Científica
                             </h2>

@@ -115,7 +115,7 @@ const AcademicOffering = () => {
     return (
         <section id="carreras" className="">
             <Gallery4
-                title={<span className="text-primary text-center">Nuestra Oferta Académica</span>}
+                title="Nuestra Oferta Académica"
                 description="Descubrí los programas académicos que te formarán como profesional de excelencia"
                 items={offerings.map((item) => ({
                     id: item.id,

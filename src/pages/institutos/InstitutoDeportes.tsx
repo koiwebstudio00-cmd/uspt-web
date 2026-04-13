@@ -38,6 +38,7 @@ const InstitutoDeportes = () => {
         <InstitutoTemplate
             institute={instituteData}
             slug="educacion-gestion-deportiva"
+            heroImage="/images/institutos/instituto-educacion-gestion-deportiva.webp"
         />
     );
 };

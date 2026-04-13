@@ -127,7 +127,7 @@ const PagoCurso = () => {
                 <Navbar1 />
                 <div className="flex-1 flex flex-col items-center justify-center p-4">
                     <AlertCircle className="w-12 h-12 text-destructive mb-4" />
-                    <h2 className="text-xl font-bold mb-2">
+                    <h2 className="text-xl font-heading font-bold mb-2">
                         Error al cargar el curso
                     </h2>
                     <p className="text-muted-foreground mb-6">

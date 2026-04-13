@@ -166,11 +166,11 @@ const SedesYDirecciones = () => {
                 {/* Mapa General */}
                 <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-8">
-                            <h2 className="text-2xl md:text-3xl font-bold font-heading text-primary mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Ubicación de Nuestras Sedes
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Todas nuestras sedes están estratégicamente
                                 ubicadas en Tucumán para facilitar el acceso
                             </p>
@@ -197,11 +197,11 @@ const SedesYDirecciones = () => {
                 {/* Listado de Sedes */}
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Nuestras Sedes
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Información detallada de cada una de nuestras
                                 ubicaciones
                             </p>
@@ -589,7 +589,7 @@ const SedesYDirecciones = () => {
                         <h3 className="text-3xl md:text-4xl font-bold font-heading mb-6">
                             Visitanos y conocé USPT
                         </h3>
-                        <p className="text-lg mb-8 max-w-2xl mx-auto font-body opacity-90">
+                        <p className="text-xl mb-8 max-w-3xl mx-auto font-body leading-relaxed opacity-90">
                             Te invitamos a conocer nuestras instalaciones y
                             descubrir todo lo que tenemos para ofrecerte en tu
                             formación universitaria

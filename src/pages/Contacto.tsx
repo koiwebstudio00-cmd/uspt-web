@@ -218,11 +218,11 @@ const Contacto = () => {
                 {/* Información de Contacto */}
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Canales de Comunicación
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Múltiples formas de contactarnos para brindarte
                                 la mejor atención
                             </p>
@@ -518,7 +518,7 @@ const Contacto = () => {
                             <h3 className="text-3xl md:text-4xl font-heading font-semibold text-white mb-6">
                                 ¿Tenés alguna consulta?
                             </h3>
-                            <p className="text-lg mb-10 max-w-2xl mx-auto font-body text-white text-balance opacity-90">
+                            <p className="text-xl mb-10 max-w-3xl mx-auto font-body leading-relaxed text-white text-balance opacity-90">
                                 Nuestro equipo está disponible para ayudarte con
                                 cualquier información que necesites sobre USPT y
                                 nuestra propuesta académica

@@ -83,11 +83,11 @@ const PagosOnline = () => {
                             <div className="grid lg:grid-cols-2 gap-12 items-start">
                                 {/* Columna izquierda: Encabezado + Métodos */}
                                 <div>
-                                    <div className="mb-10">
-                                        <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-3">
+                                    <div className="mb-16">
+                                        <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                             Métodos de Pago Disponibles
                                         </h2>
-                                        <p className="text-muted-foreground font-body text-base md:text-lg">
+                                        <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl">
                                             Elegí el método que más te convenga.
                                             Todos los cobros online se procesan
                                             a través de medios habilitados y
@@ -341,7 +341,7 @@ const PagosOnline = () => {
                                 <h3 className="text-3xl md:text-4xl font-heading font-semibold text-white mb-6">
                                     Gestioná tus Pagos
                                 </h3>
-                                <p className="text-lg mb-10 max-w-2xl mx-auto font-body text-white text-balance opacity-90">
+                                <p className="text-xl mb-10 max-w-3xl mx-auto font-body leading-relaxed text-white text-balance opacity-90">
                                     Realizá tus pagos de forma rápida y segura
                                     desde cualquier lugar. Seleccioná el tipo de
                                     pago que necesitás gestionar
@@ -380,7 +380,7 @@ const PagosOnline = () => {
                                         <HelpCircle className="w-8 h-8 text-primary" />
                                     </div>
                                     <div className="flex-1 space-y-4">
-                                        <h2 className="text-3xl font-heading font-semibold text-foreground">
+                                        <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                             ¿Necesitás ayuda con tu pago?
                                         </h2>
                                         <p className="text-lg text-muted-foreground font-body leading-relaxed">

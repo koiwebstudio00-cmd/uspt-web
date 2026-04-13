@@ -38,6 +38,7 @@ const InstitutoSociales = () => {
         <InstitutoTemplate
             institute={instituteData}
             slug="estudios-sociales-politica-cultura"
+            heroImage="/images/institutos/instituto-estudios-sociales-politica-cultura..webp"
         />
     );
 };

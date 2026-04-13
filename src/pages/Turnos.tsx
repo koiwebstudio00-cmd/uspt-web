@@ -118,7 +118,7 @@ const Turnos = () => {
                             <Card className="border-green-200 bg-green-50">
                                 <CardContent className="p-8">
                                     <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                                    <h2 className="text-2xl font-bold text-green-800 mb-2">
+                                    <h2 className="text-2xl font-heading font-bold text-green-800 mb-2">
                                         ¡Turno Solicitado!
                                     </h2>
                                     <p className="text-green-700 mb-4">
@@ -193,7 +193,7 @@ const Turnos = () => {
                                         >
                                             {/* Información Personal */}
                                             <div className="space-y-4">
-                                                <h3 className="text-lg font-semibold text-primary border-b border-muted2 pb-2">
+                                                <h3 className="text-lg font-heading font-semibold text-primary border-b border-muted2 pb-2">
                                                     Información Personal
                                                 </h3>
 
@@ -296,7 +296,7 @@ const Turnos = () => {
 
                                             {/* Información del Trámite */}
                                             <div className="space-y-4">
-                                                <h3 className="text-lg font-semibold text-primary border-b border-muted2 pb-2">
+                                                <h3 className="text-lg font-heading font-semibold text-primary border-b border-muted2 pb-2">
                                                     Información del Trámite
                                                 </h3>
 
@@ -358,7 +358,7 @@ const Turnos = () => {
 
                                             {/* Información de la Cita */}
                                             <div className="space-y-4">
-                                                <h3 className="text-lg font-semibold text-primary border-b border-muted2 pb-2">
+                                                <h3 className="text-lg font-heading font-semibold text-primary border-b border-muted2 pb-2">
                                                     Información de la Cita
                                                 </h3>
 

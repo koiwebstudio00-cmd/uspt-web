@@ -118,7 +118,7 @@ const ConsejoEyS = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Nuestra Misión
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground font-body">
@@ -196,11 +196,11 @@ const ConsejoEyS = () => {
                 {/* Autoridades Section */}
                 <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Autoridades
                             </h2>
-                            <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Conocé a las autoridades que integran el Consejo
                                 Social y Económico
                             </p>

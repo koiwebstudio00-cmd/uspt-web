@@ -47,7 +47,7 @@ const FAQ = () => {
                 <div className="text-center mb-16">
                     <h2
                         ref={titleRef.elementRef}
-                        className={`text-4xl md:text-5xl font-heading font-medium mb-6 animate-on-scroll animate-fade-in-scale ${titleRef.isIntersecting
+                        className={`text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 animate-on-scroll animate-fade-in-scale ${titleRef.isIntersecting
                                 ? "animate-fade-in-scale"
                                 : ""
                             }`}
@@ -56,7 +56,7 @@ const FAQ = () => {
                     </h2>
                     <p
                         ref={descriptionRef.elementRef}
-                        className={`text-xl text-muted-foreground max-w-3xl mx-auto font-body animate-on-scroll animate-fade-in-up ${descriptionRef.isIntersecting
+                        className={`text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed animate-on-scroll animate-fade-in-up ${descriptionRef.isIntersecting
                                 ? "animate-fade-in-up"
                                 : ""
                             }`}
@@ -82,7 +82,7 @@ const FAQ = () => {
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
                                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:opacity-90 transition-opacity">
-                                    <h3 className="text-lg  text-foreground  text-left">
+                                    <h3 className="text-lg font-heading text-foreground text-left">
                                         {faq.question}
                                     </h3>
                                 </AccordionTrigger>

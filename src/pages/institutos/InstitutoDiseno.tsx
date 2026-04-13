@@ -37,6 +37,7 @@ const InstitutoDiseno = () => {
         <InstitutoTemplate
             institute={instituteData}
             slug="diseno-creatividad"
+            heroImage="/images/institutos/instituto-diseno-estrategia-creatividad.webp"
         />
     );
 };

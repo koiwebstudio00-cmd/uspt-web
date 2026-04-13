@@ -38,6 +38,7 @@ const InstitutoTecnologia = () => {
         <InstitutoTemplate
             institute={instituteData}
             slug="desarrollo-innovacion-tecnologica"
+            heroImage="/images/institutos/instituto-desarrollo-innovacion-tecnologica.webp"
         />
     );
 };

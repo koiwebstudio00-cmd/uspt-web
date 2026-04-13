@@ -16,6 +16,7 @@ export interface TemplateCareer {
     plan_estudio_url: string;
     horarios_cursado: string;
     fecha_examenes: string;
+    clasificacion: string;
 }
 
 /**

@@ -232,7 +232,7 @@ const BlogDetail = () => {
                                 <div className="mt-12 pt-8 border-t">
                                     <div className="flex items-center gap-3 mb-4">
                                         <Tag className="w-5 h-5 text-muted-foreground" />
-                                        <h3 className="text-lg font-semibold">
+                                        <h3 className="text-lg font-heading font-semibold">
                                             Etiquetas
                                         </h3>
                                     </div>

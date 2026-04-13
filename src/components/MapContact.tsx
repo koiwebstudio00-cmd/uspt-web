@@ -41,11 +41,11 @@ const MapContact = () => {
         <section id="sedes" className="py-28 bg-white">
             <div className="container mx-auto px-4">
                 {/* Encabezado */}
-                <div className="text-center mb-14">
+                <div className="text-center mb-16">
                     <h2
                         ref={titleRef.elementRef}
                         className={cn(
-                            "text-4xl md:text-5xl font-medium font-heading mb-4 animate-on-scroll",
+                            "text-3xl md:text-5xl font-medium font-heading text-foreground mb-6 animate-on-scroll",
                             titleRef.isIntersecting
                                 ? "animate-fade-in-scale"
                                 : "",
@@ -56,7 +56,7 @@ const MapContact = () => {
                     <p
                         ref={descriptionRef.elementRef}
                         className={cn(
-                            "text-xl text-muted-foreground text-balance max-w-3xl mx-auto font-body animate-on-scroll",
+                            "text-xl text-muted-foreground text-balance max-w-3xl mx-auto font-body leading-relaxed animate-on-scroll",
                             descriptionRef.isIntersecting
                                 ? "animate-fade-in-up"
                                 : "",

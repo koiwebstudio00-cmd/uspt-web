@@ -37,6 +37,7 @@ const InstitutoSalud = () => {
         <InstitutoTemplate
             institute={instituteData}
             slug="salud-calidad-vida"
+            heroImage="/images/institutos/instituto-salud-calidad-vida.webp"
         />
     );
 };

@@ -231,8 +231,8 @@ const Alumnos = () => {
                 {/* Accesos Rápidos */}
                 <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Accesos Rápidos
                             </h2>
                         </div>
@@ -289,8 +289,8 @@ const Alumnos = () => {
                 {/* Servicios al Alumno */}
                 <section className="py-20 bg-primary/5">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Servicios al Alumno
                             </h2>
                         </div>

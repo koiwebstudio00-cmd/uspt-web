@@ -214,7 +214,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                                             <ArrowRight className="size-4" />
                                         </div>
                                     </div>
-                                    <h3 className="font-bold text-xl text-slate-800 group-hover:text-primary transition-colors mb-1 leading-tight">
+                                    <h3 className="font-heading font-bold text-xl text-slate-800 group-hover:text-primary transition-colors mb-1 leading-tight">
                                         {result.title}
                                     </h3>
                                     {result.description && (
@@ -229,7 +229,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                                 <div className="size-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
                                     <Search className="size-10 text-muted-foreground/30" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-700">
+                                <h3 className="text-xl font-heading font-bold text-slate-700">
                                     No encontramos resultados
                                 </h3>
                                 <p className="text-slate-500 max-w-xs mx-auto mt-2 text-sm leading-relaxed">
@@ -249,7 +249,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                                         <Search className="size-10 text-primary/40" />
                                     </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-700 tracking-tight">
+                                <h3 className="text-xl font-heading font-bold text-slate-700 tracking-tight">
                                     Buscador USPT
                                 </h3>
                                 <p className="text-slate-500 max-w-xs mx-auto mt-2 text-sm leading-relaxed">

@@ -76,7 +76,7 @@ const PagoPendiente = () => {
                                                     <Clock className="w-10 h-10 text-white" />
                                                 </div>
                                                 <div>
-                                                    <h2 className="text-2xl font-bold text-yellow-700 mb-2">
+                                                    <h2 className="text-2xl font-heading font-bold text-yellow-700 mb-2">
                                                         Pago Pendiente
                                                     </h2>
                                                     <p className="text-yellow-600">
@@ -164,7 +164,7 @@ const PagoPendiente = () => {
                                             </div>
 
                                             <div className="border-t pt-6 space-y-4">
-                                                <h3 className="font-semibold text-lg">
+                                                <h3 className="font-heading font-semibold text-lg">
                                                     Información del Comprador
                                                 </h3>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -227,7 +227,7 @@ const PagoPendiente = () => {
                                             </div>
 
                                             <div className="border-t pt-6 space-y-4">
-                                                <h3 className="font-semibold text-lg">
+                                                <h3 className="font-heading font-semibold text-lg">
                                                     Información de Pago
                                                 </h3>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -277,7 +277,7 @@ const PagoPendiente = () => {
                                     <Card className="border-primary bg-primary/5">
                                         <CardContent className="pt-6">
                                             <div className="space-y-3">
-                                                <h3 className="font-semibold flex items-center gap-2">
+                                                <h3 className="font-heading font-semibold flex items-center gap-2">
                                                     <AlertCircle className="w-5 h-5 text-primary" />
                                                     ¿Qué significa "Pendiente"?
                                                 </h3>

@@ -130,8 +130,8 @@ const Beneficios = () => {
                             </div>
 
                             {/* Título y subtítulo */}
-                            <div className="text-center mb-12">
-                                <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     {section.title}
                                 </h2>
                             </div>
@@ -184,7 +184,7 @@ const Beneficios = () => {
                         <h3 className="text-3xl md:text-4xl font-heading font-semibold text-white mb-6">
                             ¿Cómo acceder a los beneficios?
                         </h3>
-                        <p className="text-lg mb-10 max-w-2xl mx-auto font-body text-white text-balance opacity-90">
+                        <p className="text-xl mb-10 max-w-3xl mx-auto font-body leading-relaxed text-white text-balance opacity-90">
                             Para acceder a estos beneficios, presentá tu
                             credencial de estudiante de la USP-T en las
                             instituciones y empresas adheridas. Los descuentos

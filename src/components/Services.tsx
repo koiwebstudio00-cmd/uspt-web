@@ -135,7 +135,7 @@ const Services = () => {
                         <h2
                             ref={titleRef.elementRef}
                             className={cn(
-                                "text-4xl md:text-5xl font-heading font-medium mb-6 animate-on-scroll animate-fade-in-scale",
+                                "text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 animate-on-scroll animate-fade-in-scale",
                                 titleRef.isIntersecting
                                     ? "animate-fade-in-scale"
                                     : "",
@@ -146,7 +146,7 @@ const Services = () => {
                         <p
                             ref={descriptionRef.elementRef}
                             className={cn(
-                                "text-xl text-muted-foreground max-w-3xl mx-auto font-body animate-on-scroll animate-fade-in-up",
+                                "text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed animate-on-scroll animate-fade-in-up",
                                 descriptionRef.isIntersecting
                                     ? "animate-fade-in-up"
                                     : "",
@@ -195,9 +195,9 @@ const Services = () => {
             <section className="bg-white py-20 border-t border-muted2">
                 <div className="container mx-auto px-4">
                     {/* Encabezado */}
-                    <div className="flex flex-col md:flex-row md:items-end md:justify-center gap-4 mb-12">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-center gap-4 mb-16">
                         <div>
-                            <h2 className="text-center text-4xl md:text-5xl font-heading font-medium">
+                            <h2 className="text-center text-3xl md:text-5xl font-heading font-medium text-foreground">
                                 Accesos rápidos
                             </h2>
                         </div>

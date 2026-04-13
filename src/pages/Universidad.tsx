@@ -195,10 +195,10 @@ const Universidad = () => {
                     </div>
                     <div className="relative z-10 container mx-auto px-4 py-20 md:py-32">
                         <div className="container mx-auto px-4 text-center">
-                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
                                 Comenzá tu futuro profesional hoy
                             </h3>
-                            <p className="text-lg mb-8 max-w-2xl mx-auto font-body text-white text-pretty opacity-90">
+                            <p className="text-xl mb-8 max-w-3xl mx-auto font-body leading-relaxed text-white text-pretty opacity-90">
                                 Descubrí por qué miles de estudiantes eligen
                                 USPT para su formación universitaria
                             </p>

@@ -182,11 +182,11 @@ const RSE: React.FC = () => {
     return (
         <section id="rse" className="py-20 bg-primary/10  ">
             <div className="">
-                <div className="text-center">
-                    <h2 className="text-3xl md:text-4xl mt-10 font-semibold font-heading">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl mt-10 font-heading font-medium text-foreground mb-6">
                         Responsabilidad Social Empresaria
                     </h2>
-                    <p className="text-muted-foreground mt-2 max-w-3xl mx-auto font-body">
+                    <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                         Crecemos junto a nuestra comunidad con programas e
                         iniciativas que promueven la inclusión, la
                         sostenibilidad y la ciudadanía global.
@@ -322,11 +322,11 @@ const StaffInstitucional: React.FC = () => {
             className="py-20 bg-muted/30 border-t border-muted/40"
         >
             <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary font-heading">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                         Staff
                     </h2>
-                    <p className="text-muted-foreground mt-2 max-w-3xl mx-auto font-body">
+                    <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                         Presidenta, Rector, Vicerrector y equipo institucional.
                     </p>
                 </div>
@@ -376,8 +376,8 @@ const AutoridadesInstitucionales: React.FC = () => {
             className="py-20 bg-white border-t border-muted/40"
         >
             <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-semibold font-heading mb-4">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                         Autoridades Institucionales
                     </h2>
                 </div>

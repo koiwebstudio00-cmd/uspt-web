@@ -60,7 +60,7 @@ const ReservaNatural = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid lg:grid-cols-2 gap-12 items-start">
                             <div className="space-y-6">
-                                <h2 className="text-3xl md:text-4xl font-semibold font-heading text-foreground mb-6">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Historia de la Reserva
                                 </h2>
                                 <div className="prose prose-lg max-w-none font-body">
@@ -123,11 +123,11 @@ const ReservaNatural = () => {
                 {/* La Sierra de San Javier */}
                 <section className="py-20 bg-primary/10">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-semibold font-heading text-foreground mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 La Sierra de San Javier
                             </h2>
-                            <p className="text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 La Sierra de San Javier da cobijo a uno de los
                                 ecosistemas más representativos de la provincia
                                 de Tucumán, las{" "}
@@ -181,11 +181,11 @@ const ReservaNatural = () => {
                 {/* Galería Bento */}
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-semibold font-heading text-foreground mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Galería de la Reserva
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Explorá la belleza natural de nuestra reserva a
                                 través de estas imágenes
                             </p>

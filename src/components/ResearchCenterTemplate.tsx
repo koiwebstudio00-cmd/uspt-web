@@ -109,7 +109,7 @@ const ResearchCenterTemplate = ({
                 <section className="py-16 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="max-w-6xl mx-auto">
-                            <h2 className="text-3xl font-heading font-bold text-primary mb-8 text-center">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-8 text-center">
                                 Nuestras Instalaciones
                             </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

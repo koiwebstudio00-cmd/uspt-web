@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { cn } from "@/lib/utils";
 import {
+    Globe,
     Award,
     BookOpen,
     Clock,
@@ -15,9 +16,29 @@ import {
     Users,
     GraduationCap,
     ArrowRight,
-    PersonStanding,
-    Calendar,
-    Globe,
+    Building2,
+    Palette,
+    PencilRuler,
+    Microscope,
+    Stethoscope,
+    Scale,
+    Calculator,
+    Cpu,
+    Laptop,
+    Leaf,
+    Activity,
+    HeartPulse,
+    Gavel,
+    Briefcase,
+    Zap,
+    Shield,
+    Camera,
+    Utensils,
+    Trees,
+    Mountain,
+    UserCircle,
+    Brain,
+    Trophy,
 } from "lucide-react";
 
 import { Navbar1 } from "./Navbar";
@@ -53,9 +74,14 @@ interface Institute {
 interface InstitutoTemplateProps {
     institute: Institute;
     slug: string;
+    heroImage?: string;
 }
 
-const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
+const InstitutoTemplate = ({
+    institute,
+    slug,
+    heroImage = "/images/IMG_4688.webp",
+}: InstitutoTemplateProps) => {
     if (!institute) {
         return <div>No institute data found</div>;
     }
@@ -102,7 +128,33 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
         )}, con una visión integral que combina excelencia académica, práctica profesional y compromiso social.`;
     };
 
-    
+    const getCareerIcon = (name: string) => {
+        const n = name.toLowerCase();
+        if (n.includes("arquitectura")) return Building2;
+        if (n.includes("diseño textil")) return Palette;
+        if (n.includes("diseño industrial")) return PencilRuler;
+        if (n.includes("paisajismo")) return Trees;
+        if (n.includes("guía de montaña")) return Mountain;
+        if (n.includes("alto rendimiento")) return Activity;
+        if (n.includes("gestión deportiva")) return Trophy;
+        if (n.includes("abogacía") || n.includes("derecho")) return Scale;
+        if (n.includes("contador")) return Calculator;
+        if (n.includes("ciencia política")) return Gavel;
+        if (n.includes("comercio exterior")) return Globe;
+        if (n.includes("alimentos") || n.includes("bromatología"))
+            return Utensils;
+        if (n.includes("guardaparque")) return Shield;
+        if (n.includes("datos")) return Cpu;
+        if (n.includes("energías renovables")) return Zap;
+        if (n.includes("seguridad ciudadana")) return Shield;
+        if (n.includes("medicina")) return HeartPulse;
+        if (n.includes("kinesiología")) return Activity;
+        if (n.includes("fonoaudiología")) return Brain;
+        if (n.includes("emergencias médicas")) return HeartPulse;
+        return GraduationCap;
+    };
+
+
 
     return (
         <div className="min-h-screen bg-background">
@@ -111,7 +163,7 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
             <main className="">
                 {/* Hero Section */}
                 <HeroPageComponent
-                    imageUrl="/images/IMG_4688.webp"
+                    imageUrl={heroImage}
                     title={institute.name}
                     description={getInstituteDescription()}
                     minHeight="500px"
@@ -151,7 +203,7 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
                                             <div className="bg-primary/10 p-8 border-l-4 border-primary">
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <Award className="w-6 h-6 text-primary flex-shrink-0" />
-                                                    <h2 className="text-2xl font-bold font-heading text-foreground">
+                                                    <h2 className="text-2xl font-medium font-heading text-foreground">
                                                         Nuestra Misión
                                                     </h2>
                                                 </div>
@@ -165,7 +217,7 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
                                             <div className="bg-primary p-8 text-white border-l-4 border-primary-foreground">
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <GraduationCap className="w-6 h-6 text-white flex-shrink-0" />
-                                                    <h2 className="text-2xl font-bold font-heading">
+                                                    <h2 className="text-2xl font-medium font-heading">
                                                         Nuestros Objetivos
                                                     </h2>
                                                 </div>
@@ -184,110 +236,91 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
                 {/* Carreras del Instituto */}
                 <section className="py-20 bg-gradient-to-br from-muted/30 via-background to-muted/20">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold font-heading text-foreground mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Nuestras Carreras
                             </h2>
-                            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                            <p className="text-xl text-muted-foreground font-body max-w-3xl mx-auto">
                                 Descubrí las propuestas académicas que tenemos
                                 para vos
                             </p>
                         </div>
 
                         {institute.careers && institute.careers.length > 0 ? (
-                            <div className="max-w-6xl mx-auto space-y-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                                 {institute.careers.map((seccion, index) => {
-                                    // Hook individual para cada card
-                                    const cardRef =
-                                        useIntersectionObserver<HTMLDivElement>(
-                                            {
-                                                threshold: 0.2,
-                                            },
-                                        );
+                                    const cardRef = useIntersectionObserver<HTMLDivElement>({
+                                        threshold: 0.1,
+                                    });
+
+                                    const CareerIcon = getCareerIcon(seccion.name);
 
                                     return (
                                         <Card
                                             key={index}
                                             ref={cardRef.elementRef}
                                             className={cn(
-                                                "border-muted2 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1 bg-white overflow-hidden animate-on-scroll",
-                                                cardRef.isIntersecting
-                                                    ? "animate-fade-in-up"
-                                                    : "",
+                                                "group border-muted2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 bg-white overflow-hidden animate-on-scroll flex flex-col h-full",
+                                                cardRef.isIntersecting ? "animate-fade-in-up" : ""
                                             )}
                                         >
-                                            <div className="grid md:grid-cols-2 gap-0">
-                                                {/* Imagen */}
-                                                <div className="relative h-64 md:h-auto overflow-hidden">
-                                                    <img
-                                                        src="/images/institucional.jpg"
-                                                        alt={seccion.name}
-                                                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                                                    />
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-r" />
+                                            {/* Top Icon Section */}
+                                            <div className="p-8 pb-4 flex flex-col items-center text-center flex-grow">
+                                                <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 shadow-sm group-hover:shadow-primary/20">
+                                                    <CareerIcon className="w-10 h-10 text-primary transition-colors duration-500 group-hover:text-white" />
                                                 </div>
 
-                                                {/* Contenido */}
-                                                <div className="p-8 md:p-10 flex flex-col justify-center space-y-6">
-                                                    <div>
-                                                        <h3 className="text-2xl md:text-3xl font-heading text-foreground mb-3">
-                                                            {seccion.name}
-                                                        </h3>
-                                                        <p className="text-muted-foreground font-body leading-relaxed line-clamp-3">
-                                                            {
-                                                                seccion.description
-                                                            }
-                                                        </p>
-                                                    </div>
+                                                <h3 className="text-xl md:text-2xl font-heading font-semibold text-foreground mb-4 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem] flex items-center justify-center">
+                                                    {seccion.name}
+                                                </h3>
 
-                                                    {/* Metadatos */}
-                                                    <div className="flex flex-wrap gap-4">
-                                                        {[
-                                                            {
-                                                                icon: Globe,
-                                                                label: seccion?.modalidad,
-                                                            },
-                                                            {
-                                                                icon: MapPin,
-                                                                label: seccion?.sede,
-                                                            },
-                                                            {
-                                                                icon: GraduationCap,
-                                                                label: seccion?.clasificacion,
-                                                            },
-                                                        ].map(
-                                                            (item, idx) =>
-                                                                item.label && (
-                                                                    <div
-                                                                        key={
-                                                                            idx
-                                                                        }
-                                                                        className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 px-3 py-1.5 rounded-full"
-                                                                    >
-                                                                        <item.icon className="w-4 h-4 text-primary" />
-                                                                        <span>
-                                                                            {
-                                                                                item.label
-                                                                            }
-                                                                        </span>
-                                                                    </div>
-                                                                ),
-                                                        )}
-                                                    </div>
+                                                <p className="text-muted-foreground font-body leading-relaxed line-clamp-4 text-sm mb-6">
+                                                    {seccion.description}
+                                                </p>
 
-                                                    {/* Botón Ver Detalle */}
-                                                    {seccion.id && (
-                                                        <Link
-                                                            to={`/carreras/${seccion.slug}`}
-                                                            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg group w-fit"
-                                                        >
-                                                            <span>
-                                                                Ver Detalle
-                                                            </span>
-                                                            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                                                        </Link>
+                                                {/* Metadatos - Grid inside card */}
+                                                <div className="w-full grid grid-cols-1 gap-2 mt-auto">
+                                                    {[
+                                                        {
+                                                            icon: Globe,
+                                                            label: seccion?.modalidad,
+                                                        },
+                                                        {
+                                                            icon: MapPin,
+                                                            label: seccion?.sede,
+                                                        },
+                                                        {
+                                                            icon: GraduationCap,
+                                                            label: seccion?.clasificacion,
+                                                        },
+                                                    ].map(
+                                                        (item, idx) =>
+                                                            item.label && (
+                                                                <div
+                                                                    key={idx}
+                                                                    className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 px-3 py-2 rounded-lg border border-transparent hover:border-primary/20 transition-all"
+                                                                >
+                                                                    <item.icon className="w-3.5 h-3.5 text-primary" />
+                                                                    <span className="truncate">
+                                                                        {item.label}
+                                                                    </span>
+                                                                </div>
+                                                            ),
                                                     )}
                                                 </div>
+                                            </div>
+
+                                            {/* Footer with Button */}
+                                            <div className="p-6 pt-0 mt-auto border-t border-muted/50 bg-muted/5 group-hover:bg-white transition-colors duration-500">
+                                                {seccion.id && (
+                                                    <Link
+                                                        to={`/carreras/${seccion.slug}`}
+                                                        className="flex items-center justify-center gap-2 text-primary font-semibold text-sm group/btn w-full py-2"
+                                                    >
+                                                        <span>Ver Detalle</span>
+                                                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                                                    </Link>
+                                                )}
                                             </div>
                                         </Card>
                                     );
@@ -298,7 +331,7 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
                                 <div className="w-20 h-20 rounded-full bg-muted mx-auto mb-6 flex items-center justify-center">
                                     <BookOpen className="w-10 h-10 text-muted-foreground" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-foreground mb-3">
+                                <h3 className="text-2xl font-heading font-bold text-foreground mb-3">
                                     No hay carreras disponibles
                                 </h3>
                                 <p className="text-muted-foreground">
@@ -314,11 +347,11 @@ const InstitutoTemplate = ({ institute, slug }: InstitutoTemplateProps) => {
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
                         <div className="max-w-6xl mx-auto">
-                            <div className="text-center mb-12">
-                                <h2 className="text-4xl font-bold font-heading text-foreground mb-4">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Información Importante
                                 </h2>
-                                <p className="text-muted-foreground text-lg">
+                                <p className="text-xl text-muted-foreground font-body max-w-3xl mx-auto">
                                     Todo lo que necesitás saber para comenzar
                                 </p>
                             </div>

@@ -55,21 +55,19 @@ const NewsEvents = () => {
                 <div className="text-center mb-16">
                     <h2
                         ref={titleRef.elementRef}
-                        className={`text-4xl md:text-5xl  mb-6 animate-on-scroll animate-fade-in-scale font-heading font-medium ${
-                            titleRef.isIntersecting
+                        className={`text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 animate-on-scroll animate-fade-in-scale ${titleRef.isIntersecting
                                 ? "animate-fade-in-scale"
                                 : ""
-                        }`}
+                            }`}
                     >
                         Noticias y Eventos
                     </h2>
                     <p
                         ref={descriptionRef.elementRef}
-                        className={`text-xl  max-w-3xl mx-auto font-body animate-on-scroll animate-fade-in-up ${
-                            descriptionRef.isIntersecting
+                        className={`text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed animate-on-scroll animate-fade-in-up ${descriptionRef.isIntersecting
                                 ? "animate-fade-in-up"
                                 : ""
-                        }`}
+                            }`}
                         style={{ transitionDelay: "0.2s" }}
                     >
                         Mantente informado sobre las últimas novedades de la
@@ -79,9 +77,8 @@ const NewsEvents = () => {
 
                 <div
                     ref={cardsRef.elementRef}
-                    className={`animate-on-scroll animate-fade-in-up ${
-                        cardsRef.isIntersecting ? "animate-fade-in-up" : ""
-                    }`}
+                    className={`animate-on-scroll animate-fade-in-up ${cardsRef.isIntersecting ? "animate-fade-in-up" : ""
+                        }`}
                     style={{ transitionDelay: "0.4s" }}
                 >
                     {/* Estado de carga */}

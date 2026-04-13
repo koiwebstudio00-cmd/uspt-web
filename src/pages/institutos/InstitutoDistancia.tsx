@@ -40,6 +40,7 @@ const InstitutoDistancia = () => {
         <InstitutoTemplate
             institute={instituteData}
             slug="educacion-distancia-tecnologia-educativa"
+            heroImage="/images/institutos/instituto-educacion-distancia-tecnologia-educativa..webp"
         />
     );
 };

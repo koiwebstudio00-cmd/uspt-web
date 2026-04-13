@@ -34,7 +34,7 @@ const BolsaTrabajo = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-4xl font-semibold font-heading  mb-6">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Pasantías
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground font-body">
@@ -79,11 +79,11 @@ const BolsaTrabajo = () => {
                 {/* Objetivos Section */}
                 <section className="py-16 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Objetivos del Servicio
                             </h2>
-                            <p className="text-lg text-muted-foreground font-body max-w-3xl mx-auto">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Nuestros objetivos están orientados a crear un
                                 puente efectivo entre la formación académica y
                                 el mundo laboral

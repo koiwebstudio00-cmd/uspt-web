@@ -230,11 +230,11 @@ const Posgrado = () => {
                 {/* Maestrías Section */}
                 <section className="bg-primary/10 py-16">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl  mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Maestrías
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Programas de maestría para profundizar
                                 conocimientos y desarrollar competencias de
                                 liderazgo
@@ -314,11 +314,11 @@ const Posgrado = () => {
                 {/* Especializaciones Section */}
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Especializaciones
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Programas de especialización para actualizar y
                                 profundizar conocimientos específicos
                             </p>
@@ -391,11 +391,11 @@ const Posgrado = () => {
                 {/* Cursos Disponibles */}
                 <section ref={coursesRef} className="py-20 bg-primary/5">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Cursos y Talleres Disponibles
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Explora nuestra oferta actual de cursos de
                                 posgrado
                             </p>

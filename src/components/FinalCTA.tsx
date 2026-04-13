@@ -40,7 +40,7 @@ const FinalCTA = () => {
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 font-heading text-white tracking-tighter">
                         Tu futuro comienza en la USPT
                     </h2>
-                    <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto font-body">
+                    <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto font-body leading-relaxed">
                         Sumate a nuestra comunidad educativa y transformá tu
                         pasión en profesión. El momento es ahora, tu futuro te
                         espera.

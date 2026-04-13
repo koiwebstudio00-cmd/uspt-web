@@ -34,7 +34,7 @@ const iconBox =
 const sectionLabel =
     "text-xs font-semibold uppercase tracking-widest text-primary mb-2";
 const sectionTitle =
-    "text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4";
+    "text-3xl md:text-5xl font-heading font-medium text-foreground mb-6";
 const divider = "w-10 h-0.5 bg-primary mb-8";
 
 const requisitos = [

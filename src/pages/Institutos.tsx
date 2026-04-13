@@ -52,10 +52,10 @@ const Institutos = () => {
                     </div>
                     <div className="relative z-10 container mx-auto px-4 py-20 md:py-32">
                         <div className="container mx-auto px-4 text-center">
-                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
                                 Encontrá tu área de interés
                             </h3>
-                            <p className="text-lg mb-8 max-w-2xl mx-auto font-body text-white text-balance opacity-90">
+                            <p className="text-xl mb-8 max-w-3xl mx-auto font-body leading-relaxed text-white text-balance opacity-90">
                                 Explorá los institutos y descubrí las carreras
                                 que mejor se adapten a tus intereses y objetivos
                                 profesionales

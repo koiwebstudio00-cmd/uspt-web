@@ -179,11 +179,11 @@ const Historia = () => {
                 {/* Estadísticas */}
                 <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-2xl md:text-3xl font-bold font-heading text-primary mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 15 Años de Logros
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Números que reflejan nuestro crecimiento y
                                 compromiso con la educación de calidad
                             </p>

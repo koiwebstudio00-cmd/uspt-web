@@ -176,7 +176,7 @@ const InstitutoPreuniversitario = () => {
                                 <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
                                     Instituto Preuniversitario
                                 </p>
-                                <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-5 leading-tight">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 leading-tight">
                                     Formamos estudiantes críticos, reflexivos y
                                     autónomos
                                 </h2>
@@ -221,15 +221,15 @@ const InstitutoPreuniversitario = () => {
                 {/* ── 2. OFERTA ACADÉMICA ── */}
                 <section id="orientaciones" className="py-20 bg-primary/5">
                     <div className="container mx-auto px-4">
-                        <div className="mb-12">
+                        <div className="mb-16">
                             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
                                 Oferta Académica
                             </p>
-                            <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-3">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Estructura del Bachillerato
                             </h2>
                             <div className="w-10 h-0.5 bg-primary mb-4" />
-                            <p className="text-muted-foreground font-body max-w-2xl">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl">
                                 Bachillerato de 6 años dividido en Ciclo Básico
                                 común (3 años) y Ciclo Orientado con tres
                                 especializaciones (3 años).
@@ -394,7 +394,7 @@ const InstitutoPreuniversitario = () => {
                                 <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
                                     Historia
                                 </p>
-                                <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                     Nuestra historia
                                 </h2>
                                 <div className="w-10 h-0.5 bg-primary mb-8" />

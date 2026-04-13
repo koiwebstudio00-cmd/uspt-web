@@ -245,7 +245,7 @@ const ExtensionUniversitaria = () => {
                                     <div className="bg-primary/10 p-8 border-l-4 border-primary">
                                         <div className="flex items-center gap-3 mb-4">
                                             <Award className="w-6 h-6 text-primary flex-shrink-0" />
-                                            <h2 className="text-2xl font-bold font-heading text-foreground">
+                                            <h2 className="text-2xl font-medium font-heading text-foreground">
                                                 {secciones[0].title}
                                             </h2>
                                         </div>
@@ -257,7 +257,7 @@ const ExtensionUniversitaria = () => {
                                     <div className="bg-primary p-8 text-white border-l-4 border-primary-foreground">
                                         <div className="flex items-center gap-3 mb-4">
                                             <GraduationCap className="w-6 h-6 text-white flex-shrink-0" />
-                                            <h2 className="text-2xl font-bold font-heading">
+                                            <h2 className="text-2xl font-medium font-heading">
                                                 {secciones[1].title}
                                             </h2>
                                         </div>
@@ -274,11 +274,11 @@ const ExtensionUniversitaria = () => {
                 {/* Cursos Disponibles */}
                 <section ref={coursesRef} className="py-20 bg-primary/5">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Cursos y Talleres Disponibles
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Explora nuestra oferta actual de cursos de
                                 extensión universitaria
                             </p>
@@ -523,7 +523,7 @@ const ExtensionUniversitaria = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h3 className="text-3xl  mb-6">
+                                <h3 className="text-3xl font-heading font-medium text-foreground mb-6">
                                     ¿Cómo inscribirte?
                                 </h3>
                                 <div className="space-y-4">
@@ -611,11 +611,11 @@ const ExtensionUniversitaria = () => {
                 {/* Autoridades */}
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl   mb-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Autoridades
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Equipo directivo del Área de Extensión
                                 Universitaria
                             </p>
@@ -663,7 +663,7 @@ const ExtensionUniversitaria = () => {
 
                 <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl md:text-4xl mb-12 text-center">
+                        <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-16 text-center">
                             Proyectos de Extensión
                         </h2>
                         <div className="grid md:grid-cols-2 gap-8">

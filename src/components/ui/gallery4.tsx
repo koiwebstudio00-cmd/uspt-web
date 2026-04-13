@@ -62,16 +62,16 @@ const Gallery4 = ({
     return (
         <section className="py-24">
             <div className="container mx-auto">
-                <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
+                <div className="mb-8 flex flex-col items-center text-center md:mb-14 lg:mb-16 relative">
                     <div className="flex flex-col gap-4">
                         <h2 className="text-3xl font-medium font-heading md:text-5xl">
                             {title}
                         </h2>
-                        <p className="max-w-lg font-body text-xl text-muted-foreground">
+                        <p className="max-w-3xl font-body text-xl text-muted-foreground mx-auto">
                             {description}
                         </p>
                     </div>
-                    <div className="hidden shrink-0 gap-2 md:flex">
+                    <div className="hidden shrink-0 gap-2 md:flex md:absolute md:right-0 md:bottom-0">
                         <Button
                             size="icon"
                             variant="ghost"

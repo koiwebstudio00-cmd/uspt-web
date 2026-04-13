@@ -76,7 +76,7 @@ const PagoExitoso = () => {
                                                     <CheckCircle2 className="w-10 h-10 text-white" />
                                                 </div>
                                                 <div>
-                                                    <h2 className="text-2xl font-bold text-green-700 mb-2">
+                                                    <h2 className="text-2xl font-heading font-bold text-green-700 mb-2">
                                                         ¡Pago Confirmado!
                                                     </h2>
                                                     <p className="text-green-600">
@@ -164,7 +164,7 @@ const PagoExitoso = () => {
                                             </div>
 
                                             <div className="border-t pt-6 space-y-4">
-                                                <h3 className="font-semibold text-lg">
+                                                <h3 className="font-heading font-semibold text-lg">
                                                     Información del Comprador
                                                 </h3>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -226,7 +226,7 @@ const PagoExitoso = () => {
                                             </div>
 
                                             <div className="border-t pt-6 space-y-4">
-                                                <h3 className="font-semibold text-lg">
+                                                <h3 className="font-heading font-semibold text-lg">
                                                     Información de Pago
                                                 </h3>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

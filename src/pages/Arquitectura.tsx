@@ -167,7 +167,7 @@ const GraduateProfile: React.FC = () => {
                         textRef.isIntersecting ? "animate-slide-in-left" : ""
                     )}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-heading">
+                    <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                         Perfil del egresado
                     </h2>
                     <p className="text-muted-foreground mb-4 font-body">
@@ -209,7 +209,7 @@ const StudyPlan: React.FC = () => {
         <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary font-heading">
+                    <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
                         Plan de estudios
                     </h2>
                     <UniversityButton asChild variant="tertiary">
@@ -328,7 +328,7 @@ const TestimonialsBlock: React.FC = () => {
     return (
         <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary font-heading">
+                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-8">
                     Comunidad y Testimonios
                 </h2>
                 <div
@@ -477,10 +477,10 @@ const FinalCTA: React.FC = () => {
     return (
         <section className="py-16 bg-primary/10">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-heading">
+                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                     ¿Listo para comenzar tu camino en Arquitectura?
                 </h2>
-                <p className="text-muted-foreground mb-8 font-body max-w-2xl mx-auto">
+                <p className="text-xl text-muted-foreground mb-8 font-body leading-relaxed max-w-3xl mx-auto">
                     Estamos para acompañarte en cada paso: inscripción, becas,
                     plan de estudios y más.
                 </p>

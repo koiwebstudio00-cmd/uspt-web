@@ -76,7 +76,7 @@ const PagoFallido = () => {
                                                     <XCircle className="w-10 h-10 text-white" />
                                                 </div>
                                                 <div>
-                                                    <h2 className="text-2xl font-bold text-red-700 mb-2">
+                                                    <h2 className="text-2xl font-heading font-bold text-red-700 mb-2">
                                                         Pago No Completado
                                                     </h2>
                                                     <p className="text-red-600">
@@ -154,7 +154,7 @@ const PagoFallido = () => {
                                                 </div>
 
                                                 <div className="border-t pt-6 space-y-4">
-                                                    <h3 className="font-semibold text-lg">
+                                                    <h3 className="font-heading font-semibold text-lg">
                                                         Información del
                                                         Comprador
                                                     </h3>

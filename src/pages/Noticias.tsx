@@ -180,7 +180,7 @@ const Noticias = () => {
                     <section className="py-20 bg-white">
                         <div className="container mx-auto px-4">
                             <div className="flex items-center justify-between mb-8">
-                                <h2 className="text-2xl md:text-3xl font-bold font-heading text-primary">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground">
                                     Todas las Noticias
                                 </h2>
                                 <div className="text-sm text-muted-foreground">

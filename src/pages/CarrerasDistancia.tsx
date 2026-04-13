@@ -351,11 +351,11 @@ const CarrerasDistancia = () => {
                 {/* Ventajas Section - Movida antes del CTA */}
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl mb-4 font-heading">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
                                 Ventajas de Estudiar a Distancia
                             </h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto font-body">
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Descubrí los beneficios de nuestra modalidad
                                 virtual
                             </p>
