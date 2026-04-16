@@ -51,6 +51,7 @@ import CTD from "./pages/CTD";
 import CIAAP from "./pages/CIAAP";
 import Beneficios from "./pages/Beneficios";
 import MesaCienciaTecnologia from "./pages/MesaCienciaTec";
+import CalendarioAcademico from "./pages/CalendarioAcademico";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +83,10 @@ const App = () => (
                         element={<ExtensionUniversitaria />}
                     />
                     <Route path="/alumnos" element={<Alumnos />} />
+                    <Route
+                        path="/calendario-academico"
+                        element={<CalendarioAcademico />}
+                    />
                     {/* <Route path="/turnos" element={<Turnos />} /> */}
                     <Route path="/beneficios" element={<Beneficios />} />
 
