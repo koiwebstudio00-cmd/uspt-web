@@ -123,25 +123,25 @@ const CalendarioAcademico = () => {
                             className="w-full"
                             onValueChange={setActiveTab}
                         >
-                            <div className="flex justify-center mb-12">
-                                <TabsList className="bg-muted/50 p-1 border border-muted2">
+                            <div className="mb-8 sm:mb-12">
+                                <TabsList className="grid h-auto w-full max-w-4xl grid-cols-1 gap-1 border border-muted2 bg-muted/50 p-1 sm:mx-auto sm:grid-cols-3">
                                     <TabsTrigger
                                         value="general"
-                                        className="px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white"
+                                        className="w-full px-4 py-2.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-white"
                                     >
                                         <Calendar className="w-4 h-4 mr-2" />
                                         General
                                     </TabsTrigger>
                                     <TabsTrigger
                                         value="cursado"
-                                        className="px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white"
+                                        className="w-full px-4 py-2.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-white"
                                     >
                                         <Clock className="w-4 h-4 mr-2" />
                                         Horarios de Cursado
                                     </TabsTrigger>
                                     <TabsTrigger
                                         value="examenes"
-                                        className="px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white"
+                                        className="w-full px-4 py-2.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-white"
                                     >
                                         <FileText className="w-4 h-4 mr-2" />
                                         Fechas de Exámenes
