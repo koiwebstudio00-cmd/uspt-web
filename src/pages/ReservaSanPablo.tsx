@@ -85,9 +85,9 @@ const ReservaSanPablo = () => {
         // Validar cantidad para reserva grupal
         if (tipoReserva === "grupal") {
             const cantidadNum = parseInt(cantidad);
-            if (!cantidadNum || cantidadNum < 1) {
+            if (!cantidadNum || cantidadNum < 2) {
                 setPaymentError(
-                    "Por favor ingresá una cantidad válida (mínimo 1)",
+                    "Por favor ingresá una cantidad válida (mínimo 2)",
                 );
                 return;
             }

@@ -1,37 +1,20 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabase/client";
-import { ServiceType } from "@/lib/types/database";
-
-interface ServiceAvailability {
-    tramites: boolean;
-    reserva: boolean;
-    diaEstudiante: boolean;
-}
+import { getActiveServiceTypesWithServices } from "@/lib/data/services";
+import type { ServiceTypeRecord } from "@/lib/types/database";
 
 interface UseServiceAvailabilityResult {
-    availability: ServiceAvailability;
+    activeServiceTypes: ServiceTypeRecord[];
     loading: boolean;
     error: string | null;
 }
 
-const DEFAULT_AVAILABILITY: ServiceAvailability = {
-    tramites: false,
-    reserva: false,
-    diaEstudiante: false,
-};
-
 /**
- * Hook optimizado para verificar la disponibilidad de cada tipo de servicio.
- *
- * Realiza una única query a Supabase proyectando solo el campo `tipo`,
- * luego agrupa en cliente para derivar si cada tipo tiene al menos 1 servicio activo.
- *
- * Esto reemplaza el uso de 3 hooks separados (useTramites, useReservaServices,
- * useDiaEstudiante) cuando solo se necesita saber si el tipo está disponible.
+ * Obtiene los tipos de servicio que actualmente tienen al menos un servicio activo.
  */
 export function useServiceAvailability(): UseServiceAvailabilityResult {
-    const [availability, setAvailability] =
-        useState<ServiceAvailability>(DEFAULT_AVAILABILITY);
+    const [activeServiceTypes, setActiveServiceTypes] = useState<
+        ServiceTypeRecord[]
+    >([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -43,32 +26,14 @@ export function useServiceAvailability(): UseServiceAvailabilityResult {
                 setLoading(true);
                 setError(null);
 
-                // Una sola query, solo el campo `tipo` — mínima transferencia de datos
-                const { data, error: queryError } = await supabase
-                    .from("services")
-                    .select("tipo")
-                    .eq("is_active", true);
-
-                if (queryError) throw queryError;
+                const types = await getActiveServiceTypesWithServices();
 
                 if (isMounted) {
-                    const rows = data ?? [];
-
-                    // Contar servicios activos por tipo en cliente
-                    const counts: Record<string, number> = {};
-                    for (const row of rows) {
-                        counts[row.tipo] = (counts[row.tipo] ?? 0) + 1;
-                    }
-
-                    setAvailability({
-                        tramites: (counts[ServiceType.TRAMITE] ?? 0) > 0,
-                        reserva: (counts[ServiceType.RESERVA] ?? 0) > 0,
-                        diaEstudiante:
-                            (counts[ServiceType.DIA_DEL_ESTUDIANTE] ?? 0) > 0,
-                    });
+                    setActiveServiceTypes(types);
                 }
             } catch (err) {
                 if (isMounted) {
+                    setActiveServiceTypes([]);
                     setError(
                         err instanceof Error
                             ? err.message
@@ -90,5 +55,5 @@ export function useServiceAvailability(): UseServiceAvailabilityResult {
         };
     }, []);
 
-    return { availability, loading, error };
+    return { activeServiceTypes, loading, error };
 }

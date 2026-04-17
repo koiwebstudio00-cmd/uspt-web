@@ -1,7 +1,11 @@
-export enum ServiceType {
-    TRAMITE = "tramite",
-    RESERVA = "reserva",
-    DIA_DEL_ESTUDIANTE = "dia_del_estudiante",
+export type DbId = string | number;
+
+export interface ServiceTypeRecord {
+    id: DbId;
+    nombre: string;
+    slug?: string | null;
+    created_at: string; // ISO timestamp
+    updated_at?: string | null; // ISO timestamp
 }
 
 export interface Service {
@@ -9,7 +13,7 @@ export interface Service {
     nombre: string;
     codigo: string; // Código único del servicio
     precio: number; // DECIMAL(10,2)
-    tipo: ServiceType;
+    tipo: DbId; // FK a service_type.id
     descripcion?: string | null;
     is_active: boolean;
     created_at: string; // ISO timestamp

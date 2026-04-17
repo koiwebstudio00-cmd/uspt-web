@@ -28,6 +28,7 @@ import PagosOnline from "./pages/PagosOnline";
 import ReservaSanPablo from "./pages/ReservaSanPablo";
 import DiaEstudiante from "./pages/DiaEstudiante";
 import TramitesVarios from "./pages/TramitesVarios";
+import PagoServicioTipo from "./pages/PagoServicioTipo";
 import PagoExitoso from "./pages/PagoExitoso";
 import PagoFallido from "./pages/PagoFallido";
 import PagoPendiente from "./pages/PagoPendiente";
@@ -166,6 +167,10 @@ const App = () => (
                     <Route
                         path="/pagos/tramites-varios"
                         element={<TramitesVarios />}
+                    />
+                    <Route
+                        path="/pagos/servicios/:typeId"
+                        element={<PagoServicioTipo />}
                     />
                     <Route path="/success" element={<PagoExitoso />} />
                     <Route path="/failure" element={<PagoFallido />} />

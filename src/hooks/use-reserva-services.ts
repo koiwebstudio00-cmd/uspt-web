@@ -33,20 +33,52 @@ export function useReservaServices(): UseReservaServicesResult {
                 const data = await getServicesByType("reserva");
 
                 if (isMounted) {
+                    const normalize = (value: string) =>
+                        value
+                            .normalize("NFD")
+                            .replace(/[\u0300-\u036f]/g, "")
+                            .toLowerCase();
+
                     // Find personal and grupal reservations by codigo or nombre
                     const personal = data.find(
                         (s) =>
-                            s.codigo.toLowerCase().includes("personal") ||
-                            s.nombre.toLowerCase().includes("personal")
+                            normalize(s.codigo).includes("personal") ||
+                            normalize(s.nombre).includes("personal") ||
+                            normalize(s.codigo).includes("individual") ||
+                            normalize(s.nombre).includes("individual")
                     );
                     const grupal = data.find(
                         (s) =>
-                            s.codigo.toLowerCase().includes("grupal") ||
-                            s.nombre.toLowerCase().includes("grupal")
+                            normalize(s.codigo).includes("grupal") ||
+                            normalize(s.nombre).includes("grupal") ||
+                            normalize(s.codigo).includes("grupo") ||
+                            normalize(s.nombre).includes("grupo")
                     );
 
-                    setReservaPersonal(personal || null);
-                    setReservaGrupal(grupal || null);
+                    if (personal || grupal) {
+                        setReservaPersonal(personal || null);
+                        setReservaGrupal(grupal || null);
+                        return;
+                    }
+
+                    // Fallback defensivo si nombres/códigos no siguen convención
+                    if (data.length === 1) {
+                        setReservaPersonal(data[0]);
+                        setReservaGrupal(null);
+                        return;
+                    }
+
+                    if (data.length >= 2) {
+                        const sortedByPrice = [...data].sort(
+                            (a, b) => a.precio - b.precio,
+                        );
+                        setReservaPersonal(sortedByPrice[0] || null);
+                        setReservaGrupal(sortedByPrice[1] || null);
+                        return;
+                    }
+
+                    setReservaPersonal(null);
+                    setReservaGrupal(null);
                 }
             } catch (err) {
                 if (isMounted) {

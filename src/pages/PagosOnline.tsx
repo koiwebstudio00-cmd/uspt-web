@@ -1,50 +1,82 @@
 import React from "react";
 import { useServiceAvailability } from "@/hooks/use-service-availability";
 import Footer from "@/components/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { cn } from "@/lib/utils";
-import {
-    CreditCard,
-    CheckCircle,
-    FileText,
-    Globe,
-    ArrowRight,
-    Phone,
-    HelpCircle,
-} from "lucide-react";
+import { CheckCircle, FileText, ArrowRight, Phone, HelpCircle } from "lucide-react";
 import { Navbar1 } from "@/components/Navbar";
 import { Link } from "react-router-dom";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
 import MercadoPago from "@/components/icons/Mp";
 import WhatsApp from "@/components/icons/Wp";
 
+function normalizeText(value: string): string {
+    return value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
+function getSpecialTypeRoute(slug?: string | null, nombre?: string): string | null {
+    const normalizedSlug = normalizeText(slug ?? "");
+    const normalizedName = normalizeText(nombre ?? "");
+
+    if (normalizedSlug === "reserva" || normalizedName.includes("reserva")) {
+        return "/pagos/reserva-san-pablo";
+    }
+
+    if (
+        normalizedSlug === "dia_del_estudiante" ||
+        normalizedName.includes("dia del estudiante")
+    ) {
+        return "/pagos/dia-estudiante";
+    }
+
+    if (normalizedSlug === "tramite" || normalizedName.includes("tramite")) {
+        return "/pagos/tramites-varios";
+    }
+
+    return null;
+}
+
 const PagosOnline = () => {
     const metodosRef = useIntersectionObserver<HTMLDivElement>({
         threshold: 0.2,
     });
 
-    const { availability, loading: loadingAvailability } =
+    const { activeServiceTypes, loading: loadingAvailability } =
         useServiceAvailability();
 
-    const heroCtaCount =
-        1 + (availability.reserva ? 1 : 0) + (availability.tramites ? 1 : 0);
-
-    const heroCtaGridClass =
-        {
-            1: "grid-cols-1",
-            2: "md:grid-cols-2",
-            3: "md:grid-cols-3",
-        }[heroCtaCount] ?? "md:grid-cols-3";
-
-    const secondaryCtaCount = availability.diaEstudiante ? 1 : 0;
+    const hasDiaEstudiante = activeServiceTypes.some(
+        (type) => type.slug === "dia_del_estudiante",
+    );
+    const secondaryCtaCount = hasDiaEstudiante ? 1 : 0;
 
     const secondaryCtaGridClass =
         {
             1: "grid-cols-1",
             2: "grid-cols-2",
         }[secondaryCtaCount] ?? "grid-cols-2";
+
+    const serviceShortcutLinks = activeServiceTypes.map((type) => {
+        const specialRoute = getSpecialTypeRoute(type.slug, type.nombre);
+        if (specialRoute) {
+            return {
+                key: String(type.id),
+                label: type.nombre,
+                to: specialRoute,
+            };
+        }
+
+        return {
+            key: String(type.id),
+            label: type.nombre,
+            to: `/pagos/servicios/${type.id}`,
+        };
+    });
 
     const metodosDepago = [
         {
@@ -128,20 +160,6 @@ const PagosOnline = () => {
                                             Accesos directos
                                         </p>
                                         <div className="flex flex-col gap-4 flex-1">
-                                            {availability.reserva && (
-                                                <Link
-                                                    to="/pagos/reserva-san-pablo"
-                                                    className="group flex items-center justify-between border border-primary/30 bg-primary/5 hover:bg-primary hover:border-primary px-6 py-5 transition-all"
-                                                >
-                                                    <div className="flex items-center gap-3">
-                                                        <span className="font-semibold font-heading text-foreground group-hover:text-white transition-colors">
-                                                            Reserva San Pablo
-                                                        </span>
-                                                    </div>
-                                                    <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-all group-hover:translate-x-1" />
-                                                </Link>
-                                            )}
-
                                             <a
                                                 href="https://gestion.usptonline.com.ar/Universitas/Account/LogOn?ReturnUrl=/universitas&Secure=True"
                                                 target="_blank"
@@ -156,19 +174,20 @@ const PagosOnline = () => {
                                                 <ArrowRight className="w-4 h-4 text-white transition-all group-hover:translate-x-1" />
                                             </a>
 
-                                            {availability.tramites && (
+                                            {serviceShortcutLinks.map((shortcut) => (
                                                 <Link
-                                                    to="/pagos/tramites-varios"
+                                                    key={shortcut.key}
+                                                    to={shortcut.to}
                                                     className="group flex items-center justify-between border border-primary/30 bg-primary/5 hover:bg-primary hover:border-primary px-6 py-5 transition-all"
                                                 >
                                                     <div className="flex items-center gap-3">
                                                         <span className="font-semibold font-heading text-foreground group-hover:text-white transition-colors">
-                                                            Trámites Varios
+                                                            {shortcut.label}
                                                         </span>
                                                     </div>
                                                     <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-all group-hover:translate-x-1" />
                                                 </Link>
-                                            )}
+                                            ))}
                                         </div>
                                     </div>
                                 )}
@@ -353,7 +372,7 @@ const PagosOnline = () => {
                                     )}
                                 >
                                     {!loadingAvailability &&
-                                        availability.diaEstudiante && (
+                                        hasDiaEstudiante && (
                                             <Link
                                                 to="/pagos/dia-estudiante"
                                                 className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white py-6 px-6 flex flex-col items-center gap-3 group transition-all hover:scale-105 w-full"

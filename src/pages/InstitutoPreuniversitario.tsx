@@ -510,7 +510,7 @@ const InstitutoPreuniversitario = () => {
                                 {/* Imagen */}
                                 <div className="relative overflow-hidden border border-muted2 h-64">
                                     <img
-                                        src="/images/institucional.jpg"
+                                        src="/images/ipre-img.jpeg"
                                         alt="Instituto Preuniversitario San Pablo T"
                                         className="w-full h-full object-cover"
                                     />
