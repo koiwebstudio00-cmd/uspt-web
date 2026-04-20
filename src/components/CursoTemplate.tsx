@@ -335,7 +335,7 @@ const CursoTemplate = ({ curso }: CursoTemplateProps) => {
                 </section>
 
                 {/* ── Featured image full-width (si tiene imagen y no es la default) ── */}
-                {curso.featured_img && (
+                {/* {curso.featured_img && (
                     <section className="py-20 bg-white">
                         <div className="container mx-auto px-4">
                             <p className={sectionLabel}>Recursos</p>
@@ -352,7 +352,7 @@ const CursoTemplate = ({ curso }: CursoTemplateProps) => {
                             </div>
                         </div>
                     </section>
-                )}
+                )} */}
 
                 {/* ── Tags ── */}
                 {tags.length > 0 && (
