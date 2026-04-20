@@ -45,6 +45,7 @@ import SECIDYC from "./pages/SECIDYC";
 import ProyectosInvestigacion from "./pages/MesaCienciaTec";
 import BolsaTrabajo from "./pages/BolsaTrabajo";
 import CarreraDetail from "./pages/CarreraDetail";
+import CursoDetail from "./pages/CursoDetail";
 import BlogDetail from "./pages/BlogDetail";
 import PosgradoDetail from "./pages/PosgradoDetail";
 import CIBA from "./pages/CIBA";
@@ -126,6 +127,9 @@ const App = () => (
 
                     {/* Carreras específicas - Ruta dinámica */}
                     <Route path="/carreras/:slug" element={<CarreraDetail />} />
+
+                    {/* Cursos de Extensión - Ruta dinámica */}
+                    <Route path="/cursos/:id" element={<CursoDetail />} />
 
                     {/* Nosotros */}
                     <Route path="/nosotros" element={<Nosotros />} />

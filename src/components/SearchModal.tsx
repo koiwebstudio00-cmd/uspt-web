@@ -128,6 +128,8 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
         }
     };
 
+    console.log(results)
+
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-[700px] p-0 gap-0 overflow-hidden bg-white/95 backdrop-blur-md border-primary/20 shadow-2xl">

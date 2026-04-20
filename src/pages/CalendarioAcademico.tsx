@@ -55,6 +55,10 @@ const CalendarioAcademico = () => {
 
     const { calendario, loading: loadingGeneral } = useCalendario();
 
+    const isPdf = calendario?.archivo_url
+        ? calendario.archivo_url.split("?")[0].toLowerCase().endsWith(".pdf")
+        : false;
+
     /*
     const {
         data: cursadoData,
@@ -211,32 +215,37 @@ const CalendarioAcademico = () => {
                                                 ) : calendario?.archivo_url ? (
                                                     <div className="w-full h-full flex flex-col gap-6">
                                                         <div className="overflow-hidden border border-muted2 shadow-sm bg-white">
-                                                            <img
-                                                                src={
-                                                                    calendario.archivo_url
-                                                                }
-                                                                alt="Calendario Académico"
-                                                                className="w-full h-auto object-contain cursor-zoom-in"
-                                                                onClick={() =>
-                                                                    window.open(
-                                                                        calendario.archivo_url,
-                                                                        "_blank",
-                                                                    )
-                                                                }
-                                                            />
+                                                            {isPdf ? (
+                                                                <iframe
+                                                                    src={calendario.archivo_url}
+                                                                    title="Calendario Académico"
+                                                                    className="w-full"
+                                                                    style={{ height: "80vh", minHeight: "600px" }}
+                                                                />
+                                                            ) : (
+                                                                <img
+                                                                    src={calendario.archivo_url}
+                                                                    alt="Calendario Académico"
+                                                                    className="w-full h-auto object-contain cursor-zoom-in"
+                                                                    onClick={() =>
+                                                                        window.open(
+                                                                            calendario.archivo_url,
+                                                                            "_blank",
+                                                                        )
+                                                                    }
+                                                                />
+                                                            )}
                                                         </div>
                                                         <div className="flex justify-center pb-8 px-4">
                                                             <a
-                                                                href={
-                                                                    calendario.archivo_url
-                                                                }
+                                                                href={calendario.archivo_url}
                                                                 target="_blank"
+                                                                rel="noopener noreferrer"
                                                                 className="inline-flex items-center gap-2 px-6 py-3 underline text-primary font-medium"
                                                             >
                                                                 <Download className="w-4 h-4" />
-                                                                Descargar
-                                                                Calendario
-                                                                (PDF/JPG)
+                                                                Descargar Calendario
+                                                                {isPdf ? " (PDF)" : " (JPG/PNG)"}
                                                             </a>
                                                         </div>
                                                     </div>

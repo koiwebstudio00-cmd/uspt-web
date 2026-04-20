@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { Navbar1 } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -21,7 +22,6 @@ import {
 import { Link } from "react-router-dom";
 import CtaPage from "@/components/CtaPage";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
-import InfoAdd from "@/components/InfoAdd";
 
 const CarrerasDistancia = () => {
     const [filtroNivel, setFiltroNivel] = useState("todos");
@@ -51,26 +51,30 @@ const CarrerasDistancia = () => {
 
     const ventajas = [
         {
-            icon: <Monitor />,
-            title: "Plataforma Virtual Avanzada",
+            icon: Monitor,
+            label: "Plataforma Virtual",
+            value: "Campus de última generación",
             description:
-                "Campus virtual de última generación con recursos multimedia interactivos",
+                "Recursos multimedia interactivos y entorno virtual avanzado",
         },
         {
-            icon: <Clock />,
-            title: "Flexibilidad Horaria",
+            icon: Clock,
+            label: "Flexibilidad Horaria",
+            value: "Estudiá a tu ritmo",
             description:
-                "Estudia a tu ritmo, compatibilizando con trabajo y familia",
+                "Compatibilizando con trabajo y familia, sin horarios fijos",
         },
         {
-            icon: <Users />,
-            title: "Tutorías Personalizadas",
+            icon: Users,
+            label: "Tutorías Personalizadas",
+            value: "Acompañamiento continuo",
             description:
-                "Acompañamiento docente continuo y clases virtuales en vivo",
+                "Docentes disponibles y clases virtuales en vivo",
         },
         {
-            icon: <Award />,
-            title: "Títulos Oficiales",
+            icon: Award,
+            label: "Títulos Oficiales",
+            value: "Validez nacional",
             description:
                 "Misma validez académica que las carreras presenciales",
         },
@@ -120,8 +124,43 @@ const CarrerasDistancia = () => {
                     <Breadcrumbs items={breadcrumbItems} />
                 </div>
 
+                {/* Ventajas Section */}
+                <section className="py-8 md:py-16 bg-white">
+                    <div className="container mx-auto px-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 border border-muted2">
+                            {ventajas.map((v, i) => (
+                                <div
+                                    key={v.label}
+                                    className={cn(
+                                        "p-6 flex flex-col gap-2 hover:bg-primary/5 transition-colors",
+                                        i < ventajas.length - 1
+                                            ? "border-b lg:border-b-0 lg:border-r border-muted2"
+                                            : "",
+                                        i % 2 !== 0
+                                            ? "border-l lg:border-l-0 border-muted2"
+                                            : "",
+                                    )}
+                                >
+                                    <div className="w-9 h-9 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0">
+                                        <v.icon className="w-4 h-4" />
+                                    </div>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-1">
+                                        {v.label}
+                                    </p>
+                                    <p className="font-heading font-bold text-foreground text-base leading-tight">
+                                        {v.value}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground font-body leading-snug">
+                                        {v.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
                 {/* Filtros y Búsqueda */}
-                <section className="py-8 md:py-16 bg-white border-b border-muted2">
+                <section className="pt-12 md:pt-16 border-t bg-muted/30 border-muted2">
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col md:flex-row gap-4 md:items-center">
                             {/* Búsqueda */}
@@ -173,7 +212,7 @@ const CarrerasDistancia = () => {
                 </section>
 
                 {/* Listado de Carreras */}
-                <section className="py-12 bg-muted/30">
+                <section className="pt-8 pb-12 md:pb-16 bg-muted/30">
                     <div className="container mx-auto px-4">
                         {/* Loading state */}
                         {loading ? (
@@ -348,21 +387,7 @@ const CarrerasDistancia = () => {
                     </div>
                 </section>
 
-                {/* Ventajas Section - Movida antes del CTA */}
-                <section className="py-20 bg-white">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
-                                Ventajas de Estudiar a Distancia
-                            </h2>
-                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
-                                Descubrí los beneficios de nuestra modalidad
-                                virtual
-                            </p>
-                        </div>
-                        <InfoAdd items={ventajas} columnas={4} />
-                    </div>
-                </section>
+                
 
                 {/* CTA Section */}
                 <CtaPage

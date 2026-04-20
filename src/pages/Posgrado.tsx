@@ -14,7 +14,7 @@ import {
     AlertCircle,
     ChevronLeft,
     ChevronRight,
-    CreditCard,
+    ArrowRight,
 } from "lucide-react";
 import { Navbar1 } from "@/components/Navbar";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
@@ -24,14 +24,6 @@ import { usePosgrados } from "@/hooks/use-posgrados";
 import { TipoPosgrado } from "@/lib/types/database";
 import { Link } from "react-router-dom";
 import { useCursos, type CourseWithCategory } from "@/hooks/use-cursos";
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogFooter,
-} from "@/components/ui/dialog";
-import WhatsApp from "@/components/icons/Wp";
 import { Badge } from "@/components/ui/badge";
 
 const COURSES_PER_PAGE = 9;
@@ -47,11 +39,6 @@ const Posgrado = () => {
         error: errorCursos,
         count,
     } = useCursos("Cursos | Posgrado");
-
-    // Estado para el modal de información de curso
-    const [selectedCurso, setSelectedCurso] =
-        useState<CourseWithCategory | null>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Estado de paginación
     const [currentPage, setCurrentPage] = useState(1);
@@ -475,7 +462,7 @@ const Posgrado = () => {
                                                 key={curso.id}
                                                 className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
                                             >
-                                                <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                                                <div className="relative aspect-video overflow-hidden">
                                                     {curso.featured_img ? (
                                                         <img
                                                             src={
@@ -539,21 +526,19 @@ const Posgrado = () => {
                                                     </div>
                                                 </CardHeader>
                                                 <CardContent className="pt-0">
-                                                    <UniversityButton
-                                                        variant="primary"
-                                                        size="sm"
-                                                        className="w-full flex items-center justify-center gap-2"
-                                                        onClick={() => {
-                                                            setSelectedCurso(
-                                                                curso,
-                                                            );
-                                                            setIsModalOpen(
-                                                                true,
-                                                            );
-                                                        }}
+                                                    <Link
+                                                        to={`/cursos/${curso.id}`}
+                                                        className="w-full"
                                                     >
-                                                        Más información
-                                                    </UniversityButton>
+                                                        <UniversityButton
+                                                            variant="primary"
+                                                            size="sm"
+                                                            className="w-full flex items-center justify-center gap-2"
+                                                        >
+                                                            Ver detalle
+                                                            <ArrowRight className="w-4 h-4" />
+                                                        </UniversityButton>
+                                                    </Link>
                                                 </CardContent>
                                             </Card>
                                         ))}
@@ -678,109 +663,6 @@ const Posgrado = () => {
 
             <Footer />
 
-            {/* Modal de Información del Curso */}
-            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-                <DialogContent className="sm:max-w-[600px] border-muted2 max-h-[90vh] overflow-y-auto">
-                    <DialogHeader>
-                        <DialogTitle className="text-2xl font-heading text-primary leading-tight">
-                            {selectedCurso?.fullname ||
-                                selectedCurso?.displayName ||
-                                "Información del Curso"}
-                        </DialogTitle>
-                        <div className="flex flex-wrap items-center gap-2 mt-2">
-                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                                {selectedCurso?.courseCategories?.name}
-                            </span>
-                            {renderTags(selectedCurso?.tags)}
-                            {selectedCurso?.modalidad && (
-                                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                                    {selectedCurso.modalidad}
-                                </span>
-                            )}
-                        </div>
-                    </DialogHeader>
-
-                    <div className="space-y-6 py-4">
-                        {/* Imagen en el modal */}
-                        {selectedCurso?.featured_img && (
-                            <div className="relative aspect-video overflow-hidden rounded-lg">
-                                <img
-                                    src={selectedCurso.featured_img}
-                                    alt={
-                                        selectedCurso.fullname ||
-                                        selectedCurso.displayName ||
-                                        ""
-                                    }
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                        )}
-
-                        {/* Descripción/Resumen */}
-                        <div className="space-y-2">
-                            <h4 className="font-semibold text-foreground flex items-center gap-2">
-                                <BookOpen className="w-4 h-4 text-primary" />
-                                Descripción del curso
-                            </h4>
-                            <div
-                                className="text-muted-foreground text-sm leading-relaxed font-body prose prose-sm max-w-none"
-                                dangerouslySetInnerHTML={{
-                                    __html:
-                                        selectedCurso?.summary ||
-                                        "No hay una descripción detallada disponible para este curso en este momento.",
-                                }}
-                            />
-                        </div>
-
-                        {/* Precio */}
-                        {selectedCurso?.price !== null &&
-                            selectedCurso?.price !== undefined && (
-                                <div className="p-4 bg-primary/5 border border-primary/20 flex items-center justify-between">
-                                    <span className="font-medium text-foreground">
-                                        Costo del curso:
-                                    </span>
-                                    <span className="text-2xl font-bold text-primary">
-                                        $ {selectedCurso.price}
-                                    </span>
-                                </div>
-                            )}
-                    </div>
-
-                    <DialogFooter className="flex flex-col sm:flex-row gap-3 sm:gap-2">
-                        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto order-1 sm:order-2">
-                            {selectedCurso?.price &&
-                                selectedCurso?.price > 0 && (
-                                    <Link
-                                        to={`/pagar-curso/${selectedCurso.id}`}
-                                        className="w-full sm:w-auto"
-                                    >
-                                        <UniversityButton
-                                            variant="primary"
-                                            className="w-full flex items-center justify-center gap-2"
-                                        >
-                                            <CreditCard className="w-4 h-4" />
-                                            Pagar desde la web
-                                        </UniversityButton>
-                                    </Link>
-                                )}
-                            <a
-                                href={`https://api.whatsapp.com/send?phone=+5493816266870&text=Hola,%20me%20gustaria%20inscribirme%20en%20el%20curso:%20${encodeURIComponent(selectedCurso?.fullname || selectedCurso?.displayName || "")}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full sm:w-auto"
-                            >
-                                <UniversityButton
-                                    variant="primary"
-                                    className="w-full flex items-center justify-center gap-2 bg-white border border-green-600 hover:bg-green-600 hover:text-white text-green-600"
-                                >
-                                    <WhatsApp className="w-4 h-4" />
-                                    Pagar por WhatsApp
-                                </UniversityButton>
-                            </a>
-                        </div>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
         </div>
     );
 };
