@@ -9,7 +9,7 @@ export default function AnimatedTestimonialsDemo() {
       src: "/images/Lic. Valentina Ferre.png",
     },
     {
-      quote: "Me recibí de Licenciada en Periodismo en la Universidad San Pablo T. Mi experiencia cumplió todas mis expectativas. Elegí estudiar aquí porque todas las materias teóricas estaban acompañadas de práctica, lo que me permitió desarrollarme profesionalmente, tener mayor experiencia y estar mejor preparada para insertarme en el campo laboral.",
+      quote: "Me recibí de Licenciada en Periodismo en la Universidad de San Pablo – Tucumán. Mi experiencia cumplió todas mis expectativas. Elegí estudiar aquí porque todas las materias teóricas estaban acompañadas de práctica, lo que me permitió desarrollarme profesionalmente, tener mayor experiencia y estar mejor preparada para insertarme en el campo laboral.",
       name: "Pr. Gabriela Arias",
       designation: "Egresada de Periodismo",
       src: "/images/Pr. Gabriela Arias.png",

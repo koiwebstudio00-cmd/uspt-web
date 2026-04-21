@@ -13,12 +13,12 @@ const ReservaNatural = () => {
     // SEO: título y descripción
     useEffect(() => {
         document.title =
-            "Reserva Natural San Pablo – Universidad San Pablo Tucumán";
+            "Reserva Natural San Pablo | Universidad de San Pablo – Tucumán";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
             metaDesc.setAttribute(
                 "content",
-                "Espacio de conservación, educación e investigación ambiental dentro del Campus de la Universidad San Pablo Tucumán.",
+                "Espacio de conservación, educación e investigación ambiental dentro del campus de la Universidad de San Pablo – Tucumán.",
             );
         }
     }, []);
@@ -69,7 +69,8 @@ const ReservaNatural = () => {
                                         <strong className="text-foreground">
                                             2016
                                         </strong>
-                                        , la Universidad de San Pablo T, con
+                                        , la Universidad de San Pablo –
+                                        Tucumán, con
                                         motivo de la celebración del
                                         Bicentenario de la declaración de la
                                         Independencia, inaugura la primera
@@ -89,7 +90,7 @@ const ReservaNatural = () => {
                                         cultural y arquitectónico de los faldeos
                                         de la Sierra de San Javier que se
                                         yerguen frente a la Universidad de San
-                                        Pablo T.
+                                        Pablo – Tucumán.
                                     </p>
                                 </div>
                             </div>
@@ -146,7 +147,8 @@ const ReservaNatural = () => {
                                         Patrimonio y Restauración
                                     </h3>
                                     <p className="text-muted-foreground font-body leading-relaxed">
-                                        La San Pablo T ha hecho de la
+                                        La Universidad de San Pablo – Tucumán
+                                        ha hecho de la
                                         restauración del patrimonio cultural del
                                         ex ingenio San Pablo una marca propia.
                                         Este afán de recuperar nuestra historia
@@ -316,7 +318,7 @@ const ReservaNatural = () => {
 
                 {/* CTA Section moved to bottom */}
                 <CtaPage
-                    title="Descubrí el pulmón verde de la USP-T"
+                    title="Descubrí el pulmón verde de la USPT"
                     description="Sumate a nuestras actividades educativas, recorridos y programas de conservación."
                     url="/pagos/reserva-san-pablo"
                     buttonText="Participá de una visita"

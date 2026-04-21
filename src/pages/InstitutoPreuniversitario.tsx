@@ -159,7 +159,7 @@ const InstitutoPreuniversitario = () => {
                 {/* Hero */}
                 <HeroPageComponent
                     imageUrl="/images/IMG_4688.webp"
-                    title="Instituto Preuniversitario San Pablo T"
+                    title="Instituto Preuniversitario San Pablo Tucumán"
                     description="La primera escuela preuniversitaria de gestión privada de Tucumán"
                     minHeight="480px"
                 />
@@ -171,7 +171,7 @@ const InstitutoPreuniversitario = () => {
                 <section className="py-20 bg-white">
                     <div className="container mx-auto px-4">
                         {/* Intro */}
-                        <div className="grid lg:grid-cols-2 gap-14 items-center mb-16">
+                        <div className="max-w-4xl mb-16">
                             <div>
                                 <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
                                     Instituto Preuniversitario
@@ -196,23 +196,6 @@ const InstitutoPreuniversitario = () => {
                                     comprometidas y capaces de pensar, crear y
                                     transformar su realidad.
                                 </p>
-                            </div>
-
-                            {/* Autoridad */}
-                            <div className="relative">
-                                <div className="aspect-square overflow-hidden border border-muted2 max-w-sm mx-auto">
-                                    <img
-                                        src="/images/autoridad-ipre.png"
-                                        alt="Directora del Instituto Preuniversitario"
-                                        className="w-full h-full object-cover object-top"
-                                    />
-                                </div>
-                                <div className="mt-4 text-center">
-                                    <p className="text-sm text-muted-foreground font-body">
-                                        Dirección Institucional — IPRE San Pablo
-                                        T
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -401,12 +384,13 @@ const InstitutoPreuniversitario = () => {
 
                                 <div className="prose prose-sm max-w-none text-muted-foreground font-body leading-relaxed space-y-4">
                                     <p>
-                                        El Instituto Pre Universitario San Pablo
-                                        T es la primera escuela preuniversitaria
-                                        de gestión privada. Fue fundado por la
-                                        Universidad de San Pablo T y comenzó su
-                                        primer año académico en 2020 con el
-                                        nivel secundario.
+                                        El Instituto Preuniversitario San Pablo
+                                        Tucumán es la primera escuela
+                                        preuniversitaria de gestión privada.
+                                        Fue fundado por la Universidad de San
+                                        Pablo – Tucumán y comenzó su primer año
+                                        académico en 2020 con el nivel
+                                        secundario.
                                     </p>
                                     <p>
                                         Entre las características del
@@ -511,14 +495,14 @@ const InstitutoPreuniversitario = () => {
                                 <div className="relative overflow-hidden border border-muted2 h-64">
                                     <img
                                         src="/images/ipre-img.jpeg"
-                                        alt="Instituto Preuniversitario San Pablo T"
+                                        alt="Instituto Preuniversitario San Pablo Tucumán"
                                         className="w-full h-full object-cover"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                                         <p className="font-heading font-bold text-lg">
                                             Instituto Preuniversitario San Pablo
-                                            T
+                                            Tucumán
                                         </p>
                                         <p className="text-white/80 text-sm">
                                             Formando estudiantes librepensantes
@@ -607,6 +591,46 @@ const InstitutoPreuniversitario = () => {
                                             </div>
                                         ))}
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-20 bg-primary/5">
+                    <div className="container mx-auto px-4">
+                        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center border border-muted2 bg-white p-8 md:p-12">
+                            <div>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
+                                    Dirección Institucional
+                                </p>
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6 leading-tight">
+                                    Acompañamiento cercano para la trayectoria
+                                    de cada estudiante
+                                </h2>
+                                <div className="w-10 h-0.5 bg-primary mb-6" />
+                                <p className="text-muted-foreground font-body leading-relaxed mb-4">
+                                    La dirección institucional del Instituto
+                                    Preuniversitario San Pablo Tucumán acompaña
+                                    el desarrollo académico, personal y humano
+                                    de los estudiantes, fortaleciendo una
+                                    propuesta educativa basada en la
+                                    autodisciplina, la innovación y el
+                                    compromiso con la comunidad.
+                                </p>
+                                <p className="text-sm text-muted-foreground font-body">
+                                    Dirección Institucional — Instituto
+                                    Preuniversitario San Pablo Tucumán
+                                </p>
+                            </div>
+
+                            <div className="relative">
+                                <div className="aspect-[4/5] overflow-hidden border border-muted2 max-w-sm mx-auto">
+                                    <img
+                                        src="/images/autoridad-ipre.png"
+                                        alt="Directora del Instituto Preuniversitario San Pablo Tucumán"
+                                        className="w-full h-full object-cover object-top"
+                                    />
                                 </div>
                             </div>
                         </div>

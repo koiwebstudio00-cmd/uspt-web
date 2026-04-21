@@ -59,7 +59,7 @@ function showLoader() {
                     font-weight: 700;
                     letter-spacing: 0.05em;
                     line-height: 1;
-                ">USP-T</span>
+                ">USPT</span>
                 <span style="
                     color: rgba(255,255,255,0.55);
                     font-size: 0.7rem;

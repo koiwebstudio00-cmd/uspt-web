@@ -405,7 +405,8 @@ const ReservaSanPablo = () => {
                                         biológico, paisajístico, cultural y
                                         arquitectónico de los faldeos de la
                                         Sierra de San Javier que se yerguen
-                                        frente a la Universidad de San Pablo T.
+                                        frente a la Universidad de San Pablo –
+                                        Tucumán.
                                     </p>
                                 </div>
                             </div>

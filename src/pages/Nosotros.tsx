@@ -69,7 +69,7 @@ const HeroInstitucional: React.FC = () => {
     return (
         <section className="">
             <HeroPageComponent
-                title="Somos la Universidad San Pablo T"
+                title="Somos la Universidad de San Pablo – Tucumán"
                 description="La primera universidad privada laica del NOA, creada para formar líderes del futuro."
                 imageUrl="/images/IMG_4691.webp"
             />
@@ -127,7 +127,8 @@ const HistoriaFundacion: React.FC = () => {
                     >
                         <div className="prose prose-lg max-w-none font-body">
                             <p className="text-foreground/90 leading-relaxed mb-6">
-                                La Universidad San Pablo T (USPT) fue creada en{" "}
+                                La Universidad de San Pablo – Tucumán (USPT)
+                                fue creada en{" "}
                                 <strong className="text-primary">2008</strong>{" "}
                                 con una misión clara: potenciar el desarrollo
                                 del NOA. En{" "}
@@ -215,7 +216,7 @@ const MisionVisionValores: React.FC = () => {
                         <div className="absolute inset-0">
                             <img
                                 src="/images/IMG_4691.webp"
-                                alt="Campus Universidad San Pablo T"
+                                alt="Campus Universidad de San Pablo – Tucumán"
                                 className="w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-primary/60" />
@@ -247,8 +248,8 @@ const MisionVisionValores: React.FC = () => {
                             {/* Contenido */}
                             <div className="space-y-6 font-body">
                                 <p className="text-lg text-foreground leading-relaxed">
-                                    La Universidad de San Pablo Tucumán asume la
-                                    misión de
+                                    La Universidad de San Pablo – Tucumán
+                                    asume la misión de
                                     <strong className="text-primary">
                                         {" "}
                                         formar profesionales íntegros
@@ -413,11 +414,11 @@ const AutoridadesInstitucionales: React.FC = () => {
                         </CardContent>
                     </Card>
 
-                    {/* Universidad San Pablo T - Rectorado */}
+                    {/* Universidad de San Pablo – Tucumán - Rectorado */}
                     <Card className="border-muted2">
                         <CardHeader>
                             <CardTitle className="text-xl font-heading text-primary">
-                                Universidad San Pablo T - Rectorado
+                                Universidad de San Pablo – Tucumán - Rectorado
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -481,7 +482,7 @@ const AutoridadesInstitucionales: React.FC = () => {
                                         </div>
                                         <div>
                                             <p className="font-semibold">
-                                                Dr. Federico Pérez Zamora
+                                                MG. Karina Gonzales
                                             </p>
                                             <p className="text-muted-foreground text-sm">
                                                 Instituto de Desarrollo e
@@ -499,7 +500,8 @@ const AutoridadesInstitucionales: React.FC = () => {
                                         </div>
                                         <div>
                                             <p className="font-semibold">
-                                                Arq. José María Simón
+                                                Diseñador Industrial José María
+                                                Simón
                                             </p>
                                             <p className="text-muted-foreground text-sm">
                                                 Instituto de Diseño, Estrategia

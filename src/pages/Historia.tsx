@@ -25,7 +25,7 @@ const Historia = () => {
             año: "2008",
             titulo: "Fundación de USPT",
             descripcion:
-                "Creación de la Universidad San Pablo Tucumán como primera universidad privada laica del NOA.",
+                "Creación de la Universidad de San Pablo – Tucumán como primera universidad privada laica del NOA.",
             logros: [
                 "Aprobación del proyecto institucional",
                 "Primeras autoridades designadas",

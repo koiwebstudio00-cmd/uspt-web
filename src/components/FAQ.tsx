@@ -29,7 +29,7 @@ const FAQ = () => {
         },
         {
             question: "¿La universidad tiene reconocimiento oficial?",
-            answer: "Sí, la Universidad de San Pablo T cuenta con reconocimiento oficial del Ministerio de Educación. Todos nuestros títulos tienen validez nacional e internacional.",
+            answer: "Sí, la Universidad de San Pablo – Tucumán cuenta con reconocimiento oficial del Ministerio de Educación. Todos nuestros títulos tienen validez nacional e internacional.",
         },
         {
             question: "¿Hay oportunidades de práctica profesional?",

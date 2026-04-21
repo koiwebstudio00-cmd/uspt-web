@@ -266,7 +266,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
 
                 <div className="p-3 bg-muted/30 border-t flex justify-between items-center px-6">
                     <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest">
-                        USPT • Universidad de San Pablo T
+                        USPT • Universidad de San Pablo – Tucumán
                     </p>
                     <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
                         <span className="flex items-center gap-1 bg-white px-1.5 py-0.5 rounded border border-slate-200 shadow-sm">

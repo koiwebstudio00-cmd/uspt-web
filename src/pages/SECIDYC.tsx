@@ -101,7 +101,7 @@ const SECIDYC = () => {
                 {/* Hero */}
                 <HeroPageComponent
                     title="Secretaría de Investigación, Desarrollo y Cultura"
-                    description="SECIDYC — Universidad San Pablo T"
+                    description="SECIDYC — Universidad de San Pablo – Tucumán"
                     minHeight="500"
                     imageUrl="/images/centroinv.jpg"
                 />
@@ -128,7 +128,7 @@ const SECIDYC = () => {
                                         programación, coordinación, gestión y
                                         evaluación de las actividades vinculadas
                                         a investigación y desarrollo de la
-                                        Universidad San Pablo Tucumán.
+                                        Universidad de San Pablo – Tucumán.
                                     </p>
                                 </div>
 
@@ -354,7 +354,8 @@ const SECIDYC = () => {
                                 </h2>
                                 <p className="text-sm text-gray-600 font-body leading-relaxed mb-8">
                                     La Unidad de Vinculación Tecnológica de la
-                                    Universidad San Pablo Tucumán fue creada en
+                                    Universidad de San Pablo – Tucumán fue
+                                    creada en
                                     el marco de la Ley 23.877 de Promoción y
                                     Fomento de la Innovación Tecnológica. Su
                                     función principal es facilitar la

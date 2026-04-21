@@ -9,6 +9,7 @@ interface HeroPageComponentProps {
     title: string;
     description: string;
     minHeight?: string;
+    imagePosition?: string;
     btn?: boolean;
     children?: React.ReactNode;
 }
@@ -18,6 +19,7 @@ export function HeroPageComponent({
     title,
     description,
     minHeight = "450px",
+    imagePosition = "center center",
     btn = false,
     children,
 }: HeroPageComponentProps) {
@@ -50,7 +52,7 @@ export function HeroPageComponent({
                     src={imageUrl}
                     alt={title}
                     className="w-full h-[120%] object-cover"
-                    style={{ top: "-10%" }}
+                    style={{ objectPosition: imagePosition }}
                     loading="eager"
                 />
                 <div className="absolute inset-0 gradient-hero opacity-80" />

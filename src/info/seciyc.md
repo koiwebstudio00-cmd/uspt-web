@@ -39,7 +39,7 @@ El Consejo está conformado por un representante de cada uno de los Institutos d
 
 ## UNIDAD DE VINCULACIÓN TECNOLÓGICA DE LA UNIVERSIDAD SAN PABLO TUCUMÁN
 
-La Unidad de Vinculación Tecnológica (UVT) de la Universidad de San Pablo Tucumán es una dependencia creada en el marco de la Ley 23.877 de Promoción y Fomento de la Innovación Tecnológica en Argentina.
+La Unidad de Vinculación Tecnológica (UVT) de la Universidad de San Pablo – Tucumán es una dependencia creada en el marco de la Ley 23.877 de Promoción y Fomento de la Innovación Tecnológica en Argentina.
 
 Su función principal es facilitar la vinculación entre el sistema científico y el sector productivo, impulsando el desarrollo tecnológico. Actúa como nexo entre los equipos científicos y las demandas de la sociedad, con el objetivo de mejorar la calidad de vida y fomentar el desarrollo regional.
 
@@ -67,7 +67,7 @@ La UVT promueve:
 
 ### REVISTA CIENTÍFICA IDITEC
 
-IDITEC es la revista del Instituto de Innovación Tecnológica para la Competitividad Territorial de la Universidad San Pablo T. Es una publicación anual que recoge investigaciones científicas y artículos de revisión en las áreas de:
+IDITEC es la revista del Instituto de Innovación Tecnológica para la Competitividad Territorial de la Universidad de San Pablo – Tucumán. Es una publicación anual que recoge investigaciones científicas y artículos de revisión en las áreas de:
 
 - Tecnología de los Alimentos
 - Agricultura y Gestión

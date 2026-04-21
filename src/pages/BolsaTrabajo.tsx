@@ -43,7 +43,8 @@ const BolsaTrabajo = () => {
                                         favorecer la inserción y el
                                         posicionamiento laboral y profesional de
                                         los estudiantes y egresados de la
-                                        Universidad de San Pablo T en el ámbito
+                                        Universidad de San Pablo – Tucumán en
+                                        el ámbito
                                         de su profesión o campo de estudios.
                                     </p>
                                     <p>

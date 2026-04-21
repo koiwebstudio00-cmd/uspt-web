@@ -186,7 +186,7 @@ const Beneficios = () => {
                         </h3>
                         <p className="text-xl mb-10 max-w-3xl mx-auto font-body leading-relaxed text-white text-balance opacity-90">
                             Para acceder a estos beneficios, presentá tu
-                            credencial de estudiante de la USP-T en las
+                            credencial de estudiante de la USPT en las
                             instituciones y empresas adheridas. Los descuentos
                             son exclusivos para estudiantes activos de nuestra
                             universidad.
@@ -212,7 +212,7 @@ const Beneficios = () => {
                             ].map((contact, index) => (
                                 <a
                                     key={index}
-                                    href={`https://api.whatsapp.com/send?phone=${contact.phone}&text=Hola,%20me%20gustaria%20contactar%20para%20consultar%20sobre%20la%20USP-T`}
+                                    href={`https://api.whatsapp.com/send?phone=${contact.phone}&text=Hola,%20me%20gustaria%20contactar%20para%20consultar%20sobre%20la%20USPT`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white py-6 px-6 rounded-lg inline-flex flex-col items-center gap-3 group transition-all hover:scale-105"

@@ -325,7 +325,7 @@ const CarreraTemplate = ({
                                     </div>
 
                                     <a
-                                        href={`https://api.whatsapp.com/send?phone=5493816050625&text=Hola,%20me%20gustaria%20consultar%20a%20la%20USP-T%20sobre%20${encodeURIComponent(carrera.name)}.`}
+                                        href={`https://api.whatsapp.com/send?phone=5493816050625&text=Hola,%20me%20gustaria%20consultar%20a%20la%20USPT%20sobre%20${encodeURIComponent(carrera.name)}.`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center justify-center gap-2.5 bg-green-500 hover:bg-green-600 text-white px-6 py-3.5 text-sm font-semibold transition-colors w-full"

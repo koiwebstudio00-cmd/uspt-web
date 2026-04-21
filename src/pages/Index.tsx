@@ -16,7 +16,7 @@ const Index = () => {
             <Navbar1 />
             <main>
                 <HeroPageComponent
-                    title="UNIVERSIDAD DE SAN PABLO T"
+                    title="UNIVERSIDAD DE  SAN PABLO - TUCUMÁN"
                     description="Una universidad distinta, como vos. Formamos profesionales íntegros, comprometidos con la excelencia académica y el desarrollo social"
                     imageUrl="/images/IMG_4688.webp"
                     minHeight="520px"

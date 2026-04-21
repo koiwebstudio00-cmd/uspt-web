@@ -56,7 +56,8 @@ const MesaCienciaTecnologia = () => {
                     title="Mesa de Ciencia y Tecnología"
                     description="Provincia de Tucumán"
                     minHeight="500"
-                    imageUrl="/investigacion/ciencia-tecnologia.png"
+                    imageUrl="/images/rectores-uspt.webp"
+                    imagePosition="center 18%"
                 />
 
                 <div className="container mx-auto px-4 pt-8">

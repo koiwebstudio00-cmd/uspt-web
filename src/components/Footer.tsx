@@ -47,7 +47,7 @@ const Footer = () => {
                             <img src="/logo-uspt.png" className="w-20" />
                         </div>
                         <p className="text-muted-foreground mb-4 font-body text-center text-balance">
-                            Universidad de San Pablo T - Tucumán
+                            Universidad de San Pablo – Tucumán
                             <br />
                             Distinta como vos
                         </p>

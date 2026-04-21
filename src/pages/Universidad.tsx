@@ -105,7 +105,7 @@ const Universidad = () => {
                 {/* Hero Section */}
                 <HeroPageComponent
                     imageUrl="/images/IMG_4688.webp"
-                    title="Universidad de San Pablo T"
+                    title="Universidad de San Pablo – Tucumán"
                     description="Descubrí toda nuestra propuesta académica y los servicios que ofrecemos para formar profesionales íntegros y comprometidos con el desarrollo regional."
                     minHeight="450px"
                 />

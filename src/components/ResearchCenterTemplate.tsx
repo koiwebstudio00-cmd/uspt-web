@@ -136,7 +136,7 @@ const ResearchCenterTemplate = ({
             {/* CTA */}
             <CtaPage
                 title="¿Querés formar parte de nuestra comunidad?"
-                description="Descubrí todas las oportunidades que la USP-T tiene para vos"
+                description="Descubrí todas las oportunidades que la USPT tiene para vos"
                 url="/contacto"
                 buttonText="Contactanos"
             />

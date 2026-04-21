@@ -16,7 +16,7 @@ interface HeroProps {
 export default function SimpleHero({
   title,
   description,
-  badgeText = "Universidad de San Pablo T",
+  badgeText = "Universidad de San Pablo – Tucumán",
   badgeLabel = "USPT",
   ctaButtons = [
     { text: "Ver Oferta Académica", href: "/carreras", primary: true },

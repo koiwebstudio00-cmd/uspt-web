@@ -379,7 +379,7 @@ const PosgradoTemplate = ({
                                                 asesoramos sobre los requisitos
                                             </p>
                                             <a
-                                                href={`https://api.whatsapp.com/send?phone=5493816050625&text=Hola,%20me%20gustaria%20consultar%20a%20la%20USP-T%20sobre%20${encodeURIComponent(posgrado.name)}.`}
+                                                href={`https://api.whatsapp.com/send?phone=5493816050625&text=Hola,%20me%20gustaria%20consultar%20a%20la%20USPT%20sobre%20${encodeURIComponent(posgrado.name)}.`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 font-medium transition-colors"

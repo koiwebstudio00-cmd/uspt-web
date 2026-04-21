@@ -21,7 +21,7 @@ const Hero = () => {
             <div className="absolute inset-0 z-0">
                 <img
                     src="/images/upst-campus.webp"
-                    alt="Campus Universidad San Pablo Tucumán"
+                    alt="Campus Universidad de San Pablo – Tucumán"
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40"></div>
@@ -50,9 +50,9 @@ const Hero = () => {
                         }`}
                         style={{ transitionDelay: "0.3s" }}
                     >
-                        En la Universidad de San Pablo T formamos profesionales
-                        íntegros, comprometidos con la excelencia académica y el
-                        desarrollo social.
+                        En la Universidad de San Pablo – Tucumán formamos
+                        profesionales íntegros, comprometidos con la excelencia
+                        académica y el desarrollo social.
                     </p>
 
                     <div
