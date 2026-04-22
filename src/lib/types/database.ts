@@ -89,6 +89,24 @@ export interface Course {
     modalidad?: string | null;
 }
 
+export type ExtensionModalidad = "virtual" | "hibrida" | "presencial";
+
+export interface Extension {
+    id: number;
+    nombre: string;
+    modalidad: ExtensionModalidad | string;
+    carga_horaria: number;
+    duration: number;
+    descripcion: string;
+    objetivo: string;
+    precio: number;
+    tipo: string;
+    slug?: string | null;
+    featured_img?: string | null;
+    created_at: string;
+    updated_at?: string | null;
+}
+
 /**
  * Tipos de posgrado disponibles
  */
@@ -96,6 +114,7 @@ export enum TipoPosgrado {
     MAESTRIA = "Maestría",
     POSGRADO = "Posgrado",
     ESPECIALIZACION = "Especialización",
+    CURSO = "Curso",
 }
 
 /**
@@ -118,6 +137,7 @@ export interface Posgrado {
     created_at: string;
     slug: string;
     duration: number;
+    featured_img?: string | null;
 }
 
 /**

@@ -46,6 +46,7 @@ import ProyectosInvestigacion from "./pages/MesaCienciaTec";
 import BolsaTrabajo from "./pages/BolsaTrabajo";
 import CarreraDetail from "./pages/CarreraDetail";
 import CursoDetail from "./pages/CursoDetail";
+import ExtensionCursoDetail from "./pages/ExtensionCursoDetail";
 import BlogDetail from "./pages/BlogDetail";
 import PosgradoDetail from "./pages/PosgradoDetail";
 import CIBA from "./pages/CIBA";
@@ -83,6 +84,10 @@ const App = () => (
                     <Route
                         path="/extension-universitaria"
                         element={<ExtensionUniversitaria />}
+                    />
+                    <Route
+                        path="/extension-universitaria/cursos/:slug"
+                        element={<ExtensionCursoDetail />}
                     />
                     <Route path="/alumnos" element={<Alumnos />} />
                     <Route

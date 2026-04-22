@@ -100,7 +100,7 @@ const accesosAlumno = [
         icon: Calendar,
         title: "Calendario Académico",
         description: "Fechas importantes y cronograma",
-        link: "#",
+        link: "/calendario-academico",
         external: false,
     },
     {

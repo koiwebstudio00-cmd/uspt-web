@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase/client";
 import type { Posgrado, Instituto } from "@/lib/types/database";
 
 interface PosgradoWithInstituto extends Posgrado {
-    instituto: Instituto;
+    instituto: Instituto | null;
 }
 
 interface UsePosgradoBySlugResult {
@@ -34,13 +34,13 @@ export function usePosgradoBySlug(slug: string): UsePosgradoBySlugResult {
                 setLoading(true);
                 setError(null);
 
-                // Fetch posgrado with instituto using JOIN
+                // LEFT JOIN: trae el posgrado aunque el instituto relacionado no exista
                 const { data, error: fetchError } = await supabase
                     .from("posgrados")
                     .select(
                         `
             *,
-            instituto:institutos!inner(*)
+            instituto:institutos!posgrados_instituto_id_fkey(*)
           `,
                     )
                     .eq("slug", slug)

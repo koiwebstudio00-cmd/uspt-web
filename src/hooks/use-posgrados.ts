@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase/client";
 import type { Posgrado, Instituto, TipoPosgrado } from "@/lib/types/database";
 
 interface PosgradoWithInstituto extends Posgrado {
-    instituto: Instituto;
+    instituto: Instituto | null;
 }
 
 interface UsePosgradosResult {
@@ -29,13 +29,13 @@ export function usePosgrados(tipo?: TipoPosgrado): UsePosgradosResult {
                 setLoading(true);
                 setError(null);
 
-                // Build query with instituto JOIN
+                // LEFT JOIN: trae todos los posgrados aunque no exista instituto asociado
                 let query = supabase
                     .from("posgrados")
                     .select(
                         `
             *,
-            instituto:institutos!inner(*)
+            instituto:institutos!posgrados_instituto_id_fkey(*)
           `,
                     )
                     .order("created_at", { ascending: false });
@@ -46,7 +46,6 @@ export function usePosgrados(tipo?: TipoPosgrado): UsePosgradosResult {
                 }
 
                 const { data, error: fetchError } = await query;
-
                 if (fetchError) {
                     throw fetchError;
                 }

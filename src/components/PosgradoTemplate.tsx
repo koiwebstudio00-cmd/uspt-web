@@ -24,7 +24,7 @@ import type { Posgrado, Instituto } from "@/lib/types/database";
 import WhatsApp from "./icons/Wp";
 
 interface PosgradoWithInstituto extends Posgrado {
-    instituto: Instituto;
+    instituto: Instituto | null;
 }
 
 interface PosgradoTemplateProps {
@@ -50,7 +50,7 @@ const PosgradoTemplate = ({
                 {/* Hero Section */}
                 <HeroPageComponent
                     title={posgrado.name}
-                    description={`${posgrado.instituto.name}`}
+                    description={posgrado.instituto?.name}
                     imageUrl="/images/posgrado.webp"
                     minHeight="450px"
                 />
@@ -393,79 +393,6 @@ const PosgradoTemplate = ({
                         </div>
                     </div>
                 </section>
-
-                {/* Posgrados Afines */}
-                {relatedPosgrados.length > 0 && (
-                    <section className="py-16 bg-muted/30">
-                        <div className="container mx-auto px-4">
-                            <div className="max-w-6xl mx-auto">
-                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-4 text-center md:text-left">
-                                    Posgrados Afines
-                                </h2>
-                                <p className="text-xl text-muted-foreground font-body mb-8 text-center md:text-left">
-                                    Otros posgrados del{" "}
-                                    {posgrado.instituto.name}
-                                </p>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {relatedPosgrados.map((related) => (
-                                        <Card
-                                            key={related.id}
-                                            className="border-muted2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                                        >
-                                            <CardHeader>
-                                                <CardTitle className="text-lg leading-tight">
-                                                    {related.name}
-                                                </CardTitle>
-                                            </CardHeader>
-                                            <CardContent>
-                                                <div className="space-y-4">
-                                                    <p className="text-sm text-muted-foreground line-clamp-3">
-                                                        {related.description}
-                                                    </p>
-                                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                        {[
-                                                            {
-                                                                icon: Award,
-                                                                label: related.tipo,
-                                                            },
-                                                            {
-                                                                icon: Globe,
-                                                                label: related.modalidad,
-                                                            },
-                                                        ].map((item, idx) => (
-                                                            <li
-                                                                key={idx}
-                                                                className="flex items-start gap-2 text-sm text-muted-foreground"
-                                                            >
-                                                                {item.label && (
-                                                                    <>
-                                                                        <item.icon className="w-4 h-4" />
-                                                                        <span>
-                                                                            {
-                                                                                item.label
-                                                                            }
-                                                                        </span>
-                                                                    </>
-                                                                )}
-                                                            </li>
-                                                        ))}
-                                                    </div>
-                                                    <Link
-                                                        to={`/posgrado/${related.slug}`}
-                                                        className="inline-flex items-center gap-2 text-primary hover:underline font-medium group"
-                                                    >
-                                                        <span>Ver Detalle</span>
-                                                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                                                    </Link>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                )}
 
                 {/* CTA Section */}
                 <CtaPage

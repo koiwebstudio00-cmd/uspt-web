@@ -4,11 +4,13 @@ import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { UniversityButton } from "@/components/ui/university-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useCursos, type CourseWithCategory } from "@/hooks/use-cursos";
+import { useCursos } from "@/hooks/use-cursos";
+import { useExtension } from "@/hooks/use-extension";
 import {
     Award,
     Users,
     MapPin,
+    Globe,
     Clock,
     Phone,
     Mail,
@@ -33,8 +35,20 @@ import { Badge } from "@/components/ui/badge";
 const COURSES_PER_PAGE = 9;
 
 const ExtensionUniversitaria = () => {
-    // Obtener cursos desde la base de datos
-    const { cursos, loading, error, count } = useCursos();
+    // Obtener cursos online desde la base de datos (tabla courses)
+    const {
+        cursos: cursosOnline,
+        loading: loadingCursosOnline,
+        error: errorCursosOnline,
+        count,
+    } = useCursos();
+
+    // Obtener cursos de extensión desde la base de datos (tabla extension)
+    const {
+        extension: extensionItems,
+        loading: loadingExtension,
+        error: errorExtension,
+    } = useExtension();
 
     // Estado de paginación
     const [currentPage, setCurrentPage] = useState(1);
@@ -42,15 +56,15 @@ const ExtensionUniversitaria = () => {
     const coursesRef = useRef<HTMLDivElement>(null);
 
     // Calcular paginación
-    const totalPages = Math.ceil(cursos.length / COURSES_PER_PAGE);
+    const totalPages = Math.ceil(cursosOnline.length / COURSES_PER_PAGE);
     const startIndex = (currentPage - 1) * COURSES_PER_PAGE;
     const endIndex = startIndex + COURSES_PER_PAGE;
-    const currentCursos = cursos.slice(startIndex, endIndex);
+    const currentCursos = cursosOnline.slice(startIndex, endIndex);
 
     // Resetear a página 1 cuando cambien los cursos
     useEffect(() => {
         setCurrentPage(1);
-    }, [cursos.length]);
+    }, [cursosOnline.length]);
 
     // Manejar cambio de página con loader
     const handlePageChange = (newPage: number) => {
@@ -181,6 +195,7 @@ const ExtensionUniversitaria = () => {
         ));
     };
 
+
     return (
         <div className="min-h-screen bg-background">
             <Navbar1 />
@@ -255,12 +270,136 @@ const ExtensionUniversitaria = () => {
                     </div>
                 </section>
 
+                {/* Cursos de Extensión */}
+                <section className="py-20 bg-white" id="cursos-extension">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
+                                Cursos
+                            </h2>
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
+                                Cursos de extensión para actualizar y
+                                profundizar conocimientos en áreas específicas
+                            </p>
+                        </div>
+
+                        {loadingExtension ? (
+                            <div className="flex justify-center items-center py-12">
+                                <Loader2 className="w-12 h-12 animate-spin text-primary" />
+                            </div>
+                        ) : errorExtension ? (
+                            <div className="text-center py-12">
+                                <p className="text-muted-foreground">
+                                    Error al cargar los cursos de extensión
+                                </p>
+                            </div>
+                        ) : extensionItems.length === 0 ? (
+                            <div className="text-center py-12">
+                                <p className="text-muted-foreground">
+                                    No hay cursos disponibles en este momento
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {extensionItems.map((curso) => (
+                                    <Card
+                                        key={curso.id}
+                                        id={curso.slug || undefined}
+                                        className="group border-muted2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 bg-white overflow-hidden flex flex-col h-full"
+                                    >
+                                        <div className="relative h-44 overflow-hidden">
+                                            <img
+                                                src={
+                                                    curso.featured_img ||
+                                                    "/images/extension.webp"
+                                                }
+                                                alt={curso.nombre}
+                                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                                        </div>
+
+                                        <div className="p-8 pb-4 flex flex-col items-center text-center flex-grow">
+                                            <h3 className="text-xl md:text-2xl font-heading font-semibold text-foreground mb-4 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem] flex items-center justify-center">
+                                                {curso.nombre}
+                                            </h3>
+
+                                            <p className="text-muted-foreground font-body leading-relaxed line-clamp-4 text-sm mb-6">
+                                                {curso.descripcion}
+                                            </p>
+
+                                            <div className="w-full grid grid-cols-1 gap-2 mt-auto">
+                                                {[
+                                                    {
+                                                        icon: Globe,
+                                                        label: curso.modalidad,
+                                                    },
+                                                    {
+                                                        icon: BookOpen,
+                                                        label: curso.tipo,
+                                                    },
+                                                    {
+                                                        icon: Clock,
+                                                        label: `${curso.duration} ${
+                                                            curso.duration === 1
+                                                                ? "mes"
+                                                                : "meses"
+                                                        }`,
+                                                    },
+                                                    {
+                                                        icon: GraduationCap,
+                                                        label: `${curso.carga_horaria} hs`,
+                                                    },
+                                                ].map(
+                                                    (item, idx) =>
+                                                        item.label && (
+                                                            <div
+                                                                key={idx}
+                                                                className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 px-3 py-2 rounded-lg border border-transparent hover:border-primary/20 transition-all"
+                                                            >
+                                                                <item.icon className="w-3.5 h-3.5 text-primary" />
+                                                                <span className="truncate">
+                                                                    {item.label}
+                                                                </span>
+                                                            </div>
+                                                        ),
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div className="p-6 pt-0 mt-auto border-t border-muted/50 bg-muted/5 group-hover:bg-white transition-colors duration-500">
+                                            {curso.precio > 0 && (
+                                                <p className="text-center text-primary font-semibold text-sm mb-2">
+                                                    ${curso.precio}
+                                                </p>
+                                            )}
+                                            {curso.slug ? (
+                                                <Link
+                                                    to={`/extension-universitaria/cursos/${curso.slug}`}
+                                                    className="flex items-center justify-center gap-2 text-primary font-semibold text-sm group/btn w-full py-2"
+                                                >
+                                                    <span>Ver Detalle</span>
+                                                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                                                </Link>
+                                            ) : (
+                                                <span className="block text-center text-sm text-muted-foreground py-2">
+                                                    Próximamente
+                                                </span>
+                                            )}
+                                        </div>
+                                    </Card>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </section>
+
                 {/* Cursos Disponibles */}
                 <section ref={coursesRef} className="py-20 bg-primary/5">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
-                                Cursos y Talleres Disponibles
+                                Cursos y Talleres Online
                             </h2>
                             <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Explora nuestra oferta actual de cursos de
@@ -277,7 +416,7 @@ const ExtensionUniversitaria = () => {
                         </div>
 
                         {/* Loading State */}
-                        {loading && (
+                        {loadingCursosOnline && (
                             <div className="flex justify-center items-center py-12">
                                 <Loader2 className="w-8 h-8 animate-spin text-primary" />
                                 <span className="ml-3 text-muted-foreground">
@@ -287,20 +426,22 @@ const ExtensionUniversitaria = () => {
                         )}
 
                         {/* Error State */}
-                        {error && (
+                        {errorCursosOnline && (
                             <div className="flex flex-col items-center justify-center py-12">
                                 <AlertCircle className="w-12 h-12 text-destructive mb-4" />
                                 <p className="text-destructive font-semibold mb-2">
                                     Error al cargar los cursos
                                 </p>
                                 <p className="text-sm text-muted-foreground">
-                                    {error}
+                                    {errorCursosOnline}
                                 </p>
                             </div>
                         )}
 
                         {/* Empty State */}
-                        {!loading && !error && cursos.length === 0 && (
+                        {!loadingCursosOnline &&
+                            !errorCursosOnline &&
+                            cursosOnline.length === 0 && (
                             <div className="flex flex-col items-center justify-center py-12">
                                 <BookOpen className="w-12 h-12 text-muted-foreground mb-4" />
                                 <p className="text-muted-foreground font-semibold mb-2">
@@ -310,10 +451,12 @@ const ExtensionUniversitaria = () => {
                                     Vuelve pronto para ver nuevas ofertas
                                 </p>
                             </div>
-                        )}
+                            )}
 
                         {/* Courses Grid */}
-                        {!loading && !error && cursos.length > 0 && (
+                        {!loadingCursosOnline &&
+                            !errorCursosOnline &&
+                            cursosOnline.length > 0 && (
                             <>
                                 {/* Page Change Loader Overlay */}
                                 {isChangingPage && (

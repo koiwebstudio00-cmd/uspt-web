@@ -264,6 +264,54 @@ export type Database = {
                     },
                 ];
             };
+            extension: {
+                Row: {
+                    carga_horaria: number;
+                    created_at: string;
+                    descripcion: string;
+                    duration: number;
+                    featured_img: string | null;
+                    id: number;
+                    modalidad: string;
+                    nombre: string;
+                    objetivo: string;
+                    precio: number;
+                    slug: string | null;
+                    tipo: string;
+                    updated_at: string;
+                };
+                Insert: {
+                    carga_horaria: number;
+                    created_at?: string;
+                    descripcion: string;
+                    duration: number;
+                    featured_img?: string | null;
+                    id?: number;
+                    modalidad: string;
+                    nombre: string;
+                    objetivo: string;
+                    precio?: number;
+                    slug?: string | null;
+                    tipo: string;
+                    updated_at?: string;
+                };
+                Update: {
+                    carga_horaria?: number;
+                    created_at?: string;
+                    descripcion?: string;
+                    duration?: number;
+                    featured_img?: string | null;
+                    id?: number;
+                    modalidad?: string;
+                    nombre?: string;
+                    objetivo?: string;
+                    precio?: number;
+                    slug?: string | null;
+                    tipo?: string;
+                    updated_at?: string;
+                };
+                Relationships: [];
+            };
             institutos: {
                 Row: {
                     created_at: string;

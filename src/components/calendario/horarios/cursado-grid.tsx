@@ -88,7 +88,6 @@ export function CursadoGrid({
                 const apiBase = import.meta.env.VITE_API_URL || "/api/public";
                 const res = await fetch(
                     `${apiBase}/carreras/${carreraId}/horarios?${params.toString()}`,
-                    { cache: "no-store" },
                 );
 
                 if (!res.ok) {
