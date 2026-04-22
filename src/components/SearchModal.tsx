@@ -23,7 +23,7 @@ import {
 import { useDebounce } from "@/hooks/use-debounce";
 import { Link } from "react-router-dom";
 
-type ResultType = "carrera" | "curso" | "blog" | "posgrado" | "servicio" | "instituto";
+type ResultType = "carrera" | "curso" | "blog" | "posgrado" | "servicio" | "instituto" | "extension";
 
 interface SearchResult {
     id: string | number;
@@ -94,22 +94,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
         }
     }, [open]);
 
-    const getTypeIcon = (type: ResultType) => {
-        switch (type) {
-            case "carrera":
-                return <GraduationCap className="size-4" />;
-            case "curso":
-                return <Book className="size-4" />;
-            case "blog":
-                return <FileText className="size-4" />;
-            case "posgrado":
-                return <Layout className="size-4" />;
-            case "servicio":
-                return <Zap className="size-4" />;
-            default:
-                return <Search className="size-4" />;
-        }
-    };
+    
 
     const getTypeLabel = (type: ResultType) => {
         switch (type) {
@@ -125,10 +110,12 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                 return "Servicio";
             case "instituto":
                 return "Instituto";
+            case "extension":
+                return "Extensión";
         }
     };
 
-    console.log(results)
+    
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -162,31 +149,6 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
                     </div>
                 </DialogHeader>
 
-                {/* <div className="px-4 py-2 border-b flex flex-wrap gap-2 items-center">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mr-2">
-                        FILTRAR POR:
-                    </span>
-                    {(["carrera", "curso", "posgrado"] as ResultType[]).map(
-                        (type) => (
-                            <Badge
-                                key={type}
-                                variant={
-                                    selectedTypes.includes(type)
-                                        ? "default"
-                                        : "secondary"
-                                }
-                                className={`cursor-pointer transition-all px-3 py-1 rounded-full ${
-                                    selectedTypes.includes(type)
-                                        ? "bg-primary text-white shadow-md shadow-primary/20"
-                                        : "bg-slate-100 text-slate-500 hover:bg-slate-200 border-transparent shadow-none"
-                                }`}
-                                onClick={() => toggleType(type)}
-                            >
-                                {getTypeLabel(type)}
-                            </Badge>
-                        ),
-                    )}
-                </div> */}
 
                 <ScrollArea className="h-[450px]">
                     <div className="p-4 gap-3 flex flex-col">
