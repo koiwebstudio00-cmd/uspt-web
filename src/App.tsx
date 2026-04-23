@@ -36,6 +36,7 @@ import SedesYDirecciones from "./pages/SedesYDirecciones";
 import Historia from "./pages/Historia";
 import Contacto from "./pages/Contacto";
 import PagoCurso from "./pages/PagoCurso";
+import PagoExtensionCurso from "./pages/PagoExtensionCurso";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ReservaNatural from "./pages/ReservaNatural";
 import Turnos from "./pages/Turnos";
@@ -165,6 +166,10 @@ const App = () => (
                     {/* Pagos Online */}
                     <Route path="/pagos-online" element={<PagosOnline />} />
                     <Route path="/pagar-curso/:id" element={<PagoCurso />} />
+                    <Route
+                        path="/pagar-extension/:id"
+                        element={<PagoExtensionCurso />}
+                    />
                     <Route
                         path="/pagos/reserva-san-pablo"
                         element={<ReservaSanPablo />}
