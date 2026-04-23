@@ -23,6 +23,8 @@ interface Payment {
 
 export interface OrderDetails {
     id: string;
+    course_id?: number | null;
+    service_id?: string | null;
     dni: string | null;
     nombre: string | null;
     email: string | null;
@@ -66,7 +68,8 @@ function getStatus(status: string) {
     }
 }
 
-function getLast4Digits(item: string) {
+function getLast4Digits(item: string | null | undefined) {
+    if (!item) return null;
     return item.slice(-4);
 }
 
@@ -123,6 +126,14 @@ export function useOrderDetails(
                     }
                 }
 
+                // Fallback para pagos sin service_id/course_id (ej: extensiÃ³n)
+                if (!serviceData && orderData.service_name) {
+                    serviceData = {
+                        nombre: orderData.service_name,
+                        precio: orderData.service_price ?? 0,
+                    };
+                }
+
                 // 3. Obtener el curso asociado si existe
                 let courseData: Course | null = null;
                 if (orderData.course_id) {
@@ -145,10 +156,14 @@ export function useOrderDetails(
                         itemPrice = serviceData.precio;
                     } else if (courseData && courseData.price) {
                         itemPrice = courseData.price;
+                    } else if (orderData.service_price) {
+                        itemPrice = orderData.service_price;
                     }
 
                     const transformedData: OrderDetails = {
                         id: getLast4Digits(orderData.id),
+                        course_id: orderData.course_id,
+                        service_id: orderData.service_id,
                         dni: orderData.dni,
                         legajo: orderData.legajo,
                         nombre: orderData.nombre,

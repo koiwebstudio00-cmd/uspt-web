@@ -16,7 +16,16 @@ import {
     HelpCircle,
 } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
-import { useOrderDetails } from "@/hooks/use-order-details";
+import { useOrderDetails, type OrderDetails } from "@/hooks/use-order-details";
+
+const getItemTypeLabel = (order: OrderDetails) => {
+    if (order.course_id) return "Curso";
+    if (!order.service_id && !order.course_id && order.service_name) {
+        return "Extensión";
+    }
+    if (order.service_id) return "Servicio";
+    return "Servicio";
+};
 
 const PagoFallido = () => {
     const [searchParams] = useSearchParams();
@@ -103,13 +112,14 @@ const PagoFallido = () => {
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                     <div className="space-y-2">
                                                         <p className="text-sm text-muted-foreground">
-                                                            {order.course
-                                                                ? "Curso"
-                                                                : "Servicio"}
+                                                            {getItemTypeLabel(
+                                                                order,
+                                                            )}
                                                         </p>
                                                         <p className="text-lg font-semibold">
                                                             {order.service
                                                                 ?.nombre ||
+                                                                order.service_name ||
                                                                 order.course
                                                                     ?.displayName ||
                                                                 order.course
@@ -159,29 +169,45 @@ const PagoFallido = () => {
                                                         Comprador
                                                     </h3>
                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                        <div className="flex items-center gap-3">
-                                                            <User className="w-5 h-5 text-muted-foreground" />
-                                                            <div>
-                                                                <p className="text-sm text-muted-foreground">
-                                                                    Nombre
-                                                                </p>
-                                                                <p className="font-medium">
-                                                                    {order.nombre ||
-                                                                        "N/A"}
-                                                                </p>
+                                                        {order.nombre && (
+                                                            <div className="flex items-center gap-3">
+                                                                <User className="w-5 h-5 text-muted-foreground" />
+                                                                <div>
+                                                                    <p className="text-sm text-muted-foreground">
+                                                                        Nombre
+                                                                    </p>
+                                                                    <p className="font-medium">
+                                                                        {order.nombre ||
+                                                                            "N/A"}
+                                                                    </p>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        )}
 
                                                         <div className="flex items-center gap-3">
                                                             <Hash className="w-5 h-5 text-muted-foreground" />
                                                             <div>
-                                                                <p className="text-sm text-muted-foreground">
-                                                                    DNI
-                                                                </p>
-                                                                <p className="font-medium">
-                                                                    {order.dni ||
-                                                                        "N/A"}
-                                                                </p>
+                                                                {order.dni ? (
+                                                                    <>
+                                                                        <p className="text-sm text-muted-foreground">
+                                                                            DNI
+                                                                        </p>
+                                                                        <p className="font-medium">
+                                                                            {order.dni ||
+                                                                                "N/A"}
+                                                                        </p>
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <p className="text-sm text-muted-foreground">
+                                                                            Legajo
+                                                                        </p>
+                                                                        <p className="font-medium">
+                                                                            {order.legajo ||
+                                                                                "N/A"}
+                                                                        </p>
+                                                                    </>
+                                                                )}
                                                             </div>
                                                         </div>
 

@@ -16,14 +16,22 @@ import {
     Loader2,
 } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
-import { useOrderDetails } from "@/hooks/use-order-details";
+import { useOrderDetails, type OrderDetails } from "@/hooks/use-order-details";
+
+const getItemTypeLabel = (order: OrderDetails) => {
+    if (order.course_id) return "Curso";
+    if (!order.service_id && !order.course_id && order.service_name) {
+        return "Extensión";
+    }
+    if (order.service_id) return "Servicio";
+    return "Servicio";
+};
 
 const PagoExitoso = () => {
     const [searchParams] = useSearchParams();
     const externalReference = searchParams.get("external_reference");
 
     const { order, loading, error } = useOrderDetails(externalReference);
-    console.log(order);
     return (
         <div className="min-h-screen bg-background">
             <Navbar1 />
@@ -105,12 +113,18 @@ const PagoExitoso = () => {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
                                                     <p className="text-sm text-muted-foreground">
-                                                        {order.course
-                                                            ? "Curso"
-                                                            : "Servicio"}
+                                                        {getItemTypeLabel(
+                                                            order,
+                                                        )}
                                                     </p>
                                                     <p className="text-lg font-semibold">
                                                         {order.service_name ||
+                                                            order.service
+                                                                ?.nombre ||
+                                                            order.course
+                                                                ?.displayName ||
+                                                            order.course
+                                                                ?.fullname ||
                                                             "N/A"}
                                                     </p>
                                                 </div>
@@ -148,7 +162,10 @@ const PagoExitoso = () => {
                                                     </p>
                                                     <p className="text-2xl font-bold text-primary">
                                                         $
-                                                        {order.service_total_paid?.toLocaleString(
+                                                        {(
+                                                            order.service_total_paid ??
+                                                            order.total
+                                                        ).toLocaleString(
                                                             "es-AR",
                                                         )}
                                                     </p>
