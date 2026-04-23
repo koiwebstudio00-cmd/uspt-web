@@ -86,6 +86,7 @@ export type Database = {
             };
             carreras: {
                 Row: {
+                    clasificacion: string | null;
                     created_at: string;
                     description: string | null;
                     duration: number;
@@ -100,9 +101,9 @@ export type Database = {
                     resolution_url: string | null;
                     sede: string | null;
                     slug: string;
-                    clasificacion: string | null;
                 };
                 Insert: {
+                    clasificacion?: string | null;
                     created_at?: string;
                     description?: string | null;
                     duration?: number;
@@ -117,9 +118,9 @@ export type Database = {
                     resolution_url?: string | null;
                     sede?: string | null;
                     slug: string;
-                    clasificacion?: string | null;
                 };
                 Update: {
+                    clasificacion?: string | null;
                     created_at?: string;
                     description?: string | null;
                     duration?: number;
@@ -134,7 +135,6 @@ export type Database = {
                     resolution_url?: string | null;
                     sede?: string | null;
                     slug?: string;
-                    clasificacion?: string | null;
                 };
                 Relationships: [
                     {
@@ -154,10 +154,10 @@ export type Database = {
                     id: string;
                     logo: string | null;
                     nombre_empresa: string;
+                    site_active: boolean;
                     ubicacion: string;
                     updated_at: string | null;
                     wp_link: string | null;
-                    site_active: boolean;
                 };
                 Insert: {
                     created_at?: string | null;
@@ -166,10 +166,10 @@ export type Database = {
                     id?: string;
                     logo?: string | null;
                     nombre_empresa: string;
+                    site_active?: boolean;
                     ubicacion: string;
                     updated_at?: string | null;
                     wp_link?: string | null;
-                    site_active?: boolean;
                 };
                 Update: {
                     created_at?: string | null;
@@ -178,10 +178,10 @@ export type Database = {
                     id?: string;
                     logo?: string | null;
                     nombre_empresa?: string;
+                    site_active?: boolean;
                     ubicacion?: string;
                     updated_at?: string | null;
                     wp_link?: string | null;
-                    site_active?: boolean;
                 };
                 Relationships: [];
             };
@@ -220,39 +220,46 @@ export type Database = {
                     category_id: number | null;
                     created_at: string;
                     displayName: string | null;
+                    featured_img: string | null;
                     fullname: string | null;
                     id: number;
                     last_sync_at: string | null;
+                    modalidad: string | null;
                     moodle_course_id: string;
                     price: number | null;
                     shortname: string | null;
                     summary: string | null;
-                    featured_img: string | null;
-                    tags: string[] | null;
+                    tags: string | null;
                 };
                 Insert: {
                     category_id?: number | null;
                     created_at?: string;
                     displayName?: string | null;
+                    featured_img?: string | null;
                     fullname?: string | null;
                     id?: number;
                     last_sync_at?: string | null;
+                    modalidad?: string | null;
                     moodle_course_id: string;
                     price?: number | null;
                     shortname?: string | null;
                     summary?: string | null;
+                    tags?: string | null;
                 };
                 Update: {
                     category_id?: number | null;
                     created_at?: string;
                     displayName?: string | null;
+                    featured_img?: string | null;
                     fullname?: string | null;
                     id?: number;
                     last_sync_at?: string | null;
+                    modalidad?: string | null;
                     moodle_course_id?: string;
                     price?: number | null;
                     shortname?: string | null;
                     summary?: string | null;
+                    tags?: string | null;
                 };
                 Relationships: [
                     {
@@ -268,49 +275,198 @@ export type Database = {
                 Row: {
                     carga_horaria: number;
                     created_at: string;
-                    descripcion: string;
-                    duration: number;
+                    descripcion: string | null;
+                    duration: string | null;
                     featured_img: string | null;
-                    id: number;
+                    id: string;
                     modalidad: string;
                     nombre: string;
-                    objetivo: string;
+                    objetivo: string | null;
                     precio: number;
-                    slug: string | null;
+                    slug: string;
                     tipo: string;
                     updated_at: string;
                 };
                 Insert: {
                     carga_horaria: number;
                     created_at?: string;
-                    descripcion: string;
-                    duration: number;
+                    descripcion?: string | null;
+                    duration?: string | null;
                     featured_img?: string | null;
-                    id?: number;
+                    id?: string;
                     modalidad: string;
                     nombre: string;
-                    objetivo: string;
+                    objetivo?: string | null;
                     precio?: number;
-                    slug?: string | null;
+                    slug: string;
                     tipo: string;
                     updated_at?: string;
                 };
                 Update: {
                     carga_horaria?: number;
                     created_at?: string;
-                    descripcion?: string;
-                    duration?: number;
+                    descripcion?: string | null;
+                    duration?: string | null;
                     featured_img?: string | null;
-                    id?: number;
+                    id?: string;
                     modalidad?: string;
                     nombre?: string;
-                    objetivo?: string;
+                    objetivo?: string | null;
                     precio?: number;
-                    slug?: string | null;
+                    slug?: string;
                     tipo?: string;
                     updated_at?: string;
                 };
                 Relationships: [];
+            };
+            horarios_cursado: {
+                Row: {
+                    anio: number;
+                    carrera_id: string;
+                    created_at: string;
+                    cuatrimestre: number;
+                    dia: string;
+                    id: string;
+                    sede: string;
+                };
+                Insert: {
+                    anio: number;
+                    carrera_id: string;
+                    created_at?: string;
+                    cuatrimestre: number;
+                    dia: string;
+                    id?: string;
+                    sede?: string;
+                };
+                Update: {
+                    anio?: number;
+                    carrera_id?: string;
+                    created_at?: string;
+                    cuatrimestre?: number;
+                    dia?: string;
+                    id?: string;
+                    sede?: string;
+                };
+                Relationships: [
+                    {
+                        foreignKeyName: "horarios_cursado_carrera_id_fkey";
+                        columns: ["carrera_id"];
+                        isOneToOne: false;
+                        referencedRelation: "carreras";
+                        referencedColumns: ["id"];
+                    },
+                ];
+            };
+            horarios_cursado_detalle: {
+                Row: {
+                    docente: string;
+                    horario_hora: string;
+                    horario_id: string;
+                    id: string;
+                    materia: string;
+                    modalidad: string;
+                    orden: number;
+                };
+                Insert: {
+                    docente?: string;
+                    horario_hora?: string;
+                    horario_id: string;
+                    id?: string;
+                    materia: string;
+                    modalidad?: string;
+                    orden?: number;
+                };
+                Update: {
+                    docente?: string;
+                    horario_hora?: string;
+                    horario_id?: string;
+                    id?: string;
+                    materia?: string;
+                    modalidad?: string;
+                    orden?: number;
+                };
+                Relationships: [
+                    {
+                        foreignKeyName: "horarios_cursado_detalle_horario_id_fkey";
+                        columns: ["horario_id"];
+                        isOneToOne: false;
+                        referencedRelation: "horarios_cursado";
+                        referencedColumns: ["id"];
+                    },
+                ];
+            };
+            horarios_examenes: {
+                Row: {
+                    carrera_id: string;
+                    created_at: string;
+                    dia: string;
+                    id: string;
+                    mes: string;
+                    sede: string;
+                };
+                Insert: {
+                    carrera_id: string;
+                    created_at?: string;
+                    dia: string;
+                    id?: string;
+                    mes: string;
+                    sede?: string;
+                };
+                Update: {
+                    carrera_id?: string;
+                    created_at?: string;
+                    dia?: string;
+                    id?: string;
+                    mes?: string;
+                    sede?: string;
+                };
+                Relationships: [
+                    {
+                        foreignKeyName: "horarios_examenes_carrera_id_fkey";
+                        columns: ["carrera_id"];
+                        isOneToOne: false;
+                        referencedRelation: "carreras";
+                        referencedColumns: ["id"];
+                    },
+                ];
+            };
+            horarios_examenes_detalle: {
+                Row: {
+                    docente: string;
+                    horario_hora: string;
+                    horario_id: string;
+                    id: string;
+                    materia: string;
+                    modalidad: string;
+                    orden: number;
+                };
+                Insert: {
+                    docente?: string;
+                    horario_hora?: string;
+                    horario_id: string;
+                    id?: string;
+                    materia: string;
+                    modalidad?: string;
+                    orden?: number;
+                };
+                Update: {
+                    docente?: string;
+                    horario_hora?: string;
+                    horario_id?: string;
+                    id?: string;
+                    materia?: string;
+                    modalidad?: string;
+                    orden?: number;
+                };
+                Relationships: [
+                    {
+                        foreignKeyName: "horarios_examenes_detalle_horario_id_fkey";
+                        columns: ["horario_id"];
+                        isOneToOne: false;
+                        referencedRelation: "horarios_examenes";
+                        referencedColumns: ["id"];
+                    },
+                ];
             };
             institutos: {
                 Row: {
@@ -402,6 +558,9 @@ export type Database = {
                     process_date: string | null;
                     provision_error: string | null;
                     service_id: string | null;
+                    service_name: string | null;
+                    service_price: number | null;
+                    service_total_paid: number | null;
                     status: string | null;
                     student_id: string | null;
                     telefono: string | null;
@@ -424,6 +583,9 @@ export type Database = {
                     process_date?: string | null;
                     provision_error?: string | null;
                     service_id?: string | null;
+                    service_name?: string | null;
+                    service_price?: number | null;
+                    service_total_paid?: number | null;
                     status?: string | null;
                     student_id?: string | null;
                     telefono?: string | null;
@@ -446,6 +608,9 @@ export type Database = {
                     process_date?: string | null;
                     provision_error?: string | null;
                     service_id?: string | null;
+                    service_name?: string | null;
+                    service_price?: number | null;
+                    service_total_paid?: number | null;
                     status?: string | null;
                     student_id?: string | null;
                     telefono?: string | null;
@@ -566,51 +731,54 @@ export type Database = {
                     created_at: string;
                     description: string;
                     duration: number;
+                    featured_img: string | null;
                     fecha_examenes: string;
                     horarios_cursado: string;
                     id: string;
-                    instituto_id: number;
+                    instituto_id: number | null;
                     modalidad: string;
                     name: string;
                     perfil_egresado: string;
                     plan_estudio_url: string;
                     resolution_url: string;
                     sede: string;
-                    slug: string | null;
+                    slug: string;
                     tipo: string;
                 };
                 Insert: {
                     created_at?: string;
                     description: string;
                     duration?: number;
+                    featured_img?: string | null;
                     fecha_examenes: string;
                     horarios_cursado: string;
                     id?: string;
-                    instituto_id: number;
+                    instituto_id?: number | null;
                     modalidad: string;
                     name: string;
                     perfil_egresado: string;
                     plan_estudio_url: string;
                     resolution_url: string;
                     sede: string;
-                    slug?: string | null;
+                    slug: string;
                     tipo: string;
                 };
                 Update: {
                     created_at?: string;
                     description?: string;
                     duration?: number;
+                    featured_img?: string | null;
                     fecha_examenes?: string;
                     horarios_cursado?: string;
                     id?: string;
-                    instituto_id?: number;
+                    instituto_id?: number | null;
                     modalidad?: string;
                     name?: string;
                     perfil_egresado?: string;
                     plan_estudio_url?: string;
                     resolution_url?: string;
                     sede?: string;
-                    slug?: string | null;
+                    slug?: string;
                     tipo?: string;
                 };
                 Relationships: [
@@ -632,6 +800,7 @@ export type Database = {
                     last_login_at: string | null;
                     name: string;
                     phone: string | null;
+                    role: Database["public"]["Enums"]["user_role"];
                     updated_at: string | null;
                 };
                 Insert: {
@@ -642,6 +811,7 @@ export type Database = {
                     last_login_at?: string | null;
                     name: string;
                     phone?: string | null;
+                    role?: Database["public"]["Enums"]["user_role"];
                     updated_at?: string | null;
                 };
                 Update: {
@@ -652,7 +822,65 @@ export type Database = {
                     last_login_at?: string | null;
                     name?: string;
                     phone?: string | null;
+                    role?: Database["public"]["Enums"]["user_role"];
                     updated_at?: string | null;
+                };
+                Relationships: [];
+            };
+            revistas_cientificas: {
+                Row: {
+                    area: string;
+                    created_at: string;
+                    description: string | null;
+                    id: string;
+                    image: string | null;
+                    is_active: boolean;
+                    link: string | null;
+                    title: string;
+                    updated_at: string;
+                };
+                Insert: {
+                    area: string;
+                    created_at?: string;
+                    description?: string | null;
+                    id?: string;
+                    image?: string | null;
+                    is_active?: boolean;
+                    link?: string | null;
+                    title: string;
+                    updated_at?: string;
+                };
+                Update: {
+                    area?: string;
+                    created_at?: string;
+                    description?: string | null;
+                    id?: string;
+                    image?: string | null;
+                    is_active?: boolean;
+                    link?: string | null;
+                    title?: string;
+                    updated_at?: string;
+                };
+                Relationships: [];
+            };
+            service_type: {
+                Row: {
+                    created_at: string;
+                    id: number;
+                    nombre: string;
+                    slug: string | null;
+                };
+                Insert: {
+                    created_at?: string;
+                    id?: number;
+                    nombre: string;
+                    slug?: string | null;
+                };
+                Update: {
+                    created_at?: string;
+                    id?: number;
+                    nombre?: string;
+                    slug?: string | null;
                 };
                 Relationships: [];
             };
@@ -665,7 +893,8 @@ export type Database = {
                     is_active: boolean | null;
                     nombre: string;
                     precio: number;
-                    tipo: string;
+                    tipo: number;
+                    tipo_legacy: string | null;
                     updated_at: string | null;
                 };
                 Insert: {
@@ -676,7 +905,8 @@ export type Database = {
                     is_active?: boolean | null;
                     nombre: string;
                     precio: number;
-                    tipo: string;
+                    tipo: number;
+                    tipo_legacy?: string | null;
                     updated_at?: string | null;
                 };
                 Update: {
@@ -687,10 +917,19 @@ export type Database = {
                     is_active?: boolean | null;
                     nombre?: string;
                     precio?: number;
-                    tipo?: string;
+                    tipo?: number;
+                    tipo_legacy?: string | null;
                     updated_at?: string | null;
                 };
-                Relationships: [];
+                Relationships: [
+                    {
+                        foreignKeyName: "services_tipo_fkey";
+                        columns: ["tipo"];
+                        isOneToOne: false;
+                        referencedRelation: "service_type";
+                        referencedColumns: ["id"];
+                    },
+                ];
             };
             students: {
                 Row: {
@@ -716,41 +955,41 @@ export type Database = {
                 };
                 Relationships: [];
             };
-            revistas_cientificas: {
+            utilidades: {
                 Row: {
-                    id: string;
-                    title: string;
-                    area: string | null;
-                    description: string | null;
-                    link: string | null;
-                    image: string | null;
-                    is_active: boolean;
-                    sort_order: number;
+                    activo: boolean;
+                    archivo_nombre: string;
+                    archivo_tipo: string;
+                    archivo_url: string;
                     created_at: string;
+                    id: string;
+                    notas: Json;
+                    tipo: string;
+                    titulo: string;
                     updated_at: string;
                 };
                 Insert: {
-                    id?: string;
-                    title: string;
-                    area?: string | null;
-                    description?: string | null;
-                    link?: string | null;
-                    image?: string | null;
-                    is_active?: boolean;
-                    sort_order?: number;
+                    activo?: boolean;
+                    archivo_nombre: string;
+                    archivo_tipo: string;
+                    archivo_url: string;
                     created_at?: string;
+                    id?: string;
+                    notas?: Json;
+                    tipo: string;
+                    titulo: string;
                     updated_at?: string;
                 };
                 Update: {
-                    id?: string;
-                    title?: string;
-                    area?: string | null;
-                    description?: string | null;
-                    link?: string | null;
-                    image?: string | null;
-                    is_active?: boolean;
-                    sort_order?: number;
+                    activo?: boolean;
+                    archivo_nombre?: string;
+                    archivo_tipo?: string;
+                    archivo_url?: string;
                     created_at?: string;
+                    id?: string;
+                    notas?: Json;
+                    tipo?: string;
+                    titulo?: string;
                     updated_at?: string;
                 };
                 Relationships: [];
@@ -761,9 +1000,37 @@ export type Database = {
         };
         Functions: {
             generate_slug: { Args: { text_input: string }; Returns: string };
+            immutable_unaccent: { Args: { "": string }; Returns: string };
+            remove_accents: { Args: { input: string }; Returns: string };
+            search_global: {
+                Args: {
+                    filter_types?: string[];
+                    page_num?: number;
+                    q: string;
+                    result_limit?: number;
+                    similarity_threshold?: number;
+                };
+                Returns: {
+                    description: string;
+                    id: string;
+                    image: string;
+                    metadata: Json;
+                    title: string;
+                    type: string;
+                    url: string;
+                }[];
+            };
+            search_global_count: {
+                Args: {
+                    filter_types?: string[];
+                    q: string;
+                    similarity_threshold?: number;
+                };
+                Returns: number;
+            };
         };
         Enums: {
-            [_ in never]: never;
+            user_role: "administrador" | "academica" | "comunicaciones";
         };
         CompositeTypes: {
             [_ in never]: never;
@@ -896,6 +1163,8 @@ export const Constants = {
         Enums: {},
     },
     public: {
-        Enums: {},
+        Enums: {
+            user_role: ["administrador", "academica", "comunicaciones"],
+        },
     },
 } as const;

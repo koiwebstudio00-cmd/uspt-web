@@ -72,8 +72,16 @@ export function CursadoGrid({
     const [data, setData] = useState<CursadoBloque[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const apiBase = import.meta.env.VITE_API_URL || "/api/public";
 
     useEffect(() => {
+        if (!carreraId) {
+            setData([]);
+            setError(null);
+            setLoading(false);
+            return;
+        }
+
         let active = true;
 
         async function load() {
@@ -85,20 +93,22 @@ export function CursadoGrid({
                     anio: String(anio),
                 });
 
-                const apiBase = import.meta.env.VITE_API_URL || "/api/public";
                 const res = await fetch(
                     `${apiBase}/carreras/${carreraId}/horarios?${params.toString()}`,
+                    { cache: "no-store" },
                 );
+                const contentType = res.headers.get("content-type") || "";
+                const payload = contentType.includes("application/json")
+                    ? await res.json()
+                    : null;
 
                 if (!res.ok) {
-                    const json = await res.json();
                     throw new Error(
-                        json.error ?? "No se pudieron cargar los horarios",
+                        payload?.error ?? "No se pudieron cargar los horarios",
                     );
                 }
 
-                const json = await res.json();
-                if (active) setData(json.data ?? []);
+                if (active) setData(Array.isArray(payload?.data) ? payload.data : []);
             } catch (err) {
                 if (active)
                     setError(
@@ -116,7 +126,7 @@ export function CursadoGrid({
         return () => {
             active = false;
         };
-    }, [anio, carreraId]);
+    }, [anio, carreraId, apiBase]);
 
     const grupos = useMemo(() => {
         const map = new Map<
@@ -131,7 +141,12 @@ export function CursadoGrid({
                 sede: item.sede,
                 bloques: [],
             };
-            group.bloques.push(item);
+            group.bloques.push({
+                ...item,
+                horarios_cursado_detalle: [...item.horarios_cursado_detalle].sort(
+                    (a, b) => a.orden - b.orden,
+                ),
+            });
             map.set(key, group);
         });
 

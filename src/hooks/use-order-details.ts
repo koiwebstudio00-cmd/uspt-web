@@ -35,6 +35,9 @@ export interface OrderDetails {
     legajo: string | null;
     payment_id: string | null;
     total: number;
+    service_name?: string | null;
+    service_price?: number | null;
+    service_total_paid?: number | null;
 }
 
 interface UseOrderDetailsResult {
@@ -158,6 +161,9 @@ export function useOrderDetails(
                         course: courseData,
                         total: itemPrice * orderData.cantidad,
                         payment_id: getLast4Digits(orderData.payment_id),
+                        service_name: orderData.service_name,
+                        service_price: orderData.service_price,
+                        service_total_paid: orderData.service_total_paid,
                     };
 
                     setOrder(transformedData);

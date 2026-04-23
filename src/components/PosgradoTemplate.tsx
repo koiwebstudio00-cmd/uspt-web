@@ -42,6 +42,8 @@ const PosgradoTemplate = ({
         { label: posgrado.name },
     ];
 
+    const img_url = posgrado.featured_img ?? "/images/posgrado.webp";
+
     return (
         <div className="min-h-screen bg-background">
             <Navbar1 />
@@ -51,7 +53,7 @@ const PosgradoTemplate = ({
                 <HeroPageComponent
                     title={posgrado.name}
                     description={posgrado.instituto?.name}
-                    imageUrl="/images/posgrado.webp"
+                    imageUrl={img_url}
                     minHeight="450px"
                 />
 
@@ -179,146 +181,146 @@ const PosgradoTemplate = ({
                     posgrado.resolution_url ||
                     posgrado.horarios_cursado ||
                     posgrado.fecha_examenes) && (
-                        <section className="py-16 bg-muted/30">
-                            <div className="container mx-auto px-4">
-                                <div className="max-w-6xl mx-auto">
-                                    <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-8">
-                                        Documentos y Recursos
-                                    </h2>
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        {posgrado.plan_estudio_url && (
-                                            <Card className="border-muted2 hover:shadow-lg transition-shadow">
-                                                <CardContent className="p-6">
-                                                    <div className="flex items-start gap-4">
-                                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                            <BookOpen className="w-6 h-6 text-primary" />
-                                                        </div>
-                                                        <div className="flex-1">
-                                                            <h3 className="font-heading font-semibold text-lg mb-2">
-                                                                Plan de Estudios
-                                                            </h3>
-                                                            <p className="text-sm text-muted-foreground mb-4">
-                                                                Descargá el plan de
-                                                                estudios completo
-                                                            </p>
-                                                            <a
-                                                                href={
-                                                                    posgrado.plan_estudio_url
-                                                                }
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-                                                            >
-                                                                <Download className="w-4 h-4" />
-                                                                Descargar PDF
-                                                            </a>
-                                                        </div>
+                    <section className="py-16 bg-muted/30">
+                        <div className="container mx-auto px-4">
+                            <div className="max-w-6xl mx-auto">
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-8">
+                                    Documentos y Recursos
+                                </h2>
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {posgrado.plan_estudio_url && (
+                                        <Card className="border-muted2 hover:shadow-lg transition-shadow">
+                                            <CardContent className="p-6">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                        <BookOpen className="w-6 h-6 text-primary" />
                                                     </div>
-                                                </CardContent>
-                                            </Card>
-                                        )}
+                                                    <div className="flex-1">
+                                                        <h3 className="font-heading font-semibold text-lg mb-2">
+                                                            Plan de Estudios
+                                                        </h3>
+                                                        <p className="text-sm text-muted-foreground mb-4">
+                                                            Descargá el plan de
+                                                            estudios completo
+                                                        </p>
+                                                        <a
+                                                            href={
+                                                                posgrado.plan_estudio_url
+                                                            }
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                                                        >
+                                                            <Download className="w-4 h-4" />
+                                                            Descargar PDF
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    )}
 
-                                        {posgrado.horarios_cursado && (
-                                            <Card className="border-muted2 hover:shadow-lg transition-shadow">
-                                                <CardContent className="p-6">
-                                                    <div className="flex items-start gap-4">
-                                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                            <Clock className="w-6 h-6 text-primary" />
-                                                        </div>
-                                                        <div className="flex-1">
-                                                            <h3 className="font-heading font-semibold text-lg mb-2">
-                                                                Horarios de Cursado
-                                                            </h3>
-                                                            <p className="text-sm text-muted-foreground mb-4">
-                                                                Consultá los
-                                                                horarios disponibles
-                                                            </p>
-                                                            <a
-                                                                href={
-                                                                    posgrado.horarios_cursado
-                                                                }
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-                                                            >
-                                                                <Download className="w-4 h-4" />
-                                                                Descargar PDF
-                                                            </a>
-                                                        </div>
+                                    {posgrado.horarios_cursado && (
+                                        <Card className="border-muted2 hover:shadow-lg transition-shadow">
+                                            <CardContent className="p-6">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                        <Clock className="w-6 h-6 text-primary" />
                                                     </div>
-                                                </CardContent>
-                                            </Card>
-                                        )}
+                                                    <div className="flex-1">
+                                                        <h3 className="font-heading font-semibold text-lg mb-2">
+                                                            Horarios de Cursado
+                                                        </h3>
+                                                        <p className="text-sm text-muted-foreground mb-4">
+                                                            Consultá los
+                                                            horarios disponibles
+                                                        </p>
+                                                        <a
+                                                            href={
+                                                                posgrado.horarios_cursado
+                                                            }
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                                                        >
+                                                            <Download className="w-4 h-4" />
+                                                            Descargar PDF
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    )}
 
-                                        {posgrado.fecha_examenes && (
-                                            <Card className="border-muted2 hover:shadow-lg transition-shadow">
-                                                <CardContent className="p-6">
-                                                    <div className="flex items-start gap-4">
-                                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                            <Calendar className="w-6 h-6 text-primary" />
-                                                        </div>
-                                                        <div className="flex-1">
-                                                            <h3 className="font-heading font-semibold text-lg mb-2">
-                                                                Fechas de Exámenes
-                                                            </h3>
-                                                            <p className="text-sm text-muted-foreground mb-4">
-                                                                Calendario de
-                                                                exámenes actualizado
-                                                            </p>
-                                                            <a
-                                                                href={
-                                                                    posgrado.fecha_examenes
-                                                                }
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-                                                            >
-                                                                <Download className="w-4 h-4" />
-                                                                Descargar PDF
-                                                            </a>
-                                                        </div>
+                                    {posgrado.fecha_examenes && (
+                                        <Card className="border-muted2 hover:shadow-lg transition-shadow">
+                                            <CardContent className="p-6">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                        <Calendar className="w-6 h-6 text-primary" />
                                                     </div>
-                                                </CardContent>
-                                            </Card>
-                                        )}
+                                                    <div className="flex-1">
+                                                        <h3 className="font-heading font-semibold text-lg mb-2">
+                                                            Fechas de Exámenes
+                                                        </h3>
+                                                        <p className="text-sm text-muted-foreground mb-4">
+                                                            Calendario de
+                                                            exámenes actualizado
+                                                        </p>
+                                                        <a
+                                                            href={
+                                                                posgrado.fecha_examenes
+                                                            }
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                                                        >
+                                                            <Download className="w-4 h-4" />
+                                                            Descargar PDF
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    )}
 
-                                        {posgrado.resolution_url && (
-                                            <Card className="border-muted2 hover:shadow-lg transition-shadow">
-                                                <CardContent className="p-6">
-                                                    <div className="flex items-start gap-4">
-                                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                            <Award className="w-6 h-6 text-primary" />
-                                                        </div>
-                                                        <div className="flex-1">
-                                                            <h3 className="font-heading font-semibold text-lg mb-2">
-                                                                Resolución
-                                                                Ministerial
-                                                            </h3>
-                                                            <p className="text-sm text-muted-foreground mb-4">
-                                                                Resolución oficial
-                                                                del posgrado
-                                                            </p>
-                                                            <a
-                                                                href={
-                                                                    posgrado.resolution_url
-                                                                }
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-                                                            >
-                                                                <Download className="w-4 h-4" />
-                                                                Descargar PDF
-                                                            </a>
-                                                        </div>
+                                    {posgrado.resolution_url && (
+                                        <Card className="border-muted2 hover:shadow-lg transition-shadow">
+                                            <CardContent className="p-6">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                        <Award className="w-6 h-6 text-primary" />
                                                     </div>
-                                                </CardContent>
-                                            </Card>
-                                        )}
-                                    </div>
+                                                    <div className="flex-1">
+                                                        <h3 className="font-heading font-semibold text-lg mb-2">
+                                                            Resolución
+                                                            Ministerial
+                                                        </h3>
+                                                        <p className="text-sm text-muted-foreground mb-4">
+                                                            Resolución oficial
+                                                            del posgrado
+                                                        </p>
+                                                        <a
+                                                            href={
+                                                                posgrado.resolution_url
+                                                            }
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                                                        >
+                                                            <Download className="w-4 h-4" />
+                                                            Descargar PDF
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    )}
                                 </div>
                             </div>
-                        </section>
-                    )}
+                        </div>
+                    </section>
+                )}
 
                 {/* Requisitos de Admisión */}
                 <section className="py-16 bg-white">

@@ -134,6 +134,9 @@ const Posgrado = () => {
     const maestrias = posgrados.filter((p) =>
         normalizeTipo(p.tipo).startsWith("maestr"),
     );
+    const posgrades = posgrados.filter((p) =>
+        normalizeTipo(p.tipo).startsWith("posgra"),
+    );
     const especializaciones = posgrados.filter((p) =>
         normalizeTipo(p.tipo).startsWith("especializacion"),
     );
@@ -151,13 +154,15 @@ const Posgrado = () => {
             icon: GraduationCap,
             label: "Excelencia Académica",
             value: "Estándares internacionales",
-            description: "Programas diseñados con estándares internacionales de calidad",
+            description:
+                "Programas diseñados con estándares internacionales de calidad",
         },
         {
             icon: Users,
             label: "Claustro de Elite",
             value: "Docentes especializados",
-            description: "Profesores con amplia experiencia académica y profesional",
+            description:
+                "Profesores con amplia experiencia académica y profesional",
         },
         {
             icon: Award,
@@ -169,7 +174,8 @@ const Posgrado = () => {
             icon: BookOpen,
             label: "Investigación Aplicada",
             value: "Vinculación profesional",
-            description: "Proyectos de investigación vinculados con la realidad profesional",
+            description:
+                "Proyectos de investigación vinculados con la realidad profesional",
         },
     ];
 
@@ -227,8 +233,91 @@ const Posgrado = () => {
                     </div>
                 </section>
 
-                {/* Maestrías Section */}
+                {/* Posgrados Section */}
                 <section className="bg-primary/10 py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
+                                Posgrados
+                            </h2>
+                            <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
+                                Programas de posgrado para profundizar
+                                conocimientos y desarrollar competencias de
+                                liderazgo
+                            </p>
+                        </div>
+
+                        {loading ? (
+                            <div className="flex justify-center items-center py-12">
+                                <Loader2 className="w-12 h-12 animate-spin text-primary" />
+                            </div>
+                        ) : error ? (
+                            <div className="text-center py-12">
+                                <p className="text-muted-foreground">
+                                    Error al cargar los posgrados
+                                </p>
+                            </div>
+                        ) : posgrades.length === 0 ? (
+                            <div className="text-center py-12">
+                                <p className="text-muted-foreground">
+                                    No hay posgrados disponibles en este momento
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {posgrades.map((posgrado) => (
+                                    <Card
+                                        key={posgrado.id}
+                                        className="border-muted2 hover:shadow-lg transition-all duration-300"
+                                    >
+                                        <CardHeader>
+                                            <div className="flex items-start justify-between mb-2">
+                                                <CardTitle className="text-xl font-heading text-primary flex-1">
+                                                    {posgrado.name}
+                                                </CardTitle>
+                                            </div>
+                                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                                <div className="flex items-center gap-1">
+                                                    <Clock className="w-4 h-4" />
+                                                    <span>
+                                                        {posgrado.duration}{" "}
+                                                        {posgrado.duration === 1
+                                                            ? "año"
+                                                            : "años"}
+                                                    </span>
+                                                </div>
+                                                <span className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">
+                                                    {posgrado.modalidad}
+                                                </span>
+                                            </div>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground font-body mb-4 line-clamp-3">
+                                                {posgrado.description}
+                                            </p>
+                                            <div className="flex gap-2">
+                                                <Link
+                                                    to={`/posgrado/${posgrado.slug}`}
+                                                    className="flex-1"
+                                                >
+                                                    <UniversityButton
+                                                        variant="primary"
+                                                        size="sm"
+                                                        className="w-full"
+                                                    >
+                                                        Más Información
+                                                    </UniversityButton>
+                                                </Link>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </section>
+                {/* Maestrías Section */}
+                <section className="bg-white py-16">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
@@ -312,7 +401,7 @@ const Posgrado = () => {
                 </section>
 
                 {/* Especializaciones Section */}
-                <section className="py-20 bg-white">
+                <section className="py-20 bg-primary/10">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
@@ -413,8 +502,7 @@ const Posgrado = () => {
                         ) : cursosPosgrado.length === 0 ? (
                             <div className="text-center py-12">
                                 <p className="text-muted-foreground">
-                                    No hay cursos disponibles en este
-                                    momento
+                                    No hay cursos disponibles en este momento
                                 </p>
                             </div>
                         ) : (
@@ -437,7 +525,6 @@ const Posgrado = () => {
                                         </div>
 
                                         <div className="p-8 pb-4 flex flex-col items-center text-center flex-grow">
-
                                             <h3 className="text-xl md:text-2xl font-heading font-semibold text-foreground mb-4 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem] flex items-center justify-center">
                                                 {curso.name}
                                             </h3>
@@ -790,7 +877,6 @@ const Posgrado = () => {
             </main>
 
             <Footer />
-
         </div>
     );
 };

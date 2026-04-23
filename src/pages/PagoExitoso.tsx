@@ -110,12 +110,7 @@ const PagoExitoso = () => {
                                                             : "Servicio"}
                                                     </p>
                                                     <p className="text-lg font-semibold">
-                                                        {order.service
-                                                            ?.nombre ||
-                                                            order.course
-                                                                ?.displayName ||
-                                                            order.course
-                                                                ?.fullname ||
+                                                        {order.service_name ||
                                                             "N/A"}
                                                     </p>
                                                 </div>
@@ -139,10 +134,7 @@ const PagoExitoso = () => {
                                                     <p className="text-lg font-semibold">
                                                         $
                                                         {(
-                                                            order.service
-                                                                ?.precio ||
-                                                            order.course
-                                                                ?.price ||
+                                                            order.service_price ||
                                                             0
                                                         ).toLocaleString(
                                                             "es-AR",
@@ -156,7 +148,7 @@ const PagoExitoso = () => {
                                                     </p>
                                                     <p className="text-2xl font-bold text-primary">
                                                         $
-                                                        {order.total.toLocaleString(
+                                                        {order.service_total_paid?.toLocaleString(
                                                             "es-AR",
                                                         )}
                                                     </p>
