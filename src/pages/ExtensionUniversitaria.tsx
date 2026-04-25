@@ -218,7 +218,7 @@ const ExtensionUniversitaria = () => {
 
                 <section className="py-16 bg-muted/20">
                     <div className="container mx-auto px-4">
-                        <div className="max-w-7xl mx-auto">
+                        <div className="">
                             <div className="grid md:grid-cols-2 gap-8 items-start">
                                 {/* Imagen a la izquierda */}
                                 <div className="relative h-full min-h-[400px] md:min-h-[500px] overflow-hidden">
@@ -240,8 +240,8 @@ const ExtensionUniversitaria = () => {
                                 </div>
 
                                 {/* Cards de Misión y Objetivos a la derecha */}
-                                <div className="space-y-6">
-                                    <div className="bg-primary/10 p-8 border-l-4 border-primary">
+                                <div className="space-y-6 h-full flex-col">
+                                    <div className="lg:h-1/2 bg-primary/10 p-8 border-l-4 border-primary">
                                         <div className="flex items-center gap-3 mb-4">
                                             <Award className="w-6 h-6 text-primary flex-shrink-0" />
                                             <h2 className="text-2xl font-medium font-heading text-foreground">
@@ -253,7 +253,7 @@ const ExtensionUniversitaria = () => {
                                         </p>
                                     </div>
 
-                                    <div className="bg-primary p-8 text-white border-l-4 border-primary-foreground">
+                                    <div className="bg-primary p-8 text-white border-l-4 border-primary/30">
                                         <div className="flex items-center gap-3 mb-4">
                                             <GraduationCap className="w-6 h-6 text-white flex-shrink-0" />
                                             <h2 className="text-2xl font-medium font-heading">
@@ -271,7 +271,7 @@ const ExtensionUniversitaria = () => {
                 </section>
 
                 {/* Cursos de Extensión */}
-                <section className="py-20 bg-white" id="cursos-extension">
+                <section className="py-20 bg-muted/30" id="cursos-extension">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
@@ -399,7 +399,7 @@ const ExtensionUniversitaria = () => {
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
-                                Cursos y Talleres Online
+                                Cursos y Talleres Asincrónicos
                             </h2>
                             <p className="text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
                                 Explora nuestra oferta actual de cursos de

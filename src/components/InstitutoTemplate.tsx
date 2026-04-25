@@ -1,8 +1,6 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { UniversityButton } from "@/components/ui/university-button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { cn } from "@/lib/utils";
 import {
@@ -266,7 +264,7 @@ const InstitutoTemplate = ({
                                         >
                                             {/* Top Icon Section */}
                                             <div className="p-8 pb-4 flex flex-col items-center text-center flex-grow">
-                                                <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 shadow-sm group-hover:shadow-primary/20">
+                                                <div className="w-20 h-20 bg-primary/5 flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 shadow-sm group-hover:shadow-primary/20">
                                                     <CareerIcon className="w-10 h-10 text-primary transition-colors duration-500 group-hover:text-white" />
                                                 </div>
 
@@ -343,137 +341,122 @@ const InstitutoTemplate = ({
                     </div>
                 </section>
 
-                {/* Información de Admisión */}
-                <section className="py-20 bg-white">
+                {/* Requisitos + Info del Instituto */}
+                <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <div className="max-w-6xl mx-auto">
-                            <div className="text-center mb-16">
-                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
-                                    Información Importante
-                                </h2>
-                                <p className="text-xl text-muted-foreground font-body max-w-3xl mx-auto">
-                                    Todo lo que necesitás saber para comenzar
+                        <div className="grid lg:grid-cols-2 gap-14 items-start">
+
+                            {/* Requisitos */}
+                            <div>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">
+                                    Admisión
                                 </p>
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
+                                    Requisitos de Admisión
+                                </h2>
+                                <div className="w-10 h-0.5 bg-primary mb-8" />
+
+                                <div className="border border-muted2">
+                                    {[
+                                        "Fotocopia de DNI",
+                                        "Fotocopia de título secundario legalizada o constancia en trámite",
+                                        "Certificado de buena salud",
+                                        "2 fotos carnet",
+                                        "Completar ficha con acuerdo de admisión",
+                                    ].map((req, idx, arr) => (
+                                        <div
+                                            key={idx}
+                                            className={cn(
+                                                "flex items-start gap-4 p-5 hover:bg-primary/5 transition-colors",
+                                                idx < arr.length - 1
+                                                    ? "border-b border-muted2"
+                                                    : "",
+                                            )}
+                                        >
+                                            <div className="w-6 h-6 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0 mt-0.5">
+                                                <span className="text-xs font-bold">
+                                                    {idx + 1}
+                                                </span>
+                                            </div>
+                                            <span className="text-sm text-muted-foreground font-body leading-relaxed">
+                                                {req}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Requisitos de Admisión */}
-                                <Card className="border-muted2 shadow-lg">
-                                    <CardHeader className="pb-4">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                                <BookOpen className="w-6 h-6 text-primary" />
+                            {/* Información del Instituto */}
+                            <div className="flex flex-col">
+                                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">
+                                    Información
+                                </p>
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
+                                    Información del Instituto
+                                </h2>
+                                <div className="w-10 h-0.5 bg-primary mb-8" />
+
+                                <div className="border border-muted2">
+                                    {institute.director && (
+                                        <div className="flex items-start gap-4 p-5 border-b border-muted2 hover:bg-primary/5 transition-colors">
+                                            <div className="w-9 h-9 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0">
+                                                <Users className="w-4 h-4" />
                                             </div>
-                                            <CardTitle className="text-2xl font-heading">
-                                                Requisitos de Admisión
-                                            </CardTitle>
-                                        </div>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <ul className="space-y-4 cursor-default">
-                                            {[
-                                                "Fotocopia de DNI",
-                                                "Fotocopia de título secundario legalizada o constancia en trámite",
-                                                "Certificado de buena salud",
-                                                "2 fotos carnet",
-                                                "Completar ficha con acuerdo de admisión",
-                                            ].map((req, idx) => (
-                                                <li
-                                                    key={idx}
-                                                    className="flex items-start gap-3 group"
-                                                >
-                                                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                                                        <span className="text-primary font-semibold text-xs">
-                                                            {idx + 1}
-                                                        </span>
-                                                    </div>
-                                                    <span className="text-muted-foreground font-body leading-relaxed">
-                                                        {req}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </CardContent>
-                                </Card>
-
-                                {/* Información del Instituto */}
-                                <Card className="border-muted2 shadow-lg">
-                                    <CardHeader className="pb-4">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                                <Users className="w-6 h-6 text-primary" />
-                                            </div>
-                                            <CardTitle className="text-2xl font-heading">
-                                                Información del Instituto
-                                            </CardTitle>
-                                        </div>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <div className="space-y-5">
-                                            {institute.director && (
-                                                <div className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                        <Users className="w-5 h-5 text-primary" />
-                                                    </div>
-                                                    <div>
-                                                        <p className="font-semibold text-foreground mb-1">
-                                                            Director
-                                                        </p>
-                                                        <p className="text-muted-foreground text-sm">
-                                                            {institute.director}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            {institute.secretario && (
-                                                <div className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                        <Users className="w-5 h-5 text-primary" />
-                                                    </div>
-                                                    <div>
-                                                        <p className="font-semibold text-foreground mb-1">
-                                                            Secretario
-                                                        </p>
-                                                        <p className="text-muted-foreground text-sm">
-                                                            {
-                                                                institute.secretario
-                                                            }
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            <div className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                    <MapPin className="w-5 h-5 text-primary" />
-                                                </div>
-                                                <div>
-                                                    <p className="font-semibold text-foreground mb-1">
-                                                        Ubicación
-                                                    </p>
-                                                    <p className="text-muted-foreground text-sm">
-                                                        Campus Universitario
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                    <Mail className="w-5 h-5 text-primary" />
-                                                </div>
-                                                <div>
-                                                    <p className="font-semibold text-foreground mb-1">
-                                                        Email
-                                                    </p>
-                                                    <p className="text-muted-foreground text-sm">
-                                                        informes@uspt.edu.ar
-                                                    </p>
-                                                </div>
+                                            <div>
+                                                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">
+                                                    Director
+                                                </p>
+                                                <p className="text-sm text-foreground font-body">
+                                                    {institute.director}
+                                                </p>
                                             </div>
                                         </div>
-                                    </CardContent>
-                                </Card>
+                                    )}
+
+                                    {institute.secretario && (
+                                        <div className="flex items-start gap-4 p-5 border-b border-muted2 hover:bg-primary/5 transition-colors">
+                                            <div className="w-9 h-9 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0">
+                                                <Users className="w-4 h-4" />
+                                            </div>
+                                            <div>
+                                                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">
+                                                    Secretario
+                                                </p>
+                                                <p className="text-sm text-foreground font-body">
+                                                    {institute.secretario}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="flex items-start gap-4 p-5 border-b border-muted2 hover:bg-primary/5 transition-colors">
+                                        <div className="w-9 h-9 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0">
+                                            <MapPin className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">
+                                                Ubicación
+                                            </p>
+                                            <p className="text-sm text-foreground font-body">
+                                                Campus Universitario
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4 p-5 hover:bg-primary/5 transition-colors">
+                                        <div className="w-9 h-9 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0">
+                                            <Mail className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">
+                                                Email
+                                            </p>
+                                            <p className="text-sm text-foreground font-body">
+                                                informes@uspt.edu.ar
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

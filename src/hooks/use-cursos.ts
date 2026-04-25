@@ -29,7 +29,7 @@ interface UseCursosResult {
  * @example
  * const { cursos, loading, error, count } = useCursos("Cursos | Posgrado");
  */
-export function useCursos(category: string = "Cursos | Extensión"): UseCursosResult {
+export function useCursos(category: string = "Cursos | Formación Docente Continua"): UseCursosResult {
     const [cursos, setCursos] = useState<CourseWithCategory[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);

@@ -49,8 +49,20 @@ function normalizeDay(day: string) {
 }
 
 function anioLabel(anio: number) {
-    if (anio === 1) return "1er Año";
-    return `${anio}° Año`;
+    switch (anio) {
+        case 1:
+            return "1er Año";
+        case 2:
+            return "2do Año";
+        case 3:
+            return "3er Año";
+        case 4:
+            return "4to Año";
+        case 5:
+            return "5to Año";
+        default:
+            return `${anio}° Año`;
+    }
 }
 
 function cuatrimestreLabel(cuatrimestre: number) {

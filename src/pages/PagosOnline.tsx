@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { cn } from "@/lib/utils";
-import { CheckCircle, FileText, ArrowRight, Phone, HelpCircle } from "lucide-react";
+import { CheckCircle, FileText, ArrowRight, Phone, Mail } from "lucide-react";
 import { Navbar1 } from "@/components/Navbar";
 import { Link } from "react-router-dom";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
@@ -155,40 +155,41 @@ const PagosOnline = () => {
 
                                 {/* Columna derecha: Accesos directos */}
                                 {!loadingAvailability && (
-                                    <div className="flex flex-col h-full">
-                                        <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-5">
+                                    <div className="flex flex-col gap-4">
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-primary">
                                             Accesos directos
                                         </p>
-                                        <div className="flex flex-col gap-4 flex-1">
-                                            <a
-                                                href="https://gestion.usptonline.com.ar/Universitas/Account/LogOn?ReturnUrl=/universitas&Secure=True"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group flex items-center justify-between border border-primary bg-primary px-6 py-5 transition-all hover:bg-primary/90"
-                                            >
-                                                <div className="flex items-center gap-3">
-                                                    <span className="font-semibold font-heading text-white">
-                                                        Pagar en Autogestión
-                                                    </span>
-                                                </div>
-                                                <ArrowRight className="w-4 h-4 text-white transition-all group-hover:translate-x-1" />
-                                            </a>
 
-                                            {serviceShortcutLinks.map((shortcut) => (
-                                                <Link
-                                                    key={shortcut.key}
-                                                    to={shortcut.to}
-                                                    className="group flex items-center justify-between border border-primary/30 bg-primary/5 hover:bg-primary hover:border-primary px-6 py-5 transition-all"
-                                                >
-                                                    <div className="flex items-center gap-3">
-                                                        <span className="font-semibold font-heading text-foreground group-hover:text-white transition-colors">
+                                        {/* CTA principal */}
+                                        <a
+                                            href="https://gestion.usptonline.com.ar/Universitas/Account/LogOn?ReturnUrl=/universitas&Secure=True"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex items-center justify-between border border-primary bg-primary px-6 py-5 transition-all hover:bg-primary/90"
+                                        >
+                                            <span className="font-semibold font-heading text-white">
+                                                Pagar en Autogestión
+                                            </span>
+                                            <ArrowRight className="w-4 h-4 text-white transition-all group-hover:translate-x-1" />
+                                        </a>
+
+                                        {/* Links dinámicos en grid de 2 columnas */}
+                                        {serviceShortcutLinks.length > 0 && (
+                                            <div className="grid grid-cols-2 gap-3">
+                                                {serviceShortcutLinks.map((shortcut) => (
+                                                    <Link
+                                                        key={shortcut.key}
+                                                        to={shortcut.to}
+                                                        className="group flex flex-col justify-between gap-6 border border-muted2 p-5 hover:bg-primary/5 hover:border-primary/30 transition-colors"
+                                                    >
+                                                        <span className="font-semibold font-heading text-foreground text-sm leading-snug group-hover:text-primary transition-colors">
                                                             {shortcut.label}
                                                         </span>
-                                                    </div>
-                                                    <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-all group-hover:translate-x-1" />
-                                                </Link>
-                                            ))}
-                                        </div>
+                                                        <ArrowRight className="w-4 h-4 text-primary transition-all group-hover:translate-x-1" />
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -390,51 +391,63 @@ const PagosOnline = () => {
                     </section>
                 )}
                 {/* Necesitás Ayuda */}
-                <section className="py-20 bg-white">
+                <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <Card className="max-w-4xl mx-auto border-primary/20 bg-primary/5 shadow-sm">
-                            <CardContent className="p-8 md:p-12">
-                                <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-                                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                                        <HelpCircle className="w-8 h-8 text-primary" />
+                        <div className="grid lg:grid-cols-2 gap-0">
+                            {/* Encabezado */}
+                            <div className="py-8 md:py-12 border-b lg:border-b-0 lg:border-r border-muted2">
+                                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
+                                    Soporte
+                                </p>
+                                <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
+                                    ¿Necesitás ayuda con tu pago?
+                                </h2>
+                                <div className="w-10 h-0.5 bg-primary mb-8" />
+                                <p className="text-muted-foreground font-body leading-relaxed">
+                                    Si tenés dudas sobre cómo realizar un pago,
+                                    problemas con Mercado Pago o necesitás
+                                    consultar sobre aranceles, nuestro equipo
+                                    está para ayudarte.
+                                </p>
+                            </div>
+
+                            {/* Canales de contacto */}
+                            <div className="flex flex-col">
+                                <div className="flex items-start gap-4 p-8 hover:bg-primary/5 transition-colors">
+                                    <div className="w-9 h-9 bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                        <Mail className="w-4 h-4" />
                                     </div>
-                                    <div className="flex-1 space-y-4">
-                                        <h2 className="text-3xl md:text-5xl font-heading font-medium text-foreground mb-6">
-                                            ¿Necesitás ayuda con tu pago?
-                                        </h2>
-                                        <p className="text-lg text-muted-foreground font-body leading-relaxed">
-                                            Si tenés dudas sobre cómo realizar
-                                            un pago, problemas con Mercado Pago
-                                            o necesitás consultar sobre
-                                            aranceles, nuestro equipo está para
-                                            ayudarte.
+                                    <div>
+                                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                                            Por correo
                                         </p>
-                                        <div className="flex flex-wrap justify-center md:justify-start gap-6 pt-2">
-                                            <div className="flex flex-col gap-1">
-                                                <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider">
-                                                    Por correo
-                                                </span>
-                                                <a
-                                                    href="mailto:informes@uspt.edu.ar"
-                                                    className="text-primary hover:underline font-semibold text-lg"
-                                                >
-                                                    informes@uspt.edu.ar
-                                                </a>
-                                            </div>
-                                            <div className="flex flex-col gap-1">
-                                                <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider">
-                                                    Por teléfono
-                                                </span>
-                                                <span className="text-foreground font-semibold text-lg">
-                                                    0381-4530630 (Int. 136 -
-                                                    158)
-                                                </span>
-                                            </div>
-                                        </div>
+                                        <a
+                                            href="mailto:informes@uspt.edu.ar"
+                                            className="font-heading font-bold text-foreground hover:text-primary transition-colors"
+                                        >
+                                            informes@uspt.edu.ar
+                                        </a>
                                     </div>
                                 </div>
-                            </CardContent>
-                        </Card>
+
+                                <div className="flex items-start gap-4 p-8 hover:bg-primary/5 transition-colors">
+                                    <div className="w-9 h-9 bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                        <Phone className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                                            Por teléfono
+                                        </p>
+                                        <p className="font-heading font-bold text-foreground">
+                                            0381-4530630
+                                        </p>
+                                        <p className="text-sm text-muted-foreground font-body mt-0.5">
+                                            Int. 136 — 158
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </main>

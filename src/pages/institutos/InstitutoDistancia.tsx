@@ -34,7 +34,7 @@ const InstitutoDistancia = () => {
     // Transform Supabase data to template format
     const instituteData = transformInstitutoData(instituto, carreras);
 
-    console.log(instituteData);
+    
 
     return (
         <InstitutoTemplate
