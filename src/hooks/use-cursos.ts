@@ -57,7 +57,7 @@ export function useCursos(category: string = "Cursos | Formación Docente Contin
                     `,
                         { count: "exact" },
                     )
-                    .ilike("courseCategories.name", `${category}%`)
+/*                     .ilike("courseCategories.name", `${category}%`) */
                     .order("last_sync_at", { ascending: false });
 
                 const {

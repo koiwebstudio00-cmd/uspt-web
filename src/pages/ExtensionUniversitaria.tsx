@@ -31,6 +31,7 @@ import { HeroPageComponent } from "@/components/HeroPageComponent";
 import CtaPage from "@/components/CtaPage";
 import { useState, useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
+import { formatPrice } from "@/utils/helpers";
 
 const COURSES_PER_PAGE = 9;
 
@@ -522,7 +523,7 @@ const ExtensionUniversitaria = () => {
                                                         curso.price !==
                                                             undefined && (
                                                             <div className="text-lg font-bold text-primary">
-                                                                $ {curso.price}
+                                                                {formatPrice(curso.price)}
                                                             </div>
                                                         )}
                                                 </div>
