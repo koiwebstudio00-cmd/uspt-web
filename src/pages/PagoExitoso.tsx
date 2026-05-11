@@ -236,7 +236,7 @@ const PagoExitoso = () => {
 
                                             <div className="border-t pt-6 space-y-4">
                                                 <h3 className="font-heading font-semibold text-lg">
-                                                    Información de Pago
+                                                    Consultas arancelarias
                                                 </h3>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     <div className="flex items-center gap-3">

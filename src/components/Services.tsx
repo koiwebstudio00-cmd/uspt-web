@@ -116,9 +116,6 @@ const Services = () => {
     const titleRef = useIntersectionObserver<HTMLHeadingElement>({
         threshold: 0.3,
     });
-    const descriptionRef = useIntersectionObserver<HTMLParagraphElement>({
-        threshold: 0.3,
-    });
     const featuresRef = useIntersectionObserver<HTMLDivElement>({
         threshold: 0.2,
     });
@@ -141,22 +138,8 @@ const Services = () => {
                                     : "",
                             )}
                         >
-                            Servicios
+                            Servicios y beneficios
                         </h2>
-                        <p
-                            ref={descriptionRef.elementRef}
-                            className={cn(
-                                "text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed animate-on-scroll animate-fade-in-up",
-                                descriptionRef.isIntersecting
-                                    ? "animate-fade-in-up"
-                                    : "",
-                            )}
-                            style={{ transitionDelay: "0.2s" }}
-                        >
-                            Ofrecemos un ecosistema completo de servicios
-                            diseñados para acompañarte en toda tu trayectoria
-                            académica y profesional.
-                        </p>
                     </div>
 
                     <div

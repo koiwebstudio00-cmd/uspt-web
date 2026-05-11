@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 
+const REVISTA_UNIVERSITARIA_CATEGORY = "Revista Universitaria";
+
 const Noticias = () => {
     const [filtroCategoria, setFiltroCategoria] = useState("todas");
 
@@ -53,13 +55,22 @@ const Noticias = () => {
 
     // Obtener categorías únicas de los blogs
     const categorias = useMemo(() => {
-        const categoriasSet = new Set<string>();
+        const categoriasSet = new Map<string, string>();
         todasLasNoticias.forEach((blog) => {
             if (blog.category && Array.isArray(blog.category)) {
-                blog.category.forEach((cat) => categoriasSet.add(cat));
+                blog.category.forEach((cat) => {
+                    const normalizedCategory = cat.trim().toLowerCase();
+                    categoriasSet.set(
+                        normalizedCategory,
+                        normalizedCategory ===
+                            REVISTA_UNIVERSITARIA_CATEGORY.toLowerCase()
+                            ? REVISTA_UNIVERSITARIA_CATEGORY
+                            : cat,
+                    );
+                });
             }
         });
-        return Array.from(categoriasSet).sort();
+        return Array.from(categoriasSet.values()).sort();
     }, [todasLasNoticias]);
 
     // Filtrar noticias según categoría
@@ -69,7 +80,11 @@ const Noticias = () => {
                 filtroCategoria === "todas" ||
                 (blog.category &&
                     Array.isArray(blog.category) &&
-                    blog.category.includes(filtroCategoria))
+                    blog.category.some(
+                        (cat) =>
+                            cat.trim().toLowerCase() ===
+                            filtroCategoria.trim().toLowerCase(),
+                    ))
             );
         });
     }, [todasLasNoticias, filtroCategoria]);

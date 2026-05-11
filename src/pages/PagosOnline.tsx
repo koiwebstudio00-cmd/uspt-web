@@ -87,6 +87,15 @@ const PagosOnline = () => {
         },
     ];
 
+    const consultasArancelarias = [
+        "aranceles.institutosalud@uspt.edu.ar",
+        "aranceles.institutodesarrollo@uspt.edu.ar",
+        "aranceles.institutogestiondeportiva@uspt.edu.ar",
+        "aranceles.institutosociales@uspt.edu.ar",
+        "aranceles.institutoeducaciondistancia@uspt.edu.ar",
+        "aranceles.institutodiseno@uspt.edu.ar",
+    ];
+
     return (
         <div className="min-h-screen bg-background">
             <Navbar1 />
@@ -203,7 +212,7 @@ const PagosOnline = () => {
                         <div className="grid md:grid-cols-2 gap-12 items-start">
                             <div>
                                 <h3 className="text-2xl font-heading font-semibold mb-6">
-                                    Información sobre Pagos
+                                    Consultas arancelarias
                                 </h3>
                                 <div className="space-y-4">
                                     <Button
@@ -255,7 +264,7 @@ const PagosOnline = () => {
 
                             <Card className="border-none bg-transparent overflow-hidden">
                                 <h3 className="text-2xl font-heading font-semibold mb-6">
-                                    Gestión de Pagos por WhatsApp
+                                    Consultas arancelarias por WhatsApp
                                 </h3>
                                 <CardContent className="p-0 border-muted2">
                                     <div className="grid divide-y md:divide-y-0 md:divide-x divide-muted2 md:grid-cols-2">
@@ -263,7 +272,7 @@ const PagosOnline = () => {
                                         <div className="p-6 space-y-4">
                                             <h4 className="font-heading font-bold text-primary flex items-center gap-2">
                                                 <div className="w-2 h-2 rounded-full bg-primary" />
-                                                Aranceles Campus
+                                                Campus Aranceles
                                             </h4>
 
                                             <div className="space-y-3">
@@ -272,14 +281,14 @@ const PagosOnline = () => {
                                                         WhatsApp
                                                     </span>
                                                     <a
-                                                        href="https://api.whatsapp.com/send?phone=5493814584601&text=Hola,%20tengo%20una%20consulta%20sobre%20aranceles%20campus"
+                                                        href="https://api.whatsapp.com/send?phone=5493816071444&text=Hola,%20tengo%20una%20consulta%20sobre%20aranceles%20campus"
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors"
                                                     >
                                                         <WhatsApp className="w-4 h-4" />
                                                         <span>
-                                                            381 458-4601
+                                                            381 607-1444
                                                         </span>
                                                     </a>
                                                 </div>
@@ -413,6 +422,28 @@ const PagosOnline = () => {
 
                             {/* Canales de contacto */}
                             <div className="flex flex-col">
+                                {consultasArancelarias.map((email) => (
+                                    <div
+                                        key={email}
+                                        className="flex items-start gap-4 p-8 hover:bg-primary/5 transition-colors"
+                                    >
+                                        <div className="w-9 h-9 bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <Mail className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                                                Consultas arancelarias
+                                            </p>
+                                            <a
+                                                href={`mailto:${email}`}
+                                                className="font-heading font-bold text-foreground hover:text-primary transition-colors break-all"
+                                            >
+                                                {email}
+                                            </a>
+                                        </div>
+                                    </div>
+                                ))}
+
                                 <div className="flex items-start gap-4 p-8 hover:bg-primary/5 transition-colors">
                                     <div className="w-9 h-9 bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
                                         <Mail className="w-4 h-4" />

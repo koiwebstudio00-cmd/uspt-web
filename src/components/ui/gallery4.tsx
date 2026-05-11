@@ -20,12 +20,14 @@ export interface Gallery4Item {
 export interface Gallery4Props {
     title?: React.ReactNode;
     description?: string;
+    titleClassName?: string;
     items: Gallery4Item[];
 }
 
 const Gallery4 = ({
     title = "Case Studies",
     description = "Discover how leading companies leverage modern web technologies.",
+    titleClassName = "text-3xl font-medium font-heading md:text-5xl",
     items,
 }: Gallery4Props) => {
     const [carouselApi, setCarouselApi] = useState<CarouselApi>();
@@ -64,7 +66,7 @@ const Gallery4 = ({
             <div className="container mx-auto">
                 <div className="mb-8 flex flex-col items-center text-center md:mb-14 lg:mb-16 relative">
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-3xl font-medium font-heading md:text-5xl">
+                        <h2 className={titleClassName}>
                             {title}
                         </h2>
                         <p className="max-w-3xl font-body text-xl text-muted-foreground mx-auto">

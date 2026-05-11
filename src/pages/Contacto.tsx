@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Navbar1 } from "@/components/Navbar";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
+import { buildWhatsAppUrl, contactAdvisors } from "@/lib/data/contact-advisors";
 
 const Contacto = () => {
     const [formData, setFormData] = useState({
@@ -54,7 +55,7 @@ const Contacto = () => {
                 },
                 {
                     label: "Admisiones",
-                    valor: "INTERNO 118 Y 117",
+                    valor: "INTERNO 217 Y 218",
                     descripcion: "Inscripciones y consultas académicas",
                 },
                 {
@@ -524,27 +525,13 @@ const Contacto = () => {
                                 nuestra propuesta académica
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-                                {[
-                                    {
-                                        name: "Betzabet",
-                                        phone: "+5493816132242",
-                                    },
-                                    {
-                                        name: "Tesy",
-                                        phone: "+5493816050625",
-                                    },
-                                    {
-                                        name: "Ale",
-                                        phone: "+5493816266870",
-                                    },
-                                    {
-                                        name: "Paulo",
-                                        phone: "+5493815342171",
-                                    },
-                                ].map((contact, index) => (
+                                {contactAdvisors.map((contact, index) => (
                                     <a
                                         key={index}
-                                        href={`https://api.whatsapp.com/send?phone=${contact.phone}&text=Hola,%20me%20gustaria%20contactar%20para%20consultar%20sobre%20la%20USPT`}
+                                        href={buildWhatsAppUrl(
+                                            contact.phone,
+                                            "Hola, me gustaria contactar para consultar sobre la USPT",
+                                        )}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white py-6 px-6 rounded-lg inline-flex flex-col items-center gap-3 group transition-all hover:scale-105"

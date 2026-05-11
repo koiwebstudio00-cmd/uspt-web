@@ -3,6 +3,14 @@ import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { HeroPageComponent } from "@/components/HeroPageComponent";
 import CtaPage from "@/components/CtaPage";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import {
     GraduationCap,
@@ -18,6 +26,10 @@ import {
 } from "lucide-react";
 import type { Carrera, Instituto } from "@/lib/types/database";
 import WhatsApp from "./icons/Wp";
+import {
+    buildWhatsAppUrl,
+    contactAdvisors,
+} from "@/lib/data/contact-advisors";
 
 interface CarreraWithInstituto extends Carrera {
     instituto: Instituto;
@@ -324,14 +336,61 @@ const CarreraTemplate = ({
                                         ))}
                                     </div>
 
-                                    <a
-                                        href={`https://api.whatsapp.com/send?phone=5493816050625&text=Hola,%20me%20gustaria%20consultar%20a%20la%20USPT%20sobre%20${encodeURIComponent(carrera.name)}.`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center gap-2.5 bg-green-500 hover:bg-green-600 text-white px-6 py-3.5 text-sm font-semibold transition-colors w-full"
-                                    >
-                                        Consultar por WhatsApp
-                                    </a>
+                                    <Dialog>
+                                        <DialogTrigger asChild>
+                                            <button
+                                                type="button"
+                                                className="inline-flex items-center justify-center gap-2.5 bg-green-500 hover:bg-green-600 text-white px-6 py-3.5 text-sm font-semibold transition-colors w-full"
+                                            >
+                                                Consultar por WP
+                                            </button>
+                                        </DialogTrigger>
+                                        <DialogContent className="max-w-2xl">
+                                            <DialogHeader>
+                                                <DialogTitle className="font-heading text-2xl text-primary">
+                                                    Elegí un asesor
+                                                </DialogTitle>
+                                                <DialogDescription>
+                                                    Consultá por WhatsApp sobre{" "}
+                                                    <span className="font-medium text-foreground">
+                                                        {carrera.name}
+                                                    </span>
+                                                    .
+                                                </DialogDescription>
+                                            </DialogHeader>
+
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                                                {contactAdvisors.map(
+                                                    (advisor) => (
+                                                        <a
+                                                            key={advisor.phone}
+                                                            href={buildWhatsAppUrl(
+                                                                advisor.phone,
+                                                                `Hola, me comunico por la carrera "${carrera.name}".`,
+                                                            )}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="group flex items-center gap-4 border border-muted2 p-4 hover:border-green-500/50 hover:bg-green-500/5 transition-colors"
+                                                        >
+                                                            <div className="w-11 h-11 flex items-center justify-center bg-green-500 text-white flex-shrink-0">
+                                                                <WhatsApp className="w-5 h-5" />
+                                                            </div>
+                                                            <div>
+                                                                <p className="font-heading font-semibold text-foreground group-hover:text-green-700 transition-colors">
+                                                                    {
+                                                                        advisor.name
+                                                                    }
+                                                                </p>
+                                                                <p className="text-sm text-muted-foreground">
+                                                                    Contactar por WhatsApp
+                                                                </p>
+                                                            </div>
+                                                        </a>
+                                                    ),
+                                                )}
+                                            </div>
+                                        </DialogContent>
+                                    </Dialog>
                                 </div>
                             </div>
                         </div>

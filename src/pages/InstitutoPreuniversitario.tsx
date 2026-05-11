@@ -43,8 +43,8 @@ const InstitutoPreuniversitario = () => {
         {
             icon: Clock,
             label: "Jornada extendida",
-            value: "8 horas diarias",
-            sub: "Lunes a Viernes, desde las 8:00 hs",
+            value: "07:30 a 16:00 hs",
+            sub: "Lunes a Viernes",
         },
         {
             icon: BookOpen,
@@ -60,16 +60,16 @@ const InstitutoPreuniversitario = () => {
         },
         {
             icon: Star,
-            label: "Inglés intensivo",
-            value: "Certificación internacional",
-            sub: "Inglés y portugués desde 1.° año",
+            label: "Idiomas",
+            value: "Inglés, chino mandarín y portugués",
+            sub: "Especialización en idiomas extranjeros",
         },
     ];
 
     const caracteristicas = [
         { icon: Target, text: "Autodisciplina y autogestión del aprendizaje" },
-        { icon: CheckCircle, text: "Jornada extendida de 8 horas" },
-        { icon: BookOpen, text: "Enseñanza de inglés intensivo" },
+        { icon: CheckCircle, text: "Jornada extendida de 07:30 a 16:00 hs" },
+        { icon: BookOpen, text: "Inglés, chino mandarín y portugués" },
         { icon: Award, text: "Talleres de medios audiovisuales y arte" },
         { icon: Heart, text: "Campamentos y viajes de estudio" },
         { icon: Star, text: "Aprendizaje por proyectos colaborativos" },
@@ -80,7 +80,7 @@ const InstitutoPreuniversitario = () => {
             icon: Code2,
             name: "Tecnología y Desarrollo de Software",
             fullName:
-                "Bachiller con Orientación en Informática – Especialización en Desarrollo de Software",
+                "Bachiller en Informática, especialización en Desarrollo de Software",
             description:
                 "Prepara estudiantes para el mundo digital, la programación y las tecnologías de la información.",
             materias: [
@@ -96,7 +96,7 @@ const InstitutoPreuniversitario = () => {
             icon: Leaf,
             name: "Ciencias Naturales y Medio Ambiente",
             fullName:
-                "Bachiller con Orientación en Ciencias Naturales – Especialización en Preservación del Medio Ambiente",
+                "Bachiller en Ciencias Naturales, especialización en Preservación del Medio Ambiente",
             description:
                 "Sólida base científica con enfoque en la preservación ambiental y el desarrollo sostenible.",
             materias: [
@@ -112,7 +112,7 @@ const InstitutoPreuniversitario = () => {
             icon: Compass,
             name: "Turismo y Turismo Cultural",
             fullName:
-                "Bachiller con Orientación en Turismo – Especialización en Turismo Cultural",
+                "Bachiller en Turismo, especialización en Turismo Cultural",
             description:
                 "Formación de profesionales en gestión turística, hotelería y patrimonio cultural regional e internacional.",
             materias: [
@@ -130,6 +130,7 @@ const InstitutoPreuniversitario = () => {
         "Matemática",
         "Lengua y Literatura",
         "Inglés",
+        "Chino mandarín",
         "Portugués",
         "Historia",
         "Construcción de Ciudadanía",
@@ -402,10 +403,10 @@ const InstitutoPreuniversitario = () => {
                                         <strong className="text-foreground">
                                             jornada extendida
                                         </strong>{" "}
-                                        (ocho horas desde las 8:00), la
+                                        (07:30 a 16:00 hs), la
                                         enseñanza del{" "}
                                         <strong className="text-foreground">
-                                            inglés intensivo
+                                            inglés, chino mandarín y portugués
                                         </strong>{" "}
                                         y la participación en talleres de medios
                                         audiovisuales y de arte, además de
