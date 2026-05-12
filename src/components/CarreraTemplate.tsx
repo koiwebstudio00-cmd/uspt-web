@@ -26,10 +26,7 @@ import {
 } from "lucide-react";
 import type { Carrera, Instituto } from "@/lib/types/database";
 import WhatsApp from "./icons/Wp";
-import {
-    buildWhatsAppUrl,
-    contactAdvisors,
-} from "@/lib/data/contact-advisors";
+import { buildWhatsAppUrl, contactAdvisors } from "@/lib/data/contact-advisors";
 
 interface CarreraWithInstituto extends Carrera {
     instituto: Instituto;
@@ -79,7 +76,7 @@ const CarreraTemplate = ({
             label: "Sede",
             value: carrera.sede || "Campus Central",
         },
-        { icon: Users, label: "Duración", value: `${carrera.duration} años` },
+        { icon: Users, label: "Duración", value: `${carrera.duration}` },
     ];
 
     const documentos = [
@@ -382,7 +379,8 @@ const CarreraTemplate = ({
                                                                     }
                                                                 </p>
                                                                 <p className="text-sm text-muted-foreground">
-                                                                    Contactar por WhatsApp
+                                                                    Contactar
+                                                                    por WhatsApp
                                                                 </p>
                                                             </div>
                                                         </a>
